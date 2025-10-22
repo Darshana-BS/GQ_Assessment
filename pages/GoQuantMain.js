@@ -181,7 +181,7 @@ async validateOrder_getAlgo_id(){
     console.log(this.validateOrderAccount, this.getOrderStatus, this.validateSymbol, this.getAlogoId)
 }
 async OKXInvalidOrderDetails(){
-    
+    //test data
 }
   async logout() {
   await this.getStarted.click();
