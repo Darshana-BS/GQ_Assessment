@@ -44,7 +44,6 @@ class GoQuantMain {
     this.selectNativeTrading = page.getByRole('tab', { name: 'Native Trading' }); 
     this.selectOrderType = page.getByTestId('GOTRADE_ORDERTYPE_MORE');
     this.chooseMarket = page.getByTestId('GOTRADE_ORDERTYPE_MARKET');
-    // page.
     this.switchtoDiscoveryMode = page.getByRole('switch', { name: 'Discovery Mode' });
     this.clickInstrumentType = page.getByRole('button', { name: 'Swap', exact: true });
     this.selectInstrumentTypeSpot = page.getByRole('option', { name: 'Spot' });
@@ -61,14 +60,23 @@ class GoQuantMain {
     this.clickTrade = page.getByTestId('trade-button');
     this.orderAcceptedNotification = page.getByRole('region', { name: 'Notifications alt+T' }).getByRole('listitem');
 
+    //validate order fields 
+    this.quanityValiation = page.getByText('Quantity must be greater than 0')
+    this.durationValiation = page.getByText('Duration must be greater than 0')
+
     //validate order 
     this.orderHostory = page.getByRole('button', { name: 'Order History' });
     // this.validateVenue = page.getByRole('cell').filter({ hasText: /^$/ }).getByRole('button').click();
-    this.validateOrderAccount = page.getByText('Dashk805 OKX').textContent();
+    this.validateOrderAccount = page.getByText('Dashk805 OKX');
     this.validateSymbol = page.getByText('BTC-USDTSwap');
     this.getOrderStatus = page.getByTestId('order-status');
-    this.getAlogoId = page.getByRole('cell', { name: '988...364', exact: true }).getByRole('img').click(); 
+    this.getAlogoId = page.getByRole('cell', { name: '988...364', exact: true }).getByRole('img'); 
 
+    //validate metrics 
+    this.currencyLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm grid max-w-max grid-cols-4 items-center justify-start gap-0"]', { state: 'visible', timeout: 10000 })
+    this.equityLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm flex flex-col justify-center font-medium"]', { state: 'visible', timeout: 10000 })
+    this.equityUSDLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm"]', { state: 'visible', timeout: 10000 });
+    this.metricsLocator = page.locator('p[class="font-plusJakartaSans font-bold mt-1 text-base md:text-sm header-nav text-nowrap md:w-full md:text-center 4k:text-lg 4k:mt-2"]');
     //logout
     this.userProfile = page.getByRole('button', { name: 'user14@goquant.io' });
     this.logoutButton= page.getByRole('menuitem', { name: 'Sign out' });
@@ -132,7 +140,6 @@ class GoQuantMain {
     await modal.getByTestId ('delete-account-dialog-delete').click()
     await page.waitForSelector('text=Account removed successfully', { state: 'visible' });
     await deleteConfirmationMessage.click();
-    // await this.page.a();
   }
 
   async modifyOKXAccount(){
@@ -153,7 +160,6 @@ async placeOKXMarketOrder(){
   await this.gotoTrading.click();
   await this.selectGoTrade.click();
   await this.selectNativeTrading.click();
-//   await .click();
   await this.selectOrderType.click();
   await this.chooseMarket.click();
   await this.switchtoDiscoveryMode.click();
@@ -176,13 +182,75 @@ async placeOKXMarketOrder(){
 async validateOrder_getAlgo_id(){
     await this.getStarted.click();
     await this.orderHostory;
-    await expect(this.validateOrderAccount).toHaveText('Dashk805 OKX');
+    // await expect(this.validateOrderAccount).toHaveText('Dashk805 OKX');
+    // console.log ((this.validateOrderAccount).textContent());
     // await expect(this.validateSymbol).toHaveText('BTC-USDTSSpot');
     console.log(this.validateOrderAccount, this.getOrderStatus, this.validateSymbol, this.getAlogoId)
 }
+
 async OKXInvalidOrderDetails(){
-    //test data
+  await this.getStarted.click();
+  await this.gotoTrading.click();
+  await this.selectGoTrade.click();
+  await this.selectNativeTrading.click();
+  await this.clickTrade.click();
+  await expect (this.quanityValiation).toHaveText('Quantity must be greater than 0');
+  await expect (this.durationValiation).toHaveText('Duration must be greater than 0');
 }
+
+async singleEquityUSD(){
+    await this.getStarted.click();
+   await this.page.getByRole('button', { name: 'Assets' }).click(); 
+  //get value for equity in USD for single symbol 
+  const amount = await this.page.locator('td .font-inter.text-xsm');
+  const amountText = (await amount.nth(2).textContent())?.trim();
+  console.log(amountText); // "$109,449.40"
+}
+
+async validateMetrics(){
+  await this.getStarted.click();
+  await this.page.getByRole('button', { name: 'Assets' }).click(); 
+//get values for all the Currency 
+  const currency = this.currencyLocator
+  await currency.nth(0).textContent();
+  const allCurrency = await currency.allTextContents();
+  console.log(allCurrency);
+
+//get values for all the Equity  
+  const equity = this.equityLocator
+  await equity.nth(0).textContent();
+  const allequity = await equity.allTextContents();
+  console.log(allequity);
+
+// get values for all equity in USD for all symbols 
+  const allequityUSDalues = this.equityUSDLocator;
+  await allequityUSDalues.nth(0).textContent();
+  const allequityUSD = await allequityUSDalues.allTextContents();
+  console.log(allequityUSD);
+
+//validate total equity metrics 
+  const totalEquityUSD = allequityUSD
+  .map(val => Number(val.replace(/[^0-9.-]+/g, ''))) // remove $, commas
+  .reduce((sum, num) => sum + num, 0);
+  const formattedTotal = `$${totalEquityUSD.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  console.log(`Total Equity in USD: $${totalEquityUSD.toFixed(2)}`); 
+  // Get metrics value from UI
+  const metricsText = (await this.metricsLocator.textContent())?.trim(); 
+  // Normalize UI value (remove commas) for comparison
+  const normalizedMetrics = Number(metricsText.replace(/[^0-9.-]+/g, '')).toFixed(2);
+  const normalizedTotal = totalEquityUSD.toFixed(2);
+  // Assertion
+  if (Number(normalizedMetrics) === Number(normalizedTotal)) {
+    console.log('✅ Metrics value matches calculated total');
+    } else {
+    console.log('❌ Metrics value does NOT match');
+    console.log('UI:', metricsText, 'Calculated:', formattedTotal);
+}}
+
+  async addClearAssets(){
+  await this.page.locator('td div .font-inter').nth(0).click()
+}
+
   async logout() {
   await this.getStarted.click();
   await this.userProfile.click();

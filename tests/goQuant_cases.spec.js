@@ -125,7 +125,7 @@ test('Modify Account', async ({browser})=> {
 })
 
 //-----------------------------TC_06_Place_OKX_Market_Order_[Passed]--------------------------------
-test.only('Place OKX Market Order', async ({browser})=> {
+test('Place OKX Market Order', async ({browser})=> {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC06_Place_OKX_Marekt Order');
   const page = await context.newPage();
@@ -147,15 +147,28 @@ test('Validate OKX Market Order details', async ({browser})=> {
   await gqMain.validateOrder_getAlgo_id();
   await stopTrace();
 })
-//-----------------------------TC_07_Place_OKX_Market_Order_with_incorrect/empty_details_[Passed]--------------------------------
-test('Place OKX Market Order with invalid/empty details', async ({browser})=> {
+
+//-----------------------------TC08_validation_errors_with_empty_details_[Passed]--------------------------------
+test('Place Order with mandatory details empty', async ({browser})=> {
   const context = await browser.newContext();
-  const stopTrace = await startTracing(context, 'TC07_Place_OKX_Marekt Order_with_invalid/empty_datails');
+  const stopTrace = await startTracing(context, 'TC08_validation_errors');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
   //Place OKX Market Order
   await gqMain.login();
   await gqMain.OKXInvalidOrderDetails();
+  await stopTrace();
+})
+
+//-----------------------------TC09_validation_Metrics_[Passed]--------------------------------
+test.only('Validate Metrics',  async({browser})=>{
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC09_validate_metrics');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //validate metrics
+  await gqMain.login();
+  await gqMain.validateMetrics();
   await stopTrace();
 })
 
