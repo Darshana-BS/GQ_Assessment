@@ -172,8 +172,8 @@ test('Validate Metrics',  async({browser})=>{
   await stopTrace();
 })
 
-//-----------------------------TC10_addclear_Assets_[Passed]--------------------------------
-test.only('Add clear the Assets',  async({browser})=>{
+//-----------------------------TC10_addclear_Assets_[WIP]--------------------------------
+test('Add clear the Assets',  async({browser})=>{
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC10_addclear_assets');
   const page = await context.newPage();
@@ -181,6 +181,18 @@ test.only('Add clear the Assets',  async({browser})=>{
   //add clear assets 
   await gqMain.login();
   await gqMain.addClearAssetsforBTC();
+  await stopTrace();
+})
+
+//-----------------------------TC11_cancelall_workingorders[Passed]--------------------------------
+test.only('Cancel all working orders', async({browser})=>{
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC11_cancelall_workingorders');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //cancel all working orders
+  await gqMain.login();
+  await gqMain.cancelOrder();
   await stopTrace();
 })
 

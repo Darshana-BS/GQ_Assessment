@@ -65,7 +65,7 @@ class GoQuantMain {
     this.durationValiation = page.getByText('Duration must be greater than 0')
 
     //validate order 
-    this.orderHostory = page.getByRole('button', { name: 'Order History' });
+    this.orderHistory = page.getByRole('button', { name: 'Order History' });
     // this.validateVenue = page.getByRole('cell').filter({ hasText: /^$/ }).getByRole('button').click();
     this.validateOrderAccount = page.getByText('Dashk805 OKX');
     this.validateSymbol = page.getByText('BTC-USDTSwap');
@@ -77,6 +77,15 @@ class GoQuantMain {
     this.equityLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm flex flex-col justify-center font-medium"]', { state: 'visible', timeout: 10000 })
     this.equityUSDLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm"]', { state: 'visible', timeout: 10000 });
     this.metricsLocator = page.locator('p[class="font-plusJakartaSans font-bold mt-1 text-base md:text-sm header-nav text-nowrap md:w-full md:text-center 4k:text-lg 4k:mt-2"]');
+
+    //addclear assets 
+    this.clickAssets = page.getByRole('button', { name: 'Assets' })
+    this.addClearAssetsBTC = this.page.getByRole('button', { name: 'Add/Clear' }).nth(0);
+    this.addClearAssetsOKX = this.page.getByRole('button', { name: 'Add/Clear' }).nth(1);
+    this.addClearAssetsUSDT = this.page.getByRole('button', { name: 'Add/Clear' }).nth(2);
+    this.addClearAssetsETH = this.page.getByRole('button', { name: 'Add/Clear' }).nth(3);
+    
+
     //logout
     this.userProfile = page.getByRole('button', { name: 'user14@goquant.io' });
     this.logoutButton= page.getByRole('menuitem', { name: 'Sign out' });
@@ -181,7 +190,7 @@ async placeOKXMarketOrder(){
 
 async validateOrder_getAlgo_id(){
     await this.getStarted.click();
-    await this.orderHostory;
+    await this.orderHistory;
     // await expect(this.validateOrderAccount).toHaveText('Dashk805 OKX');
     // console.log ((this.validateOrderAccount).textContent());
     // await expect(this.validateSymbol).toHaveText('BTC-USDTSSpot');
@@ -199,8 +208,8 @@ async OKXInvalidOrderDetails(){
 }
 
 async singleEquityUSD(){
-    await this.getStarted.click();
-   await this.page.getByRole('button', { name: 'Assets' }).click(); 
+  await this.getStarted.click();
+  await this.clickAssets.click();
   //get value for equity in USD for single symbol 
   const amount = await this.page.locator('td .font-inter.text-xsm');
   const amountText = (await amount.nth(2).textContent())?.trim();
@@ -209,7 +218,8 @@ async singleEquityUSD(){
 
 async validateMetrics(){
   await this.getStarted.click();
-  await this.page.getByRole('button', { name: 'Assets' }).click(); 
+  await this.clickAssets.click();
+
 //get values for all the Currency 
   const currency = this.currencyLocator
   await currency.nth(0).textContent();
@@ -234,6 +244,7 @@ async validateMetrics(){
   .reduce((sum, num) => sum + num, 0);
   const formattedTotal = `$${totalEquityUSD.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   console.log(`Total Equity in USD: $${totalEquityUSD.toFixed(2)}`); 
+  
   // Get metrics value from UI
   const metricsText = (await this.metricsLocator.textContent())?.trim(); 
   // Normalize UI value (remove commas) for comparison
@@ -248,12 +259,35 @@ async validateMetrics(){
 }}
 
   async addClearAssetsforBTC(){
-//   await this.page.locator('td div .font-inter').nth(0).click()
-  this.addclearAssets = page.locator('div [class="4k:text-sm flex flex-row items-center justify-start gap-x-1"]');
-  await this.addclearAssets.click();
+  await this.getStarted.click();
+  await this.clickAssets.click(); 
+  //BTCAssets 
+  await this.addClearAssetsBTC.click();
+  // this.selectPercentageBTC = this.page.locator('div[id="_r_i04_"] span');
+  this.selectPercentageBTC = this.page.locator('span[normalize-space()="100 %"]')
+  await this.selectPercentageBTC.click();
+  //span[normalize-space()='100 %']
+  
+  //OKXassets 
+  // await this.addClearAssetsOKX.click();
+  // this.selectPercentageOKX = this.page.locator('div[id="_r_gon_"] span');
+  // await this.selectPercentageOKX.click();
+  
 
+  // await this.addClearAssetsUSDT.click();
+  // await this.addClearAssetsETH.click();
 }
+  async cancelOrder(){
+    await this.getStarted.click();
+    await page.getByRole('button', { name: 'Cancel Working Orders' }).click();
+    await page.getByRole('heading', { name: 'Cancel Open Orders' }).click();
+    await page.locator('div').filter({ hasText: /^Confirm$/ }).click();
 
+
+    await page.getByRole('button', { name: 'Confirm' }).click();
+
+    //No response received from UDP server
+  }
   async logout() {
   await this.getStarted.click();
   await this.userProfile.click();
