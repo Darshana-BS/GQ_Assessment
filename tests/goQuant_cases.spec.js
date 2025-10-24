@@ -161,7 +161,7 @@ test('Place Order with mandatory details empty', async ({browser})=> {
 })
 
 //-----------------------------TC09_validation_Metrics_[Passed]--------------------------------
-test.only('Validate Metrics',  async({browser})=>{
+test('Validate Metrics',  async({browser})=>{
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC09_validate_metrics');
   const page = await context.newPage();
@@ -169,6 +169,18 @@ test.only('Validate Metrics',  async({browser})=>{
   //validate metrics
   await gqMain.login();
   await gqMain.validateMetrics();
+  await stopTrace();
+})
+
+//-----------------------------TC10_addclear_Assets_[Passed]--------------------------------
+test.only('Add clear the Assets',  async({browser})=>{
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC10_addclear_assets');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //add clear assets 
+  await gqMain.login();
+  await gqMain.addClearAssetsforBTC();
   await stopTrace();
 })
 

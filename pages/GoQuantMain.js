@@ -247,8 +247,11 @@ async validateMetrics(){
     console.log('UI:', metricsText, 'Calculated:', formattedTotal);
 }}
 
-  async addClearAssets(){
-  await this.page.locator('td div .font-inter').nth(0).click()
+  async addClearAssetsforBTC(){
+//   await this.page.locator('td div .font-inter').nth(0).click()
+  this.addclearAssets = page.locator('div [class="4k:text-sm flex flex-row items-center justify-start gap-x-1"]');
+  await this.addclearAssets.click();
+
 }
 
   async logout() {
