@@ -15,8 +15,7 @@ test('Login with invalid user credentials', async ({ browser }) => {
   const stopTrace = await startTracing(context, 'TC01_LoginInvalid_Creds');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
-
-// Enter invalid credentials to signIn
+  // Enter invalid credentials to signIn
   await gqMain.gotoHome('https://test1.gotrade.goquant.io/auth/login');
   await gqMain.userCreds('darshana@goquant.com', 'Dashk@805');
   await gqMain.signIn.click();
@@ -30,8 +29,7 @@ test('Login with valid user credentials', async ({ browser }) => {
   const stopTrace = await startTracing(context, 'TC02_LoginValid_Creds');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
-
-// Enter valid credentials to signIn
+  // Enter valid credentials to signIn
   await gqMain.gotoHome('https://test1.gotrade.goquant.io/auth/login');
   await gqMain.userCreds('user14@goquant.io', '60Re3G9KvvFl4Ihegxpi');
   await gqMain.signIn.click();
@@ -45,9 +43,11 @@ test('Add account for first time after login', async ({ browser }) => {
   const stopTrace = await startTracing(context, 'TC03_Add Account');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
-// Get started and add first account (first time visit after login) 
+  // Get started and add first account (first time visit after login) 
   await gqMain.login();
-  await gqMain.addOKXAccount();
+  await gqMain.addAccountOKX();
+  // await gqMain.addAccountBianceUSDM();
+  // await gqMain.addAccountBianceCOINM();
   await stopTrace();
 });
 
@@ -58,69 +58,23 @@ test('Delete account for first time after login', async ({ browser }) => {
   const stopTrace = await startTracing(context, 'TC04_DELETE Account');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
-
-  await gqMain.login();
-  await page.goto('https://test1.gotrade.goquant.io/admin')
   //defind modal constants 
-  const modal = page.locator('[data-testid="delete-account-dialog-content"]');
-  await page.getByTestId('delete-account-okx3').click();
-  await expect(modal).toBeVisible();
-  await expect (page.getByRole('heading', { name: 'Delete Account' })).toHaveText("Delete Account");
-  await page.locator('#delete-confirmation').fill('DELETE');
-  await modal.getByTestId ('delete-account-dialog-delete').click()
-  await page.waitForSelector('text=Account removed successfully', { state: 'visible' });
-  await page.getByText('Account removed successfully').click();
-
-//Method_2_DELETE_ANY_ACCOUNT
-// //get list of all accounts
-//   await page.goto('https://test1.gotrade.goquant.io/admin')
-//   const accountCells = page.locator('td[data-testid*="account_name"]');  
-//   await page.waitForSelector('[data-testid="venues-table-cell-0-account_name"]', { state: 'visible', timeout: 10000 });
-//   const accountNames = await accountCells.allTextContents();
-//   console.log('Account Names:', accountNames); 
-
-// //Delete the account addded 
-//   const targetAccount = 'OKX3';
-
-// // Locate all rows (all divs with .border-b)
-//   const rows = page.locator('div .border-b');
-//   const rowCount = await rows.count();
-//   console.log('Total rows:', rowCount);
-
-//     for (let i = 0; i < rowCount; i++) {
-//     // Get the text content of the row
-//         const rowText = await rows.nth(i).textContent();
-
-//     // Check if this row contains the target account
-//     if (rowText.includes(targetAccount)) {
-//         console.log(`Found account "${targetAccount}" in row #${i + 1}`);
-//         // Click the delete button inside the same row
-//         const deleteButton = rows.nth(i).locator('[data-testid="delete-account-delete"]');
-//         await page.locator('delete-confirmation').fill('DELETE');
-//         await page.getByTestId('data-testid="delete-account-dialog-delete"').click();
-//         await deleteButton.click();
-//         await this.page.waitForSelector('text=Account removed successfully', { state: 'visible' });
-//         await this.page.getByText('Account removed successfully').click();
-
-//         //delete account modal 
-//         await page.getByTestId('delete-account-automation-okx1')
-//         console.log(`Deleted account: ${targetAccount}`);
-//         break; // Stop after deleting the target account
-//         }
-//     }
+  await gqMain.login();
+  await gqMain.deleteaccountOKX();
+  await gqMain.deleteaccountUSDM();
+  await gqMain.deleteaccountCOINM();
   await stopTrace();
 });
 
-
-//-----------------------------TC_05_Modify_Account_[WIP]--------------------------------
-test('Modify Account', async ({browser})=> {
+//-----------------------------TC_05_Modify_Account_with_invalid_details[WIP]--------------------------------
+test('Modify Account with invalid details', async ({browser})=> {
   const context = await browser.newContext();
-  const stopTrace = await startTracing(context, 'TC05_Modify Account');
+  const stopTrace = await startTracing(context, 'TC05_Modify_Account_ivalid_details');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
-  //Modify account  
+  //Modify account with invalid details 
   await gqMain.login();
-  await gqMain.modifyOKXAccount();
+  await gqMain.modifyAccountOKXInvalidDetails();
   await stopTrace();
 })
 
@@ -185,7 +139,7 @@ test('Add clear the Assets',  async({browser})=>{
 })
 
 //-----------------------------TC11_cancelall_workingorders[Passed]--------------------------------
-test.only('Cancel all working orders', async({browser})=>{
+test('Cancel all working orders', async({browser})=>{
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC11_cancelall_workingorders');
   const page = await context.newPage();
@@ -196,15 +150,56 @@ test.only('Cancel all working orders', async({browser})=>{
   await stopTrace();
 })
 
+//-----------------------------TC12_Kill-Edge[Passed]--------------------------------
+test('Kill-Edge for orders', async({browser})=>{
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC12_kill-edge');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //cancel all working orders
+  await gqMain.login();
+  await gqMain.killedge();
+  await stopTrace();
+})
+
 //-----------------------------TC_20_Logout_User_[Passed]--------------------------------
 test('Log out of account', async ({browser})=> {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC20_Logout');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
-  
-  //Place OKX Market Order
+  //Log out from account
   await gqMain.login();
   await gqMain.logout();
   await stopTrace();
 })
+
+//-------------------------------------------------------------
+
+//-----------------------------TC21__Modify_Account_with_valid_details[WIP]--------------------------------
+test.only('Modify Account with Valid details', async ({browser})=> {
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC21_Modify_Account_valid_details');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //Modify account with valid details
+  await gqMain.login();
+  // await gqMain.addAccountOKX();
+  await gqMain.modifyAccountOKXValidDetails();
+  await stopTrace();
+})
+
+//-----------------------------TC22[Edge_case]_Handle_Something_went_wrong[Passed, Has_Bug]--------------------------------
+test('Handel Something Went wrong', async ({ browser }) => {
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC22_Handle_SomethingWentWrong');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  
+  await gqMain.visitloginUrl('https://test1.gotrade.goquant.io/auth/login');
+  await page.getByRole('heading', { name: 'Something went wrong !' }).click();
+  await page.getByRole('button', { name: 'Try Again' }).click();       //Bug - Try again does not perform anything 
+  await gqMain.login();
+  await stopTrace();
+});
+
