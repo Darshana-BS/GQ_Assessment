@@ -66,7 +66,7 @@ test('Delete account for first time after login', async ({ browser }) => {
   await stopTrace();
 });
 
-//-----------------------------TC_05_Modify_Account_with_invalid_details[WIP]--------------------------------
+//-----------------------------TC_05_Modify_Account_with_invalid_details[Passed]--------------------------------
 test('Modify Account with invalid details', async ({browser})=> {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC05_Modify_Account_ivalid_details');
@@ -86,19 +86,21 @@ test('Place OKX Market Order', async ({browser})=> {
   const gqMain = new GoQuantMain(page);
   //Place OKX Market Order
   await gqMain.login();
-  await gqMain.placeOKXMarketOrder();
+  await gqMain.placeOKX_MarketOrder_Swap();
+  await gqMain.placeBinace_USDM_DOTUSDTOrder_Spot();
+  await gqMain.placeBiance_COINM_DOTUSDTOrder();
   await stopTrace();
 })
 
-//-----------------------------TC_07_Validate_Order_details_[Passed]--------------------------------
-test('Validate OKX Market Order details', async ({browser})=> {
+//-----------------------------TC_07_Get_Order_details_[WIP]--------------------------------
+test('Get Order details', async ({browser})=> {
   const context = await browser.newContext();
-  const stopTrace = await startTracing(context, 'TC07_Validate_order datails');
+  const stopTrace = await startTracing(context, 'TC07_Get_order datails');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
   //Validate Order Details 
   await gqMain.login();
-  await gqMain.validateOrder_getAlgo_id();
+  await gqMain.getOrderdetails();
   await stopTrace();
 })
 
@@ -156,9 +158,57 @@ test('Kill-Edge for orders', async({browser})=>{
   const stopTrace = await startTracing(context, 'TC12_kill-edge');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
-  //cancel all working orders
+  //Kill edge
   await gqMain.login();
   await gqMain.killedge();
+  await stopTrace();
+})
+
+//-----------------------------TC13_Liquidate-Positions[Passed]--------------------------------
+test('Liquidate Positions', async({browser})=>{
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC13_Liquidate-Positions');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //liquidate positions
+  await gqMain.login();
+  await gqMain.liquidatePositions();
+  await stopTrace();
+})
+
+//-----------------------------TC14_Switch_to_smart_order_routing[Passed]--------------------------------
+test('Switch to smart order routing', async({browser})=>{
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC14_Smart_order_routing');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //switch to smart order 
+  await gqMain.login();
+  await gqMain.smartRouting();
+  await stopTrace();
+})
+
+//-----------------------------TC15_Order_Book_Consolidated_view[Passed]--------------------------------
+test.only('Enable toggle for Consolidated View', async({browser})=>{
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC15_Order_Book_Consolidated_view');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //enable consolidated view 
+  await gqMain.login();
+  await gqMain.consolidatedView();
+  await stopTrace();
+})
+
+//-----------------------------TC16_Place_Short_Sell_order[Passed]--------------------------------
+test('Place a short / sell order', async({browser})=>{
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC16_Place_Short_Sell_order');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //place short / sell order 
+  await gqMain.login();
+  await gqMain.placeOKXSellOrder();
   await stopTrace();
 })
 
@@ -177,7 +227,7 @@ test('Log out of account', async ({browser})=> {
 //-------------------------------------------------------------
 
 //-----------------------------TC21__Modify_Account_with_valid_details[WIP]--------------------------------
-test.only('Modify Account with Valid details', async ({browser})=> {
+test('Modify Account with Valid details', async ({browser})=> {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC21_Modify_Account_valid_details');
   const page = await context.newPage();

@@ -54,34 +54,66 @@ class GoQuantMain {
     this.selectGoTrade = page.getByRole('link', { name: 'GoTrade Order Entry, Algo' });
     this.selectNativeTrading = page.getByRole('tab', { name: 'Native Trading' }); 
     this.selectOrderType = page.getByTestId('GOTRADE_ORDERTYPE_MORE');
-    this.chooseMarket = page.getByTestId('GOTRADE_ORDERTYPE_MARKET');
-    this.switchtoDiscoveryMode = page.getByRole('switch', { name: 'Discovery Mode' });
+    this.chooseTradeMarket = page.getByTestId('GOTRADE_ORDERTYPE_MARKET');
+    this.chooseTradeLimitEdge = page.getByTestId('native-trading').getByTestId('GOTRADE_ORDERTYPE_LIMIT_EDGE');
+    this.switchDiscoveryMode = page.getByRole('switch', { name: 'Discovery Mode' });
     this.clickInstrumentType = page.getByRole('button', { name: 'Swap', exact: true });
     this.selectInstrumentTypeSpot = page.getByRole('option', { name: 'Spot' });
+    this.selectInstrumentTypeSwap = page.getByRole('option', { name: 'Swap' });
     this.clickBaseAsset = page.getByRole('button', { name: 'Select base...' });
     // this.searchBaseAsset = page.getByRole('textbox', { name: 'Search base assets...' }); 
     // this.clickBaseAsset = page.locator('//button[@type="button"])');
+    this.clickSymbolsdropdown = page.getByTestId('symbols-dropdown');
+    this.searchSymbol =  page.getByPlaceholder('Search symbol...');
+    this.enterQuantityUSDM = page.getByTestId('quantity');
+    this.enterDuration = page.getByTestId('duration');
+    
+    //place placeOKX_MarketOrder_Swap
     this.searchBaseAsset = page.locator('input[placeholder="Search base assets..."]');
     this.selectBTC = page.getByRole('option', { name: 'BTC' }); 
     // this.clickQuoteAsset = page.getByRole('button', { name: 'Select quote...' });
     this.searchQuoteAsset = page.getByRole('textbox', { name: 'Search quote assets...' });
     this.selectUSDT = page.getByRole('option', { name: 'USDT' });
+    // this.selectUSDT = page.locator('div #_r_7h_');
     this.enterQuantity = page.getByTestId('quantity');
     this.selectLong = page.getByTestId('long-button');
     this.clickTrade = page.getByTestId('trade-button');
     this.orderAcceptedNotification = page.getByRole('region', { name: 'Notifications alt+T' }).getByRole('listitem');
 
+    //place placeBinace_USDM_DOTUSDTOrder_Spot
+    this.clickExchangeBinaceUSDM = page.getByTestId('exchange-selector-trigger');
+    this.selectExhangeBINANCEUSDM = page.getByTestId('exchange-selector-item-BINANCEUSDM');
+    this.selectBINANCEAccount = page.getByTestId('BINANCEUSDM-selector-Dashk805 USDM ');
+    this.selectSymbolDOTUSDT = page.getByTestId('symbol-option-DOT-USDT').getByText('DOT-USDT');    
+    this.clickBuy = page.getByTestId('long-button');
+
+    //place placeBiance_COINM_DOTUSDTOrder
+    this.chooseTradeTWAP = page.getByTestId('exchange-selector-trigger');
+    this.searchExchangeBinanceCOINM = page.getByTestId('exchange-search-input');
+    this.selectExchangeBianceCOINM = page.getByTestId('exchange-selector-item-BINANCECOINM');
+    this.selectBianceCOINM = page.getByTestId('BINANCECOINM-selector-Dashk805 COINM');
+    this.clickTradeDropdownOptions = page.locator('.lucide.lucide-chevron-down.ml-1.w-\\[0\\.8rem\\]');
+    this.clickOrderTypeTWAP = page.getByTestId('GOTRADE_ORDERTYPE_TWAP');  
+    // this.selectOrderTypeTWAP = page.getByTestId('symbol-option-ADA-USDT'); 
+    this.selectOrderTypeTWAP = page.getByTestId('symbol-option-ADAUSD_PERP'); 
+    this.enterinterval = page.getByTestId('interval');
+
     //validate order fields 
     this.quanityValiation = page.getByText('Quantity must be greater than 0')
     this.durationValiation = page.getByText('Duration must be greater than 0')
 
-    //validate order 
+    //getorderdetails
     this.orderHistory = page.getByRole('button', { name: 'Order History' });
     // this.validateVenue = page.getByRole('cell').filter({ hasText: /^$/ }).getByRole('button').click();
-    this.validateOrderAccount = page.getByText('Dashk805 OKX');
-    this.validateSymbol = page.getByText('BTC-USDTSwap');
+    this.validateOrderAccount = page.getByRole('cell', { name: 'Dashk805 OKX' });//page.getByText('Dashk805 OKX');
+    this.orderType = page.getByRole('Market Edge');
+    this.symbol = page.getByRole('cell', { name: 'BTC-USDTSwap' });
+    this.date = page.getByRole('cell', { name: '2025-10-17 13:55:29' });
+    this.side = page.getByRole('cell', { name: 'Buy' });
+    // this.getOrderStatus = this.page.getByRole('cell', { name: 'Order Rejected' });
+    // this.validateSymbol = page.getByText('BTC-USDTSwap');
     this.getOrderStatus = page.getByTestId('order-status');
-    this.getAlogoId = page.getByRole('cell', { name: '988...364', exact: true }).getByRole('img'); 
+    // this.getAlogoId = page.getByRole('cell', { name: '988...364', exact: true }).getByRole('img'); 
 
     //validate metrics 
     this.currencyLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm grid max-w-max grid-cols-4 items-center justify-start gap-0"]', { state: 'visible', timeout: 10000 })
@@ -110,6 +142,21 @@ class GoQuantMain {
     this.closeModal = page.getByRole('button', { name: 'Close' });
     this.killEdgeresponse = page.request.post('https://test1.gotrade-api.goquant.io/gotrade/v3/order/place');
 
+    //liquidatePositions
+    this.clickliquidatePositions = page.getByRole('button', { name: 'Liquidate Positions' });
+    this.liquidatePositionsModalHeader = page.getByRole('heading', { name: 'Liquidate Positions' });
+    this.confirmliquidatePositions = page.getByRole('button', { name: 'Confirm' });
+    this.liquidatePositionsresponse = page.request.post('https://test1.gotrade-api.goquant.io/gotrade/v3/liquidate_all_positions');
+
+    //smartRouting
+    this.enableToggleSmartRouting = page.locator('#enable-smart-order-routing')
+    this.validatesmartRoutingModalHeader = page.getByText('Smart Order Routing Configuration')
+    this.selectOKXAcccount = page.getByRole('button', { name: 'OKX [2 accounts]' });
+    this.updatesmartRoutingConfiguration = page.getByRole('checkbox', { name: 'Dashk805 OKX' });
+    this.selectOKX = page.getByRole('button', { name: 'Dashk805 OKX' });
+    this.enableExecuteSmartOrderRouting = page.getByRole('checkbox', { name: 'Executing Smart order routing' });
+    this.save = page.getByRole('button', { name: 'Save' });
+    this.ValidateSavesmartRoutingSuccess = page.getByText('Settings saved successfully'); 
 
     //logout
     this.userProfile = page.getByRole('button', { name: 'user14@goquant.io' });
@@ -358,13 +405,13 @@ async modifyAccountOKXValidDetails(){
 //     await expect(this.profileSaveMsg).toBeVisible();
 //   }
 
-async placeOKXMarketOrder(){
+async placeOKX_MarketOrder_Swap(){
   await this.gotoTrading.click();
   await this.selectGoTrade.click();
   await this.selectNativeTrading.click();
   await this.selectOrderType.click();
-  await this.chooseMarket.click();
-  await this.switchtoDiscoveryMode.click();
+  await this.chooseTradeMarket.click();
+  await this.switchDiscoveryMode.click();
   await this.clickInstrumentType.click();
   await this.selectInstrumentTypeSpot.click();
   await this.clickBaseAsset.click();
@@ -372,23 +419,74 @@ async placeOKXMarketOrder(){
   await this.selectBTC.click();
 //   await this.clickQuoteAsset.click();
   await this.searchQuoteAsset.fill('USDT');
-  await this.selectUSDT.click(); 
+  await this.selectUSDT.nth(1).click(); 
   await this.enterQuantity.fill('0.0001');
   await this.selectLong.click();
   await this.selectLong.click();
   await this.clickTrade.click();
   await this.orderAcceptedNotification.click();
-  await expect(this.orderAcceptedNotification).toHaveText('Order Accepteddd');
+  await expect(this.orderAcceptedNotification).toHaveText('Order Accepted');
 }
 
-async validateOrder_getAlgo_id(){
+async placeBinace_USDM_DOTUSDTOrder_Spot(){
+  await this.chooseTradeLimitEdge.click();
+  await this.switchDiscoveryMode.click();
+  await this.clickExchangeBinaceUSDM.click();
+  await this.selectExhangeBINANCEUSDM.click();
+  await this.selectBINANCEAccount.click();
+  await this.switchDiscoveryMode.click();
+  await this.clickSymbolsdropdown.click(); 
+  await this.searchSymbol.fill('DOT-USDT');
+  await this.selectSymbolDOTUSDT.click();
+  await this.enterQuantityUSDM.fill('2');
+  await this.enterDuration.fill('2');
+  await this.clickBuy.click();
+  await this.clickTrade.click();
+  await this.orderAcceptedNotification.click();
+  await expect(this.orderAcceptedNotification).toHaveText('Order Accepted');
+}
+
+async placeBiance_COINM_DOTUSDTOrder(){
+  await this.chooseTradeTWAP.click();
+  await this.selectExchangeBianceCOINM.click();
+  await this.selectBianceCOINM.click();
+  await this.clickTradeDropdownOptions.click()
+  await this.clickOrderTypeTWAP.click();
+  await this.clickSymbolsdropdown.click(); 
+    await this.page.pause();
+  await this.searchSymbol.fill('ADAUSD_PERP');
+  await this.page.pause();
+  await this.selectOrderTypeTWAP.click(); 
+  await this.enterQuantityUSDM.fill('5');
+  await this.enterDuration.fill('10');
+  await this.enterinterval.fill('1');
+}
+
+async getOrderdetails(){
     await this.orderHistory;
-    // await expect(this.validateOrderAccount).toHaveText('Dashk805 OKX');
+    await this.validateOrderAccount;
+    await expect(this.validateOrderAccount).toHaveText('Dashk805 OKX');
+    // const validateOrderAccount = this.page.getByRole('cell', { name: 'Dashk805 OKX' });
     // console.log ((this.validateOrderAccount).textContent());
-    // await expect(this.validateSymbol).toHaveText('BTC-USDTSSpot');
-    console.log(this.validateOrderAccount, this.getOrderStatus, this.validateSymbol, this.getAlogoId)
+    // const orderType = this.page.getByRole('cell', { name: 'Market Edge' });
+    // const symbol = this.page.getByRole('cell', { name: 'BTC-USDT Swap' });
+    // const date = this.page.getByRole('cell', { name: '2025-10-17 13:55:29' });
+    // const side = this.page.getByRole('cell', { name: 'Buy' });
+    // const getOrderStatus = this.page.getByRole('cell', { name: 'Order Rejected' });
+    // console.log ((this.orderType).textContent());
+    // console.log ((this.symbol).textContent());
+    // console.log ((this.date).textContent());
+    // console.log ((this.side).textContent());
+    // console.log((this.getOrderStatus).textContent());
+    // console.log((this.validateOrderAccount, this.getOrderStatus, this.validateSymbol, this.getAlogoId)
+    // console.log(await this.validateOrderAccount.textContent(), await this.orderType.textContent(), await this.symbol.textContent(), await this.date.textContent(), await this.side.textContent(), await this.getOrderStatus.textContent());
+
 }
 
+async validaterejectedOrder(params) {
+  await page.locator('#radix-_r_92_').getByText('Order Rejected').click();
+  await page.getByRole('button', { name: 'Close' }).click();
+}
 async OKXInvalidOrderDetails(){
   await this.gotoTrading.click();
   await this.selectGoTrade.click();
@@ -527,7 +625,51 @@ async validateMetrics(){
     // await this.closeModal.click();
 }
 
-  async logout() {
+  async liquidatePositions(){
+    await this.clickliquidatePositions.click();
+    await this.liquidatePositionsModalHeader.click();
+    await this.confirmliquidatePositions.click();
+   
+    // Check the status
+    const response = await this.liquidatePositionsresponse;
+    const status = response.status();
+    // expect(response).not.toBeNull();
+    console.log('Response status:', status);
+    //conditional valiation 
+    if (status === 200) {
+      console.log('✅ Liquidate Positions API working fine');
+    } else if (status === 422) {
+      console.log('⚠️ type: "error", message: "No response received from UDP server", status_code: 400, data: null');
+    } else {
+      throw new Error(`❌ Unexpected status: ${status}`);
+    }
+  }
+
+async smartRouting(){
+  await this.enableToggleSmartRouting.click();
+  await this.validatesmartRoutingModalHeader.click();
+  await this.selectOKXAcccount.click();
+  await this.updatesmartRoutingConfiguration.click();
+  await this.selectOKX.click();
+  await this.selectOKX.click();
+  await this.enableExecuteSmartOrderRouting.click();
+  await this.save.click();
+  await this.ValidateSavesmartRoutingSuccess.click();
+}
+
+async consolidatedView(){
+  
+}
+
+async placeOKXSellOrder(){
+  // await clickOrderBook.click();
+  // this.clickOrderBook = 
+  await page.getByRole('button', { name: 'Order Book' });
+  await page.getByTestId('consolidated-orderbook-toggle').click();
+  await page.locator('div').filter({ hasText: /^Price\(USDT\)Amount \(Cts\.\)Total \(Cts\.\)$/ }).first().click();
+}
+
+async logout() {
   await this.userProfile.click();
   await this.logoutButton.click();
   await expect(this.validateLogout).toHaveText('Welcome');
