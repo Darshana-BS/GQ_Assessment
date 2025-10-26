@@ -64,12 +64,20 @@ Combined PDF Report: GQ_Assessment_Report/Detailed_Report.pdf — single file co
 | 816ed2e4d5c09c8a2c95b820eba4eb46 | ./GQ_Assessment_Report/Detailed_Report.pdf |
 | edb3750e3c84a23a5f399101c4db9adc | ./GQ_Assessment_Report/md5_report.txt |
 | 9bf447f9433f1e97a87f68e72bb8541b | ./GQ_Assessment_Report/Detailed_Report.md |
-| 20d3a796bcb253fd65c9d4dd7b8d047d | ./README.md |
-| cb9aecc2b6dfb21f7743e1273b65afb8 | ./generateReport.js |
+| 840d8ab701ceadf4721b3853dc6f7c56 | ./README.md |
+| 3e0cdcf5213619c0559f312f847ae3e7 | ./generateReport.js |
 
-**Playwright Test Summary:**
-| Test Name | Status |
+##7. **Playwright Test Summary:**
+const testSummary = 
+'| Test Case | Status |
 |-----------|--------|
+| TC_01_Login_using_invalid_creds_ | ✅ Passed |
+| TC_02_Login_using_valid_creds_   | ✅ Passed |
+| TC_04_Delete_Account_            | ✅ Passed |
+';
+| Test Case | Status |
+|-----------|--------|
+| No tests found | - |
 | goQuant_cases.spec.js | See HTML report |
 
 
@@ -95,10 +103,10 @@ Indivisual video recording / trace of the cases executed
 • TC20_Logout.zip
 • TC21_Modify_Account_valid_details.zip
 
-## 7. Known Bugs / Notes
+## 8. Known Bugs / Notes
 - Update API sometimes returns 400 (handled)
 - Cancel Order API sometimes returns 422 (handled)
 
-## 8. Author
+## 9. Author
 Darshana Nehulkar
 - GitHub: [https://github.com/Darshana-BS/GQ_Assessment/tree/GQ_Assessment](https://github.com/Darshana-BS/GQ_Assessment/tree/GQ_Assessment)

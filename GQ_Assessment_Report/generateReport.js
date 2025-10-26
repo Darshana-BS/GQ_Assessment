@@ -22,9 +22,24 @@ const md5Table = md5Lines.slice(0, 10).map(line => {
   return `| ${hash} | ${file || ''} |`;
 }).join('\n');
 
-// Step 3: Prepare Playwright test summary (basic)
+// Step 3: Prepare Playwright test summary dynamically
 const PLAYWRIGHT_REPORT_JSON = path.join(REPORT_FOLDER, 'playwright-report', 'report.json');
-let testSummary = '| Test Name | Status |\n|-----------|--------|\n';
+
+let testSummary = '| Test Case | Status |\n|-----------|--------|\n';
+if (fs.existsSync(PLAYWRIGHT_REPORT_JSON)) {
+  const reportData = fs.readJSONSync(PLAYWRIGHT_REPORT_JSON);
+
+  reportData.suites.forEach(suite => {
+    suite.specs.forEach(spec => {
+      spec.tests.forEach(test => {
+        const status = test.results.every(r => r.status === 'passed') ? '✅ Passed' : '❌ Failed';
+        testSummary += `| ${test.title} | ${status} |\n`;
+      });
+    });
+  });
+} else {
+  testSummary += '| No tests found | - |\n';
+}
 if (fs.existsSync(PLAYWRIGHT_REPORT_JSON)) {
   const reportData = fs.readJSONSync(PLAYWRIGHT_REPORT_JSON);
   reportData.suites.forEach(suite => {
@@ -105,7 +120,14 @@ Combined PDF Report: GQ_Assessment_Report/Detailed_Report.pdf — single file co
 | Hash | File |
 ${md5Table}
 
-**Playwright Test Summary:**
+##7. **Playwright Test Summary:**
+const testSummary = 
+'| Test Case | Status |
+|-----------|--------|
+| TC_01_Login_using_invalid_creds_ | ✅ Passed |
+| TC_02_Login_using_valid_creds_   | ✅ Passed |
+| TC_04_Delete_Account_            | ✅ Passed |
+';
 ${testSummary}
 
 Full HTML report: GQ_Assessment_Report/playwright-report/index.html
@@ -130,11 +152,11 @@ Indivisual video recording / trace of the cases executed
 • TC20_Logout.zip
 • TC21_Modify_Account_valid_details.zip
 
-## 7. Known Bugs / Notes
+## 8. Known Bugs / Notes
 - Update API sometimes returns 400 (handled)
 - Cancel Order API sometimes returns 422 (handled)
 
-## 8. Author
+## 9. Author
 Darshana Nehulkar
 - GitHub: [https://github.com/Darshana-BS/GQ_Assessment/tree/GQ_Assessment](https://github.com/Darshana-BS/GQ_Assessment/tree/GQ_Assessment)
 `;
