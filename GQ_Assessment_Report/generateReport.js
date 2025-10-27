@@ -256,9 +256,8 @@ const evidenceSection =
 |----------|--------------|----------------|
 | 🧠 **HTML Test Report** | [GQ_Assessment_Report/playwright-report/index.html](./GQ_Assessment_Report/playwright-report/index.html) | ▶️ *View full Playwright test results* |
 | 🧠 **HTML Test Report (Backup)** | [DN_cypress/GoQuant_Auto_Asse/playwright-report/index.html](../DN_cypress/GoQuant_Auto_Asse/playwright-report/index.html) | 🪄 *Backup local report location* |
-| 🧩 **Trace Files** | [trace/TC01_LoginInvalid_Creds.zip](./trace/TC01_LoginInvalid_Creds.zip) | 🔍 *Replay test steps in Playwright trace viewer* |
-| 🖼️ **Screenshots** | [reports/screenshots/](./reports/screenshots/) | 📸 *Pending upload / captured test images* |
-
+| 🧩 **Trace Files** | [tests/trace/TC01_LoginInvalid_Creds.zip](.tests/trace/TC01_LoginInvalid_Creds.zip) | 🔍 *Replay test steps in Playwright trace viewer* |
+| 🖼️ **Screenshots** | [reports/screenshots/](./reports/screenshots/) | 📸 *Pending upload / captured test images* | [Pending]
 ---;
 
 // ## 📸 Evidence & Reports
