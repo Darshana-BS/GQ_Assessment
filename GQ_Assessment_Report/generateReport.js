@@ -126,13 +126,15 @@ node generateReport.js
 ------------------------------------------------------------------------------
 
 # 7. Project Structure
+\`\`\`
 pages/                    # Page object models for UI interactions
 tests/                    # Playwright test scripts
 fixtures/                 # Test data and reusable assets
 GQ_Assessment_Report/     # Generated MD5, HTML, and PDF reports
 package.json              # Node.js project configuration
 generateReport.js         # Script to generate MD5 + Playwright PDF report
-playwright.config.js      # Configs for tests being executed 
+playwright.config.js      # Configs for tests being executed
+\`\`\` 
 ------------------------------------------------------------------------------
 
 ## 8. Reporting and Results
