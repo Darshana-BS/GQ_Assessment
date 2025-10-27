@@ -2,6 +2,59 @@ const fs = require('fs-extra');
 const { execSync } = require('child_process');
 const path = require('path');
 
+
+// ---- Extract test results from Playwright JSON ----
+function extractPlaywrightResults() {
+  const resultsPath = path.join(__dirname, '../test-results/results.json');
+  if (!fs.existsSync(resultsPath)) {
+    console.warn('⚠️ No test results found at', resultsPath);
+    return { summary: 'No results found', table: '| Test | Status | Duration (ms) |' };
+  }
+
+  const data = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+  const tests = [];
+
+  function walkSuites(suites = []) {
+    for (const suite of suites) {
+      if (suite.tests) {
+        suite.tests.forEach(test => {
+          tests.push({
+            name: test.title,
+            status: test.outcome || test.status || 'unknown',
+            duration: test.duration || 0
+          });
+        });
+      }
+      if (suite.suites) walkSuites(suite.suites);
+    }
+  }
+
+  walkSuites(data.suites || []);
+
+  const total = tests.length;
+  const passed = tests.filter(t => t.status === 'passed').length;
+  const failed = tests.filter(t => t.status === 'failed').length;
+  const skipped = tests.filter(t => t.status === 'skipped').length;
+
+  const summary = `**Total:** ${total} ✅ **Passed:** ${passed} ❌ **Failed:** ${failed} ⚪ **Skipped:** ${skipped}`;
+  const table =
+    '| Test | Status | Duration (ms) |\n|------|---------|---------------|\n' +
+    tests
+      .map(
+        t =>
+          `| ${t.name} | ${
+            t.status === 'passed'
+              ? '✅ Passed'
+              : t.status === 'failed'
+              ? '❌ Failed'
+              : '⚪ Skipped'
+          } | ${t.duration} |`
+      )
+      .join('\n');
+
+  return { summary, table };
+}
+
 const REPORT_FOLDER = 'GQ_Assessment_Report';
 const MD5_FILE = `${REPORT_FOLDER}/md5_report.txt`;
 const README_FILE = 'README.md';
@@ -194,42 +247,7 @@ Passed: **14**
 Failed (Expected): **2**
 ------------------------------------------------------------------------------
 
-##10. **Playwright Test Summary:**
-\`\`\`
-const testSummary = 
-'| Test Case | Status |
-|-----------|--------|
-| TC_01_Login_using_invalid_creds_ | ✅ Passed |
-| TC_02_Login_using_valid_creds_   | ✅ Passed |
-| TC_04_Delete_Account_            | ✅ Passed |
-';
-${testSummary}
-
-Full HTML report: GQ_Assessment_Report/playwright-report/index.html
-
-**Trace 
-tests/trace/             #trace for the passed tests 
-Indivisual video recording / trace of the cases executed 
-• TC01_LoginInvalid_Creds.zip
-• TC02_LoginValid_Creds.zip
-• TC03_Add Account.zip
-• TCO4_DELETE Account.zip
-• TC05_Modify_Account_ivalid_details.zip
-• TC06_Place_OKX_Marekt Order.zip
-• TC07_Get_order datails.zip
-• TC08_validation_errors.zip
-• TC09_validate_metrics.zip
-• TC10_addclear_assets.zip
-• TC11_cancelal|_workingorders.zip
-• TC12_kill-edge.zip
-• TC13_Liquidate-Positions.zip
-• TC14_Smart_order_routing.zip
-• TC20_Logout.zip
-• TC21_Modify_Account_valid_details.zip
-\`\`\`
-------------------------------------------------------------------------------
-
-## 11 🧩 Challenges Faced
+## 10 🧩 Challenges Faced
 - Dynamic IDs ('radix-*') made locators unstable.
 - Modal elements required explicit waits.
 - GitHub push blocked due to PAT (resolved by removing file and rewriting history).
@@ -237,7 +255,7 @@ Indivisual video recording / trace of the cases executed
   usually happens if some other dependency also includes @playwright/test.)
 ------------------------------------------------------------------------------
 
-## 12. Known Bugs / Notes
+## 11. Known Bugs / Notes
 - Update API sometimes returns 400 (handled)
 - Cancel Order API sometimes returns 422 (handled) 
 - Orders are placed but not displayed in the orders history (coult not automate, as there are no orders) 
@@ -267,14 +285,14 @@ Indivisual video recording / trace of the cases executed
 
 ------------------------------------------------------------------------------
 
-## 13. 📈 Technical Analysis
+## 12. 📈 Technical Analysis
 - **Average API response time:** 280ms  
 - **Browser coverage:** 3  
 - **Accessibility:** 
 - **Performance:** Stable under 5 concurrent actions 
 ------------------------------------------------------------------------------
 
-## 14. 💡 Recommendations
+## 13. 💡 Recommendations
 - Add stable 'data-testid' attributes for better element targeting.
 - Optimize API response time under 200ms.
 - Improve accessibility attributes (aria-labels, alt text).
@@ -282,7 +300,7 @@ Indivisual video recording / trace of the cases executed
 - Add a better UI handeling for the screen elements of the Add/Clear button (expected = dropdown to select % should stay until user clicks somwhere elese)
 ------------------------------------------------------------------------------
 
-## 15. 📸 Evidence & Reports
+## 14. 📸 Evidence & Reports
 | 🧾 Type | 📁 Location | 🔗 Open / Notes |
 |----------|--------------|----------------|
 | 🧠 **HTML Test Report** | [GQ_Assessment_Report/playwright-report/index.html](./GQ_Assessment_Report/playwright-report/index.html) | ▶️ *View full Playwright test results* |
@@ -292,7 +310,7 @@ Indivisual video recording / trace of the cases executed
 | 🖼️ **Screenshots** | [reports/screenshots/](./reports/screenshots/) | 📸 *Pending upload / captured test images* | [Pending]
 ------------------------------------------------------------------------------ 
 
-## 16. 🧩 Test Organization
+## 15. 🧩 Test Organization
 All Playwright test cases are placed under the \`tests/\` directory.  
 Each module or functionality has its own \`.spec.js\` file for better organization.
 
@@ -336,7 +354,7 @@ All 22 Playwright test cases are structured across feature-based spec files:
 
 This structure improves test readability, modularity, and maintainability.
 
-## 17. 🏷️ Tag-based Execution
+## 16. 🏷️ Tag-based Execution
 
 | Command                                    | Description                         |
 | ------------------------------------------ | ----------------------------------- |
@@ -364,12 +382,12 @@ npx playwright test --grep "@order"
 npx playwright test --grep-invert "@api"
 ------------------------------------------------------------------------------
 
-## 18. ✨ Conclusion
+## 17. ✨ Conclusion
 The GoTrade application is functional but exhibits minor inconsistencies across UI and API layers.  
 The automation suite is scalable, modular, and demonstrates readiness for integration into CI/CD.
 ------------------------------------------------------------------------------
 
-## 19. Author
+## 18. Author
 \`\`\`
 👩‍💻 *Darshana Nehulkar*  
 - GitHub: [https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/)
@@ -406,6 +424,7 @@ ${md5Table}
 ${credentials}
 `;
 
+//Generate detail report md5 and PDF 
 fs.writeFileSync('./GQ_Assessment_Report/Detailed_Report.md', finalReport);
 
 const markdownpdf = require('markdown-pdf');
@@ -496,9 +515,7 @@ function generateMarkdownReport() {
   console.log(`✅ Markdown report saved with browser-wise stats: ${mdFile}`);
 }
 
-// const fs = require('fs');
 const crypto = require('crypto');
-// const path = require('path');
 
 // Function to read Playwright JSON test results
 function getPlaywrightResults() {
@@ -534,31 +551,91 @@ function getPlaywrightResults() {
   const summary = `Total Tests: ${total} | ✅ Passed: ${passed} | ❌ Failed: ${failed}`;
   return { summary, tests };
 }
-// Get Playwright Results
-const { summary, tests } = getPlaywrightResults();
 
-const resultsTable = tests.length
-  ? `
-| Test Name | Status | Duration (ms) |
-|------------|---------|---------------|
-${tests
-  .map(
-    t => `| ${t.name} | ${t.status === 'passed' ? '✅ Passed' : '❌ Failed'} | ${t.duration} |`
-  )
-  .join('\n')}
-`
-  : 'No test results found.';
-
-const testSummarySection = `
-## 🧪 Playwright Test Results
+const { summary, table } = extractPlaywrightResults();
+let resultsSection = `
+## ✅ Summary of Last Execution
 ${summary}
 
-${resultsTable}
+## 📋 Detailed Test Results
+${table}
+
 `;
 
-const reportContent = `
-# GoQuant Assessment Report
+// --------------------------------------------------------------------
+// 🧪 ADD PLAYWRIGHT RESULTS SUMMARY TO MARKDOWN
+// --------------------------------------------------------------------
+const resultsPath = './test-results/results.json';
+resultsSection = '\n## 🧪 Latest Playwright Test Results\n';
 
-${testSummarySection}
-... (rest of your existing content)
-`;
+try {
+  if (fs.existsSync(resultsPath)) {
+    const data = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+    const tests = [];
+
+    // Flatten all test entries from nested suites
+    if (data.suites) {
+      for (const suite of data.suites) {
+        if (suite.specs) {
+          for (const spec of suite.specs) {
+            const name = spec.title || spec.name || 'Unnamed Test';
+            const status = spec.ok ? '✅ Passed' : '❌ Failed';
+            tests.push(`- **${name}** — ${status}`);
+          }
+        }
+      }
+    }
+
+    if (tests.length > 0) {
+      resultsSection += tests.join('\n');
+    } else {
+      resultsSection += 'No tests found in the JSON file.\n';
+    }
+  } else {
+    resultsSection += '⚠️ test-results/results.json not found.\n';
+  }
+} catch (err) {
+  resultsSection += `⚠️ Error reading Playwright results: ${err.message}\n`;
+}
+
+// Append section safely to your report
+if (typeof markdown === 'undefined') {
+  markdown = '';
+}
+markdown += resultsSection;
+
+// Save markdown to file to Generate Live test status md5 report
+fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Report.md', markdown);
+console.log('✅ Detailed report updated with Playwright results.');
+
+// Append to existing markdown variable 
+markdown += `\n\n${resultsSection}`;
+fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Report.md', resultsSection); 
+
+//PDF generate for live cases results status
+// const { execSync } = require('child_process');
+// try {
+//   execSync(
+//     'pandoc ./GQ_Assessment_Report/Detailed_Tests_Report.md -o ./GQ_Assessment_Report/Detailed_Tests_Report.pdf --pdf-engine=xelatex'
+//   );
+//   console.log('✅ PDF successfully generated with pandoc.');
+// } catch (err) {
+//   console.error('❌ PDF generation failed:', err.message);
+// }
+// fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Report.md', markdown);
+// console.log('✅ Detailed report updated with Playwright results.');
+
+// // 📄 Generate PDF from Markdown fpr Live status results 
+// const pypandoc = require('pypandoc');
+// const mdPath = './GQ_Assessment_Report/Detailed_Tests_Report.md';
+// const statuspdfPath = './GQ_Assessment_Report/Detailed_Tests_Report.pdf';
+
+// try {
+//   pypandoc.convert_file(mdPath, 'pdf', {
+//     outputfile: pdfPath,
+//     extra_args: ['--standalone'],
+//   });
+//   console.log(`✅ PDF successfully generated: ${statuspdfPath}`);
+// } catch (err) {
+//   console.error(`❌ Failed to generate PDF: ${err.message}`);
+// }

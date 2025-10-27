@@ -1,4 +1,4 @@
-7cc6f49b47b0459f2d14e412605bf1cf ./dummy.txt
+c6e1d98156c7027fd8c3dbea26dcb53d ./dummy.txt
 64e2ced2ec895a004811c26bc47a562a ./node_modules/pend/test.js
 e8a22696b017d8f536112ef54c81f3fa ./node_modules/pend/LICENSE
 51cdd3c93701ca33381fabda25149a99 ./node_modules/pend/index.js
@@ -2329,21 +2329,21 @@ b04b2df86a3986c51d12f416e2d5d91f ./node_modules/jsbn/index.js
 2eb56edbb7819cbc7902f1114f1364a9 ./node_modules/jsbn/example.html
 a10cd005c4727beb0ca9b4f9fb37b441 ./node_modules/jsbn/package.json
 2cbb15596cbf1e2f7f6019bc25377fc8 ./node_modules/jsbn/example.js
-5759e5e682ecb4d463531c41c3115985 ./GQ_Assessment_Report/Detailed_Report.pdf
+87432aa7b342b960dd45eaa16a433b89 ./GQ_Assessment_Report/Detailed_Report.pdf
 147e8e694009ce89779799d7095efe99 ./GQ_Assessment_Report/GQ_Assessment_Report/Detailed_Report.pdf
 7cf753a36bda3785ddce0d30c7caf551 ./GQ_Assessment_Report/GQ_Assessment_Report/md5_report.txt
 f65b8199068ba5fb819c5e040d5ae745 ./GQ_Assessment_Report/GQ_Assessment_Report/Detailed_Report.md
-df40be27cdf8835035ff2471199b0d03 ./GQ_Assessment_Report/md5_report.txt
-752d9bf56674f50361f3fe8cc0c1791d ./GQ_Assessment_Report/Detailed_Report.md
+a35c082457d5d97941dc705f6194d150 ./GQ_Assessment_Report/md5_report.txt
+b78b45f01f1657f5ac1c53e6be9a243e ./GQ_Assessment_Report/Detailed_Report.md
 f883bfa3aac46782f8fe32a5eec9bf6d ./GQ_Assessment_Report/README.md
-6e71a7743df78464c9181c3c33084051 ./GQ_Assessment_Report/generateReport.js
+d34121ff27fc5edaacab9fb9f6b5a73d ./GQ_Assessment_Report/generateReport.js
 27fc5e325beba464b8b839001375d365 ./tests/trace/TC15_Order_Book_Consolidated_view.zip
 4ccbde67d85bb43cd99c80e65bff7616 ./tests/trace/TC09_validate_metrics.zip
 322175017e8e1f6eee3f6a70cd914fce ./tests/trace/TC12_kill-edge.zip
 3d60e0e0533995d6ec3bb99a28de6c84 ./tests/trace/TC01_LoginInvalid_Creds.zip
 fe880708320ca2aeda5d99026e9e3878 ./tests/trace/TC10_addclear_assets.zip
 2d4e9fb37b79943e0a5e4bf8f93d2765 ./tests/trace/TC05_Modify_Account_ivalid_details.zip
-cbc7e018f8d5009edab3e5492df171c4 ./tests/trace/TC20_Logout.zip
+cb54a9295f2a06d544f8da4a95d43684 ./tests/trace/TC20_Logout.zip
 a5c6f314e82b7673f0b70e72d61b3375 ./tests/trace/TC07_Validate_order datails.zip
 6b7dd24a86da046563ff8b223a643756 ./tests/trace/TC11_cancelall_workingorders.zip
 ebc2f824b70d39df491bd97322df37c9 ./tests/trace/TC07_Get_order datails.zip
@@ -2367,14 +2367,14 @@ d4511c5e832301303c4a858124c75e90 ./tests/example.spec.js
 e7476a3a7dfa1eca909bdf2ff22aa0ff ./tests/1auth/TC01_Login_Invalid.spec.js
 e9695d09df041aef9c60d463295ba5e5 ./tests/1auth/TC02_Login_Valid.spec.js
 7f52bf3bf66e055b2d973da8e9d9e75a ./playwright.config.js
-d5a56f229b4abf3439d91f35e216cf05 ./README.md
+9d13f465644f052c3e7d89323eb4e7f3 ./README.md
 eb0a86fd229e391242a3629759cdacc9 ./package-lock.json
 1b9b189aadd0bba12723bd927337d281 ./package.json
 e32579b56e4f84b40ec170f8d6105a5f ./chrome_results/1auth-TC20_Logout-Log-out-of-account-auth-logout-chromium/test-finished-1.png
 4b49e227633b29c472ad847959ef62f6 ./chrome_results/1auth-TC02_Login_Valid-Log-0caf2-valid-user-credentials-auth-chromium/error-context.md
 a420cbaa5c0e04137a113324cbccdae2 ./chrome_results/1auth-TC02_Login_Valid-Log-0caf2-valid-user-credentials-auth-chromium-retry1/test-finished-1.png
 a9be6d3fcde9b30387ecb37514136811 ./chrome_results/1auth-TC01_Login_Invalid-L-a6970-valid-user-credentials-auth-chromium/test-finished-1.png
-ce7c6f43fe89961198466590bdaa7822 ./playwright-report/index.html
-82c16eeafe8f1c9c928c6eb196120fde ./test-results/results.json
+8302f2554f36f1b9bf2889367e872ca5 ./playwright-report/index.html
+8f41c9ec9b65a74d5e7cbb2585b28a18 ./test-results/results.json
 6a1f990f3e766180cc553f76b384cda9 ./pages/GoQuantMain.js
 2dc03fb692945898465ac5ab238bac81 ./tests-examples/demo-todo-app.spec.js

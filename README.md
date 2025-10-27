@@ -87,7 +87,7 @@ MD5 Report: GQ_Assessment_Report/md5_report.txt — lists MD5 hashes of all proj
 Playwright HTML Report: GQ_Assessment_Report/playwright-report/index.html — detailed pass/fail report for all test cases
 Combined PDF Report: GQ_Assessment_Report/Detailed_Report.pdf — single file containing project overview, MD5 summary, and test results
 | Hash | File |
-| 7cc6f49b47b0459f2d14e412605bf1cf | ./dummy.txt |
+| c6e1d98156c7027fd8c3dbea26dcb53d | ./dummy.txt |
 | 64e2ced2ec895a004811c26bc47a562a | ./node_modules/pend/test.js |
 | e8a22696b017d8f536112ef54c81f3fa | ./node_modules/pend/LICENSE |
 | 51cdd3c93701ca33381fabda25149a99 | ./node_modules/pend/index.js |
@@ -114,46 +114,7 @@ Passed: **14**
 Failed (Expected): **2**
 ------------------------------------------------------------------------------
 
-##10. **Playwright Test Summary:**
-```
-const testSummary = 
-'| Test Case | Status |
-|-----------|--------|
-| TC_01_Login_using_invalid_creds_ | ✅ Passed |
-| TC_02_Login_using_valid_creds_   | ✅ Passed |
-| TC_04_Delete_Account_            | ✅ Passed |
-';
-| Test Case | Status |
-|-----------|--------|
-| No tests found | - |
-| goQuant_cases.spec.js | See HTML report |
-
-
-Full HTML report: GQ_Assessment_Report/playwright-report/index.html
-
-**Trace 
-tests/trace/             #trace for the passed tests 
-Indivisual video recording / trace of the cases executed 
-• TC01_LoginInvalid_Creds.zip
-• TC02_LoginValid_Creds.zip
-• TC03_Add Account.zip
-• TCO4_DELETE Account.zip
-• TC05_Modify_Account_ivalid_details.zip
-• TC06_Place_OKX_Marekt Order.zip
-• TC07_Get_order datails.zip
-• TC08_validation_errors.zip
-• TC09_validate_metrics.zip
-• TC10_addclear_assets.zip
-• TC11_cancelal|_workingorders.zip
-• TC12_kill-edge.zip
-• TC13_Liquidate-Positions.zip
-• TC14_Smart_order_routing.zip
-• TC20_Logout.zip
-• TC21_Modify_Account_valid_details.zip
-```
-------------------------------------------------------------------------------
-
-## 11 🧩 Challenges Faced
+## 10 🧩 Challenges Faced
 - Dynamic IDs ('radix-*') made locators unstable.
 - Modal elements required explicit waits.
 - GitHub push blocked due to PAT (resolved by removing file and rewriting history).
@@ -161,7 +122,7 @@ Indivisual video recording / trace of the cases executed
   usually happens if some other dependency also includes @playwright/test.)
 ------------------------------------------------------------------------------
 
-## 12. Known Bugs / Notes
+## 11. Known Bugs / Notes
 - Update API sometimes returns 400 (handled)
 - Cancel Order API sometimes returns 422 (handled) 
 - Orders are placed but not displayed in the orders history (coult not automate, as there are no orders) 
@@ -191,14 +152,14 @@ Indivisual video recording / trace of the cases executed
 
 ------------------------------------------------------------------------------
 
-## 13. 📈 Technical Analysis
+## 12. 📈 Technical Analysis
 - **Average API response time:** 280ms  
 - **Browser coverage:** 3  
 - **Accessibility:** 
 - **Performance:** Stable under 5 concurrent actions 
 ------------------------------------------------------------------------------
 
-## 14. 💡 Recommendations
+## 13. 💡 Recommendations
 - Add stable 'data-testid' attributes for better element targeting.
 - Optimize API response time under 200ms.
 - Improve accessibility attributes (aria-labels, alt text).
@@ -206,7 +167,7 @@ Indivisual video recording / trace of the cases executed
 - Add a better UI handeling for the screen elements of the Add/Clear button (expected = dropdown to select % should stay until user clicks somwhere elese)
 ------------------------------------------------------------------------------
 
-## 15. 📸 Evidence & Reports
+## 14. 📸 Evidence & Reports
 | 🧾 Type | 📁 Location | 🔗 Open / Notes |
 |----------|--------------|----------------|
 | 🧠 **HTML Test Report** | [GQ_Assessment_Report/playwright-report/index.html](./GQ_Assessment_Report/playwright-report/index.html) | ▶️ *View full Playwright test results* |
@@ -216,7 +177,7 @@ Indivisual video recording / trace of the cases executed
 | 🖼️ **Screenshots** | [reports/screenshots/](./reports/screenshots/) | 📸 *Pending upload / captured test images* | [Pending]
 ------------------------------------------------------------------------------ 
 
-## 16. 🧩 Test Organization
+## 15. 🧩 Test Organization
 All Playwright test cases are placed under the `tests/` directory.  
 Each module or functionality has its own `.spec.js` file for better organization.
 
@@ -260,7 +221,7 @@ All 22 Playwright test cases are structured across feature-based spec files:
 
 This structure improves test readability, modularity, and maintainability.
 
-## 17. 🏷️ Tag-based Execution
+## 16. 🏷️ Tag-based Execution
 
 | Command                                    | Description                         |
 | ------------------------------------------ | ----------------------------------- |
@@ -288,12 +249,12 @@ npx playwright test --grep "@order"
 npx playwright test --grep-invert "@api"
 ------------------------------------------------------------------------------
 
-## 18. ✨ Conclusion
+## 17. ✨ Conclusion
 The GoTrade application is functional but exhibits minor inconsistencies across UI and API layers.  
 The automation suite is scalable, modular, and demonstrates readiness for integration into CI/CD.
 ------------------------------------------------------------------------------
 
-## 19. Author
+## 18. Author
 ```
 👩‍💻 *Darshana Nehulkar*  
 - GitHub: [https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/)

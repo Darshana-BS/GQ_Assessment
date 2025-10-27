@@ -1,5 +1,6 @@
 {
   "config": {
+    "configFile": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright.config.js",
     "rootDir": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests",
     "forbidOnly": false,
     "fullyParallel": false,
@@ -10,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 3
     },
     "preserveOutput": "always",
     "reporter": [
@@ -28,14 +29,46 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests/playwright-report",
+        "outputDir": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 3
         },
-        "id": "",
-        "name": "",
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "webkit",
+        "name": "webkit",
         "testDir": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests",
         "testIgnore": [],
         "testMatch": [
@@ -67,27 +100,332 @@
               "timeout": 30000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
+              "projectId": "chromium",
+              "projectName": "chromium",
               "results": [
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 19756,
-                  "errors": [],
+                  "status": "failed",
+                  "duration": 22213,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"https://test1.gotrade.goquant.io/\u001b[7mgotrade\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"https://test1.gotrade.goquant.io/\u001b[7mauth/login\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"https://test1.gotrade.goquant.io/auth/login\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"https://test1.gotrade.goquant.io/\u001b[7mgotrade\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"https://test1.gotrade.goquant.io/\u001b[7mauth/login\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"https://test1.gotrade.goquant.io/auth/login\"\u001b[22m\n\n    at GoQuantMain.afterLogin (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:181:30)\n    at GoQuantMain.login (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:190:16)\n    at /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests/goQuant_cases.spec.js:236:3",
+                    "location": {
+                      "file": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js",
+                      "column": 30,
+                      "line": 181
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m../pages/GoQuantMain.js:181\n\n  179 |\n  180 |   async afterLogin() {\n> 181 |     await expect (this.page).toHaveURL('https://test1.gotrade.goquant.io/gotrade')\n      |                              ^\n  182 |     await expect (this.page).toHaveTitle(\"GoTrade\")\n  183 |     await this.getStarted.click();\n  184 |   }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js",
+                        "column": 30,
+                        "line": 181
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"https://test1.gotrade.goquant.io/\u001b[7mgotrade\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"https://test1.gotrade.goquant.io/\u001b[7mauth/login\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"https://test1.gotrade.goquant.io/auth/login\"\u001b[22m\n\n\n   at ../pages/GoQuantMain.js:181\n\n  179 |\n  180 |   async afterLogin() {\n> 181 |     await expect (this.page).toHaveURL('https://test1.gotrade.goquant.io/gotrade')\n      |                              ^\n  182 |     await expect (this.page).toHaveTitle(\"GoTrade\")\n  183 |     await this.getStarted.click();\n  184 |   }\n    at GoQuantMain.afterLogin (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:181:30)\n    at GoQuantMain.login (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:190:16)\n    at /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests/goQuant_cases.spec.js:236:3"
+                    }
+                  ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-10-27T09:49:31.829Z",
+                  "startTime": "2025-10-27T10:06:07.053Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js",
+                    "column": 30,
+                    "line": 181
+                  }
+                },
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30028,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js",
+                        "column": 27,
+                        "line": 183
+                      },
+                      "message": "Error: locator.click: Test ended.\nCall log:\n\u001b[2m  - waiting for getByText('Get Started')\u001b[22m\n\n\n   at ../pages/GoQuantMain.js:183\n\n  181 |     await expect (this.page).toHaveURL('https://test1.gotrade.goquant.io/gotrade')\n  182 |     await expect (this.page).toHaveTitle(\"GoTrade\")\n> 183 |     await this.getStarted.click();\n      |                           ^\n  184 |   }\n  185 |\n  186 |   async login(username, password) {\n    at GoQuantMain.afterLogin (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:183:27)\n    at GoQuantMain.login (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:190:5)\n    at /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests/goQuant_cases.spec.js:236:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2025-10-27T10:06:30.118Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-chromium-retry1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-chromium-retry1/error-context.md"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27324,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 2,
+                  "startTime": "2025-10-27T10:07:00.697Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-chromium-retry2/test-finished-1.png"
+                    }
+                  ]
                 }
               ],
-              "status": "expected"
+              "status": "flaky"
             }
           ],
-          "id": "e8665de0676c23600dc1-3c07e33013f124aaa8ec",
+          "id": "e8665de0676c23600dc1-a6406e1ebeb57331de26",
+          "file": "goQuant_cases.spec.js",
+          "line": 230,
+          "column": 6
+        },
+        {
+          "title": "Log out of account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "timedOut",
+                  "duration": 30051,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js",
+                        "column": 21,
+                        "line": 168
+                      },
+                      "message": "Error: page.goto: Test ended.\nCall log:\n\u001b[2m  - navigating to \"https://test1.gotrade.goquant.io/auth/login\", waiting until \"load\"\u001b[22m\n\n\n   at ../pages/GoQuantMain.js:168\n\n  166 |\n  167 |   async gotoHome(url) {\n> 168 |     await this.page.goto(url);\n      |                     ^\n  169 |   }\n  170 |\n  171 |   async visitloginUrl(loginurl){\n    at GoQuantMain.gotoHome (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:168:21)\n    at GoQuantMain.login (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:187:16)\n    at /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests/goQuant_cases.spec.js:236:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-10-27T10:06:07.053Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-firefox/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-firefox/error-context.md"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 24109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2025-10-27T10:06:38.679Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-firefox-retry1/test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "flaky"
+            }
+          ],
+          "id": "e8665de0676c23600dc1-50d4f785b4a33bb301e9",
+          "file": "goQuant_cases.spec.js",
+          "line": 230,
+          "column": 6
+        },
+        {
+          "title": "Log out of account",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "timedOut",
+                  "duration": 35014,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js",
+                        "column": 21,
+                        "line": 168
+                      },
+                      "message": "Error: page.goto: Test ended.\nCall log:\n\u001b[2m  - navigating to \"https://test1.gotrade.goquant.io/auth/login\", waiting until \"load\"\u001b[22m\n\n\n   at ../pages/GoQuantMain.js:168\n\n  166 |\n  167 |   async gotoHome(url) {\n> 168 |     await this.page.goto(url);\n      |                     ^\n  169 |   }\n  170 |\n  171 |   async visitloginUrl(loginurl){\n    at GoQuantMain.gotoHome (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:168:21)\n    at GoQuantMain.login (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:187:16)\n    at /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests/goQuant_cases.spec.js:236:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-10-27T10:06:07.052Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-webkit/error-context.md"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "timedOut",
+                  "duration": 35014,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js",
+                        "column": 21,
+                        "line": 168
+                      },
+                      "message": "Error: page.goto: Test ended.\nCall log:\n\u001b[2m  - navigating to \"https://test1.gotrade.goquant.io/auth/login\", waiting until \"load\"\u001b[22m\n\n\n   at ../pages/GoQuantMain.js:168\n\n  166 |\n  167 |   async gotoHome(url) {\n> 168 |     await this.page.goto(url);\n      |                     ^\n  169 |   }\n  170 |\n  171 |   async visitloginUrl(loginurl){\n    at GoQuantMain.gotoHome (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:168:21)\n    at GoQuantMain.login (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:187:16)\n    at /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests/goQuant_cases.spec.js:236:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2025-10-27T10:06:42.786Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-webkit-retry1/error-context.md"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "timedOut",
+                  "duration": 32647,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js",
+                        "column": 22,
+                        "line": 176
+                      },
+                      "message": "Error: locator.fill: Test ended.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Email' })\u001b[22m\n\n\n   at ../pages/GoQuantMain.js:176\n\n  174 |\n  175 |   async userCreds(email, password) {\n> 176 |     await this.email.fill(email);\n      |                      ^\n  177 |     await this.password.fill(password);\n  178 |   }\n  179 |\n    at GoQuantMain.userCreds (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:176:22)\n    at GoQuantMain.login (/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/pages/GoQuantMain.js:188:16)\n    at /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/tests/goQuant_cases.spec.js:236:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 2,
+                  "startTime": "2025-10-27T10:07:18.286Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-webkit-retry2/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/playwright-report/goQuant_cases-Log-out-of-account-webkit-retry2/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e8665de0676c23600dc1-5addfa5c3d216a60cef6",
           "file": "goQuant_cases.spec.js",
           "line": 230,
           "column": 6
@@ -97,11 +435,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-27T09:49:31.523Z",
-    "duration": 20333.335,
-    "expected": 1,
+    "startTime": "2025-10-27T10:06:06.724Z",
+    "duration": 104413.1,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
-    "flaky": 0
+    "unexpected": 1,
+    "flaky": 2
   }
 }

@@ -1,2 +1,41 @@
 test data 
 
+
+
+
+
+
+##10. **Playwright Test Summary:**
+\`\`\`
+const testSummary = 
+'| Test Case | Status |
+|-----------|--------|
+| TC_01_Login_using_invalid_creds_ | ✅ Passed |
+| TC_02_Login_using_valid_creds_   | ✅ Passed |
+| TC_04_Delete_Account_            | ✅ Passed |
+';
+${testSummary}
+
+Full HTML report: GQ_Assessment_Report/playwright-report/index.html
+
+**Trace 
+tests/trace/             #trace for the passed tests 
+Indivisual video recording / trace of the cases executed 
+• TC01_LoginInvalid_Creds.zip
+• TC02_LoginValid_Creds.zip
+• TC03_Add Account.zip
+• TCO4_DELETE Account.zip
+• TC05_Modify_Account_ivalid_details.zip
+• TC06_Place_OKX_Marekt Order.zip
+• TC07_Get_order datails.zip
+• TC08_validation_errors.zip
+• TC09_validate_metrics.zip
+• TC10_addclear_assets.zip
+• TC11_cancelal|_workingorders.zip
+• TC12_kill-edge.zip
+• TC13_Liquidate-Positions.zip
+• TC14_Smart_order_routing.zip
+• TC20_Logout.zip
+• TC21_Modify_Account_valid_details.zip
+\`\`\`
+------------------------------------------------------------------------------
