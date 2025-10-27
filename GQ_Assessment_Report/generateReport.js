@@ -242,9 +242,9 @@ ${credentials}
 | Edge Case  | \`/gotrade/v3/users\` | Playwright |
 | API        | \`/gotrade/v3/credentials\`, \`/gotrade/v3/cancel_all\` | Playwright APIRequest |
 
-Total Tests: **22**  
-Passed: **14**  
-Failed (Expected): **2**
+*Total Tests: **22**  
+*Passed: **14**  
+*Failed (Expected): **2**
 ------------------------------------------------------------------------------
 
 ## 10 🧩 Challenges Faced
