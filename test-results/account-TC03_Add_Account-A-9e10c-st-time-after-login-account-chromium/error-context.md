@@ -1,0 +1,260 @@
+# Page snapshot
+
+```yaml
+- generic [active]:
+  - main:
+    - generic:
+      - generic:
+        - generic:
+          - link:
+            - /url: /gotrade
+            - generic:
+              - generic:
+                - img
+              - generic: GoTerminal
+          - navigation:
+            - generic:
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Markets
+                        - img
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Trading
+                        - img
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Accounts
+                        - img
+          - generic:
+            - button:
+              - generic:
+                - img
+              - generic:
+                - generic: user14@goquant.io
+              - img
+      - text: ;
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - tablist:
+                - tab [selected]: Venues
+                - tab: Groups
+            - tabpanel:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - heading [level=1]: Accounts
+                      - paragraph: View and manage your connected cryptocurrency exchange API keys, enabling trading across multiple exchange accounts from one interface.
+                    - generic:
+                      - button [expanded]: Add Account
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - table:
+                              - rowgroup:
+                                - row:
+                                  - cell:
+                                    - generic:
+                                      - text: Venue
+                                      - img
+                                  - cell:
+                                    - generic:
+                                      - text: Account Name
+                                      - img
+                                  - cell:
+                                    - paragraph: Account Key
+                                  - cell:
+                                    - paragraph: Account Type
+                                  - cell:
+                                    - generic: Status
+                                  - cell:
+                                    - button: Actions
+                              - rowgroup:
+                                - row:
+                                  - cell:
+                                    - generic:
+                                      - generic:
+                                        - img
+                                        - generic: OKX
+                                  - cell:
+                                    - generic: Dashk805 OKX
+                                  - cell:
+                                    - paragraph: "*****9b4e"
+                                  - cell:
+                                    - paragraph:
+                                      - paragraph: Testnet
+                                  - cell:
+                                    - generic:
+                                      - button:
+                                        - img
+                                  - cell:
+                                    - generic:
+                                      - button: Modify
+                                      - button: Delete
+                                      - button:
+                                        - img
+                                - row:
+                                  - cell:
+                                    - generic:
+                                      - generic:
+                                        - img
+                                        - generic: Binance COIN-M
+                                  - cell:
+                                    - generic: Dashk805 COINM
+                                  - cell:
+                                    - paragraph: "*****hFfj"
+                                  - cell:
+                                    - paragraph:
+                                      - paragraph: Testnet
+                                  - cell:
+                                    - generic:
+                                      - button:
+                                        - img
+                                  - cell:
+                                    - generic:
+                                      - button: Modify
+                                      - button: Delete
+                                      - button:
+                                        - img
+                                - row:
+                                  - cell:
+                                    - generic:
+                                      - generic:
+                                        - img
+                                        - generic: Binance USDⓈ-M
+                                  - cell:
+                                    - generic: usdm
+                                  - cell:
+                                    - paragraph: "*****hFfj"
+                                  - cell:
+                                    - paragraph:
+                                      - paragraph: Testnet
+                                  - cell:
+                                    - generic:
+                                      - button:
+                                        - img
+                                  - cell:
+                                    - generic:
+                                      - button: Modify
+                                      - button: Delete
+                                      - button:
+                                        - img
+                                - row:
+                                  - cell:
+                                    - generic:
+                                      - generic:
+                                        - img
+                                        - generic: OKX
+                                  - cell:
+                                    - generic: Test delete
+                                  - cell:
+                                    - paragraph: "*****9b4e"
+                                  - cell:
+                                    - paragraph:
+                                      - paragraph: Testnet
+                                  - cell:
+                                    - generic:
+                                      - button:
+                                        - img
+                                  - cell:
+                                    - generic:
+                                      - button: Modify
+                                      - button: Delete
+                                      - button:
+                                        - img
+                                - row:
+                                  - cell:
+                                    - generic:
+                                      - generic:
+                                        - img
+                                        - generic: Binance USDⓈ-M
+                                  - cell:
+                                    - generic: Dashk805 USDM
+                                  - cell:
+                                    - paragraph: "*****hFfj"
+                                  - cell:
+                                    - paragraph:
+                                      - paragraph: Testnet
+                                  - cell:
+                                    - generic:
+                                      - button:
+                                        - img
+                                  - cell:
+                                    - generic:
+                                      - button: Modify
+                                      - button: Delete
+                                      - button:
+                                        - img
+                  - generic:
+                    - button [disabled]:
+                      - img
+                    - paragraph: 1 of 1
+                    - button [disabled]:
+                      - img
+    - region "Notifications alt+T"
+  - alert
+  - dialog "Add OKX Account" [ref=e2]:
+    - heading "Add OKX Account" [level=2] [ref=e3]:
+      - generic [ref=e4]: Add OKX Account
+      - combobox [disabled] [ref=e7]:
+        - generic [ref=e8]:
+          - img [ref=e9]
+          - generic [ref=e19]: OKX
+        - img [ref=e20]
+    - generic [ref=e23]:
+      - paragraph [ref=e24]: Enter OKX API keys to connect a new trading account.
+      - button [ref=e25] [cursor=pointer]:
+        - img [ref=e26]
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: OKX Account Name
+        - textbox "OKX Account Name Please enter the account name as it appears on the exchange, if applicable" [disabled] [ref=e31]:
+          - /placeholder: Enter your OKX Account Name
+          - text: Automationokx3
+        - text: Please enter the account name as it appears on the exchange, if applicable
+      - generic [ref=e32]:
+        - generic [ref=e33]: OKX Key
+        - textbox "OKX Key" [disabled] [ref=e34]:
+          - /placeholder: Enter your OKX API Key
+          - text: 5e702fa5-5438-4a81-9d0e-fb717a9b9b4e
+      - generic [ref=e35]:
+        - generic [ref=e36]: OKX Secret
+        - generic [ref=e38]:
+          - textbox "Enter your OKX secret key" [disabled] [ref=e39]: C5E40EC259C2C4D2E991177966B42765
+          - generic [ref=e40]:
+            - img [ref=e41]
+            - generic [ref=e46]: Toggle password visibility
+      - generic [ref=e47]:
+        - generic [ref=e48]: OKX Passphrase
+        - generic [ref=e50]:
+          - textbox "Enter your OKX passphrase" [disabled] [ref=e51]: Dashk@805
+          - generic [ref=e52]:
+            - img [ref=e53]
+            - generic [ref=e58]: Toggle password visibility
+      - generic [ref=e60]:
+        - generic [ref=e61]: Test Mode
+        - switch "Test Mode" [checked] [disabled] [ref=e62]
+        - checkbox [checked] [disabled]
+      - button "Adding Account" [disabled]:
+        - paragraph:
+          - text: Adding Account
+          - img
+    - button "Need help generating API keys? Follow our step-by-step guide" [ref=e64] [cursor=pointer]
+```

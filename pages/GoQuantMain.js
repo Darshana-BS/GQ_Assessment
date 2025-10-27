@@ -10,7 +10,8 @@ class GoQuantMain {
     this.password = page.getByRole('textbox', { name: 'Enter your password' })
     this.signIn = page.getByRole('button', { name: 'Sign In' });
     this.alertInvaliduserCreds = page.getByText('The format of the email');
-    this.getStarted = page.getByText('Get Started')
+    // this.getStarted = page.getByText('Get Started')
+    this.getStarted = page.getByText('Get Started→');
     //add accounts------------------------------------------------------------------------------------------------ 
     // this.gotoAdmin = page.locator('#radix-_r_4_-trigger-radix-_r_5_')
     this.clickAccounts = page.getByRole('button', { name: 'Accounts', exact: true })
@@ -166,7 +167,7 @@ class GoQuantMain {
 
   async gotoHome(url) {
     await this.page.goto(url);
-  }
+  } 
 
   async visitloginUrl(loginurl){
     await this.page.goto(loginurl);
@@ -183,9 +184,17 @@ class GoQuantMain {
     await this.getStarted.click();
   }
 
-  async login(username, password) {
+  async invalidLogin(username, password) {
     await this.gotoHome('https://test1.gotrade.goquant.io/auth/login');
-    await this.userCreds('user14@goquant.io', '60Re3G9KvvFl4Ihegxpi');
+    await this.userCreds(username, password);
+    await this.signIn.click();
+    await expect (this.alertInvaliduserCreds).toHaveText('The format of the email address is invalid')
+  }
+
+  async login(username, password) {
+    await this.page.goto('https://test1.gotrade.goquant.io/gotrade');
+    //await page.goto('https://test1.gotrade.goquant.io/auth/login');
+    await this.userCreds(username, password);
     await this.signIn.click();
     await this.afterLogin();
   }
@@ -233,9 +242,9 @@ async validateAccountAdditionOrUDP() {
     // resp.url() === 'https://test1.gotrade-api.goquant.io/gotrade/v2/credentials' && resp.status() === 200
     // );
     // Optional: get JSON response
-    // const body = await response.json();
-    // console.log('API Response:', body);
-    await this.page.waitForSelector('text=Account added successfully', { state: 'visible'  });
+    const body = await response.json();
+    console.log('API Response:', body);
+    // await this.page.waitForSelector('text=Account added successfully', { state: 'visible'  });
     await this.page.getByText('Account added successfully').click();
     // await page.getByText('No response received from UDP').click();
     // await this.validateAccountAdditionOrUDP();

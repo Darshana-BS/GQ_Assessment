@@ -9,9 +9,6 @@ test('Login with invalid user credentials @auth', async ({ browser }) => {
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
   // Enter invalid credentials to signIn
-  await gqMain.gotoHome('https://test1.gotrade.goquant.io/auth/login');
-  await gqMain.userCreds('darshana@goquant.com', 'Dashk@805');
-  await gqMain.signIn.click();
-  await expect (gqMain.alertInvaliduserCreds).toHaveText('The format of the email address is invalid')
+  await gqMain.invalidLogin('darshana@goquant.com', 'Dashk@805')
   await stopTrace();
 });

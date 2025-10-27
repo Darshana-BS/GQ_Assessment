@@ -10,7 +10,7 @@ test('Delete account for first time after login @account', async ({ browser }) =
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
   //defind modal constants 
-  await gqMain.login();
+  await gqMain.login('user14@goquant.io', '60Re3G9KvvFl4Ihegxpi');
   await gqMain.deleteaccountOKX();
   await gqMain.deleteaccountUSDM();
   await gqMain.deleteaccountCOINM();

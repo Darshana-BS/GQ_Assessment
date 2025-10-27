@@ -9,7 +9,7 @@ test('Log out of account @auth @logout', async ({browser})=> {
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
   //Log out from account
-  await gqMain.login();
+  await gqMain.login('user14@goquant.io', '60Re3G9KvvFl4Ihegxpi')
   await gqMain.logout();
   await stopTrace();
 })

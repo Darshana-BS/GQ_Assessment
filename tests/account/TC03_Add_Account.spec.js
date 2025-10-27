@@ -1,6 +1,6 @@
 const { GoQuantMain } = require('../../pages/GoQuantMain')
 const { test, expect } = require('@playwright/test');
-const { startTracing } = require('../../tests/utils/tracingHelper');
+const { startTracing } = require('../utils/tracingHelper');
 
 //-----------------------------TC_03_Add_Account_using_valid_details_[Passed]--------------------------------
 test('Add account for first time after login @account', async ({ browser }) => {
@@ -9,7 +9,7 @@ test('Add account for first time after login @account', async ({ browser }) => {
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
   // Get started and add first account (first time visit after login) 
-  await gqMain.login();
+  await gqMain.login('user14@goquant.io', '60Re3G9KvvFl4Ihegxpi');
   await gqMain.addAccountOKX();
   // await gqMain.addAccountBianceUSDM();
   // await gqMain.addAccountBianceCOINM();

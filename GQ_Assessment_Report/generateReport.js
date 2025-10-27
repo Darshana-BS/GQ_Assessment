@@ -652,4 +652,28 @@ fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Status_Report.md', resul
 //   console.log(`✅ PDF successfully generated: ${statuspdfPath}`);
 // } catch (err) {
 //   console.error(`❌ Failed to generate PDF: ${err.message}`);
-// }
+// } 
+// generateModuleReports.js
+const fs = require('fs');
+
+const modules = ['auth', 'account', 'orders']; // add your folders here
+
+modules.forEach(module => {
+  console.log(`\n📦 Generating report for module: ${module}`);
+
+  const moduleDir = `tests/${module}`;
+  const reportDir = `GQ_Assessment_Report/${module}`;
+
+  if (!fs.existsSync(moduleDir)) {
+    console.log(`⚠️ Skipping ${module} — no tests found`);
+    return;
+  }
+
+  try {
+    // Run tests for this module
+    execSync(`npx playwright test ${moduleDir} --reporter=html --output=${reportDir}`, { stdio: 'inherit' });
+    console.log(`✅ Report generated at: ${reportDir}/index.html`);
+  } catch (err) {
+    console.error(`❌ Error running tests for ${module}:`, err.message);
+  }
+});

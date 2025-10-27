@@ -9,7 +9,7 @@ test('Modify Account with Valid details @account', async ({browser})=> {
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
   //Modify account with valid details
-  await gqMain.login();
+  await gqMain.login('user14@goquant.io', '60Re3G9KvvFl4Ihegxpi');
   await gqMain.addAccountOKX();
   await gqMain.modifyAccountOKXValidDetails();
   await stopTrace();

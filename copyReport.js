@@ -4,7 +4,8 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // Paths
-const sourceDir = path.resolve('./playwright-report');
+// const sourceDir = path.resolve('./playwright-report');
+const sourceDir = path.resolve('./GQ_Assessment_Report');
 const docsDir = path.resolve('./docs');
 
 // Ensure source exists
