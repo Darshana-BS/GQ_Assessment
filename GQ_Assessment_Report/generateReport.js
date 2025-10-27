@@ -332,3 +332,4 @@ ${md5Table}
 ${credentials}
 `;
 fs.writeFileSync('./GQ_Assessment_Report/Detailed_Report.md', finalReport);
+fs.writeFileSync('./GQ_Assessment_Report/Detailed_Report.pdf', finalReport);
