@@ -205,6 +205,9 @@ npx playwright test --headed
 npx playwright test --reporter=json,html --output=playwright-report > /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/test-results/results.json --project=chromium --headed
 npm run test:report 
 
+# Run test to copy report with date, time and to github automaticaly 
+"test:reportcopy": "npx playwright test --reporter=html && node copyReport.js"
+
 # Run cases and save browser specific results in <browser_name>_results 
 "test:chrome": "npx playwright test --project=chromium --reporter=html --output=chrome_results",
 "test:firefox": "npx playwright test --project=firefox --reporter=html --output=firefox_results",
