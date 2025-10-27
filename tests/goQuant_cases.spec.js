@@ -212,6 +212,19 @@ test('Place a short / sell order', async({browser})=>{
   await stopTrace();
 })
 
+//-----------------------------TC_19_Validate_Accounts_Status_[WIP]--------------------------------
+test('Log out of account', async ({browser})=> {
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC_19_Validate_Accounts_Status_');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //Validate account status 
+  await gqMain.login();
+  await gqMain.addAccountOKX();
+  await gqMain.validateAccountStatus();
+  await stopTrace();
+})
+
 //-----------------------------TC_20_Logout_User_[Passed]--------------------------------
 test('Log out of account', async ({browser})=> {
   const context = await browser.newContext();
