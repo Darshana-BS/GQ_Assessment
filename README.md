@@ -218,10 +218,10 @@ All 22 Playwright test cases are structured across feature-based spec files:
 
 | Module                | Test Cases         | Folder              |
 |-----------------------|------------------- |---------------------|
-| Authentication        | TC01, – TC02, TC20 | `/tests/auth/`    |
-| Account Management    | TC03, – TC05, TC21 | `/tests/account/` |
-| Orders                | TC06,– TC14        | `/tests/orders/`  |
-| API Validation        | TC15, – TC16       | `/tests/api/`     |
+| Authentication        | TC01 – TC02, TC20 | `/tests/auth/`    |
+| Account Management    | TC03 – TC05, TC21 | `/tests/account/` |
+| Orders                | TC06– TC14        | `/tests/orders/`  |
+| API Validation        | TC15 – TC16       | `/tests/api/`     |
 
 This structure improves test readability, modularity, and maintainability.
 
@@ -251,14 +251,13 @@ All Playwright tests are categorized with tags for selective execution:
 npx playwright test --grep "@auth"
 npx playwright test --grep "@order"
 npx playwright test --grep-invert "@api"
-
 ------------------------------------------------------------------------------
 
 ## 18. ✨ Conclusion
 The GoTrade application is functional but exhibits minor inconsistencies across UI and API layers.  
 The automation suite is scalable, modular, and demonstrates readiness for integration into CI/CD.
-
 ------------------------------------------------------------------------------
+
 ## 19. Author
 ```
 👩‍💻 *Darshana Nehulkar*  
