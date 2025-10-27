@@ -1,5 +1,5 @@
 816ed2e4d5c09c8a2c95b820eba4eb46 ./GQ_Assessment_Report/Detailed_Report.pdf
 edb3750e3c84a23a5f399101c4db9adc ./GQ_Assessment_Report/md5_report.txt
 9bf447f9433f1e97a87f68e72bb8541b ./GQ_Assessment_Report/Detailed_Report.md
-bef6eca6e279efaadd53381985d38e4d ./README.md
-b2edc5a9e32121fdcdc9dd7bc3ae1ff0 ./generateReport.js
+f12585e8924001d663b33ec1833925f6 ./README.md
+46619d265b19f43e3d300acc9031ae7e ./generateReport.js
