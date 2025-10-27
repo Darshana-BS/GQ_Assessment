@@ -106,7 +106,7 @@ npx playwright install
 npx playwright test --reporter=html
 npx playwright show-report
 
-# View Video recording tarce 
+# View Video recording trace 
 npx playwright show-trace trace/<.zip file name>
 ex. npx playwright show-trace trace/TC05_Modify\ Account.zip
 
@@ -152,9 +152,9 @@ ${credentials}
 ## 9. 🧪 Test Case Overview
 | Category   | Scenarios  | Tools Used |
 |----------- |------------|------------|
-| Functional | Login validation, Account creation, Account Modify, Place Order, Cancel Order API, Switch Views, Log out | Playwright |
+| Functional | Login validation, Account creation, Account Modify, Account Delete, Place Order, Validate Account status, Get order details, Cancel Order API, Switch Views, Log out | Playwright |
 | UI/UX      | Page elements, modal handling, dropdowns | Playwright |
-| Edge Case  | Invalid credentials, failed API | Postman + Playwright |
+| Edge Case  | \`/gotrade/v3/users\` | Playwright |
 | API        | \`/gotrade/v3/credentials\`, \`/gotrade/v3/cancel_all\` | Playwright APIRequest |
 
 Total Tests: **22**  
@@ -163,6 +163,7 @@ Failed (Expected): **2**
 ------------------------------------------------------------------------------
 
 ##10. **Playwright Test Summary:**
+\`\`\`
 const testSummary = 
 '| Test Case | Status |
 |-----------|--------|
@@ -193,9 +194,10 @@ Indivisual video recording / trace of the cases executed
 • TC14_Smart_order_routing.zip
 • TC20_Logout.zip
 • TC21_Modify_Account_valid_details.zip
+\`\`\`
 ------------------------------------------------------------------------------
 
-###11 🧩 Challenges Faced
+## 11 🧩 Challenges Faced
 - Dynamic IDs ('radix-*') made locators unstable.
 - Modal elements required explicit waits.
 - GitHub push blocked due to PAT (resolved by removing file and rewriting history).
@@ -248,11 +250,22 @@ Indivisual video recording / trace of the cases executed
 - Add a better UI handeling for the screen elements of the Add/Clear button (expected = dropdown to select % should stay until user clicks somwhere elese)
 ------------------------------------------------------------------------------
 
+const evidenceSection = 
 ## 📸 Evidence & Reports
-- ✅ **HTML Report:** 'GQ_Assessment_Report/playwright-report/index.html' and 'DN_cypress/GoQuant_Auto_Asse/playwright-report/index.html'
-- ✅ **Trace Files:** 'trace/TC01_LoginInvalid_Creds.zip'
-- ✅ **Screenshots:** 'reports/screenshots/' [Pending] 
------------------------------------------------------------------------------- 
+| 🧾 Type | 📁 Location | 🔗 Open / Notes |
+|----------|--------------|----------------|
+| 🧠 **HTML Test Report** | [GQ_Assessment_Report/playwright-report/index.html](./GQ_Assessment_Report/playwright-report/index.html) | ▶️ *View full Playwright test results* |
+| 🧠 **HTML Test Report (Backup)** | [DN_cypress/GoQuant_Auto_Asse/playwright-report/index.html](../DN_cypress/GoQuant_Auto_Asse/playwright-report/index.html) | 🪄 *Backup local report location* |
+| 🧩 **Trace Files** | [trace/TC01_LoginInvalid_Creds.zip](./trace/TC01_LoginInvalid_Creds.zip) | 🔍 *Replay test steps in Playwright trace viewer* |
+| 🖼️ **Screenshots** | [reports/screenshots/](./reports/screenshots/) | 📸 *Pending upload / captured test images* |
+
+---;
+
+// ## 📸 Evidence & Reports
+// - ✅ **HTML Report:** 'GQ_Assessment_Report/playwright-report/index.html' and 'DN_cypress/GoQuant_Auto_Asse/playwright-report/index.html'
+// - ✅ **Trace Files:** 'trace/TC01_LoginInvalid_Creds.zip'
+// - ✅ **Screenshots:** 'reports/screenshots/' [Pending] 
+// ------------------------------------------------------------------------------ 
 
 ## ✨ Conclusion
 The GoTrade application is functional but exhibits minor inconsistencies across UI and API layers.  
