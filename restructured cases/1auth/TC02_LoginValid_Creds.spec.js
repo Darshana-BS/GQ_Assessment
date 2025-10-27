@@ -1,6 +1,6 @@
 const { GoQuantMain } = require('../../pages/GoQuantMain')
 const { test, expect } = require('@playwright/test');
-const { startTracing } = require('../utils/tracingHelper');
+const { startTracing } = require('../../tests/utils/tracingHelper');
 
 //-----------------------------TC_02_Login_using_valid_creds_[Passed]--------------------------------
 test('Login with valid user credentials @auth', async ({ browser }) => {
@@ -14,4 +14,4 @@ test('Login with valid user credentials @auth', async ({ browser }) => {
   await gqMain.signIn.click();
   await gqMain.afterLogin();
   await stopTrace();
-}); 
+});

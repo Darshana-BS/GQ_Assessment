@@ -201,6 +201,15 @@ npx playwright test --headless
 # Run tests in head mode 
 npx playwright test --headed  
 
+# Run tests to save /test-results/resultsjson results 
+npx playwright test --reporter=json,html --output=playwright-report > /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/test-results/results.json --project=chromium --headed
+npm run test:report 
+
+# Run cases and save browser specific results in <browser_name>_results 
+"test:chrome": "npx playwright test --project=chromium --reporter=html --output=chrome_results",
+"test:firefox": "npx playwright test --project=firefox --reporter=html --output=firefox_results",
+"test:safari": "npx playwright test --project=webkit --reporter=html --output=webkit_results",
+
 # Generate MD5 checksums
 mkdir -p GQ_Assessment_Report
 find . -type f ! -path "*/.*" -print0 | xargs -0 -I{} md5 -r {} > GQ_Assessment_Report/md5_report.txt 
@@ -387,7 +396,9 @@ The GoTrade application is functional but exhibits minor inconsistencies across 
 The automation suite is scalable, modular, and demonstrates readiness for integration into CI/CD.
 ------------------------------------------------------------------------------
 
-## 18. Author
+
+\`\`\`
+## 18. Author 
 \`\`\`
 👩‍💻 *Darshana Nehulkar*  
 - GitHub: [https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/)
@@ -605,12 +616,12 @@ if (typeof markdown === 'undefined') {
 markdown += resultsSection;
 
 // Save markdown to file to Generate Live test status md5 report
-fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Report.md', markdown);
+fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Status_Report.md', markdown);
 console.log('✅ Detailed report updated with Playwright results.');
 
 // Append to existing markdown variable 
 markdown += `\n\n${resultsSection}`;
-fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Report.md', resultsSection); 
+fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Status_Report.md', resultsSection); 
 
 //PDF generate for live cases results status
 // const { execSync } = require('child_process');

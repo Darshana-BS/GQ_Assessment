@@ -1,0 +1,21 @@
+
+## 🧪 Latest Playwright Test Results
+- **has title** — ✅ Passed
+- **get started link** — ✅ Passed
+- **Login with invalid user credentials** — ✅ Passed
+- **Login with valid user credentials** — ✅ Passed
+- **Add account for first time after login** — ❌ Failed
+- **Delete account for first time after login** — ❌ Failed
+- **Modify Account with invalid details** — ❌ Failed
+- **Place OKX Market Order** — ❌ Failed
+- **Place Order with mandatory details empty** — ✅ Passed
+- **Validate Metrics** — ✅ Passed
+- **Cancel all working orders** — ✅ Passed
+- **Kill-Edge for orders** — ✅ Passed
+- **Liquidate Positions** — ✅ Passed
+- **Switch to smart order routing** — ❌ Failed
+- **Enable toggle for Consolidated View** — ✅ Passed
+- **Place a short / sell order** — ❌ Failed
+- **Log out of account** — ✅ Passed
+- **Modify Account with Valid details** — ❌ Failed
+- **Handel Something Went wrong** — ❌ Failed

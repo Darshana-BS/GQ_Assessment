@@ -227,7 +227,7 @@ test('Place a short / sell order', async({browser})=>{
 // })
 
 //-----------------------------TC_20_Logout_User_[Passed]--------------------------------
-test.only('Log out of account', async ({browser})=> {
+test('Log out of account', async ({browser})=> {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC20_Logout');
   const page = await context.newPage();

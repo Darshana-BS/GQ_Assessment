@@ -8,7 +8,7 @@
   "test:chrome": "npx playwright test --project=chromium --reporter=html --output=chrome_results",
   "test:firefox": "npx playwright test --project=firefox --reporter=html --output=firefox_results",
   "test:safari": "npx playwright test --project=webkit --reporter=html --output=webkit_results",
-  "testreports": "npx playwright test --reporter=json,html && node GQ_Assessment_Report/generateReport.js",
+  "test:generatereports": "npx playwright test --reporter=json,html && node GQ_Assessment_Report/generateReport.js",
   "test:report": "npx playwright test --reporter=json,html --output=playwright-report > /Users/darsh_cf/Desktop/DN_cypress/GoQuant_Auto_Asse/test-results/results.json"
   },
   "keywords": [],
