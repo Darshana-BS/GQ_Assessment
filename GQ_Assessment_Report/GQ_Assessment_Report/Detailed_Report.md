@@ -1,76 +1,46 @@
 
-# GQ_Assessment Automation Framework
-
-## 1. Project Title and Description
-**Project Title:** GQ_Assessment Automation  
-**Description:** Automation framework for GoQuant platform validating account management, orders, APIs, and UI flows.
-
-## 2. Technologies and Frameworks
-- Node.js, Playwright, markdown-pdf
-- npm for dependency management
-- MD5 checks for file integrity
-
-## 3. Prerequisites
-- Node.js v18+, npm
-- Playwright browsers installed
-- Git
-
-## 4. Installation
-```
-git clone -b GQ_Assessment https://github.com/Darshana-BS/GQ_Assessment.git
-cd GQ_Assessment
-npm install
-npx playwright install
-```
-
-## 5. How to Run Tests
-```
-# Run all tests
-npx playwright test --reporter=html
-npx playwright show-report
-
-# Run specific test
-npx playwright test tests/goQuant_cases.spec.js
-
-# Generate MD5 checksums
-find . -type f ! -path "*/.*" -print0 | xargs -0 -I{} md5 -r {} > GQ_Assessment_Report/md5_report.txt
-
-# Generate combined PDF report
-node generateReport.js
-```
-
-## 6. Project Structure
-```
-pages/          # Page object models
-tests/          # Test scripts
-fixtures/       # Test data
-GQ_Assessment_Report/ # Reports
-package.json
-generateReport.js
-```
-
-## 7. MD5 Checksums (Top 10 Files)
-| Hash | File |
-|------|------|
-| 3f43bd73037c2a0c3b7587ed4e4332e7 | ./GQ_Assessment_Report/Detailed_Report.pdf |
-| 53da0a5c7aa86ce618aaf63560487412 | ./GQ_Assessment_Report/md5_report.txt |
-| be9f8598e483d50b47ed5a7452202e3e | ./GQ_Assessment_Report/Detailed_Report.md |
-| 073b49d4796fbf0f985ca46dbcc8c0d2 | ./generateReport.js |
-
-Full MD5 report: [md5_report.txt](md5_report.txt)
-
-## 8. Playwright Test Summary
-| Test Name | Status |
-|-----------|--------|
-| goQuant_cases.spec.js | See HTML report |
+# 🧠 GoQuant QA Assessment Report
 
 
-Full HTML report: GQ_Assessment_Report/playwright-report/index.html
+## 📋 Test Summary
 
-## 9. Known Bugs / Notes
-- Update API sometimes returns 400 (handled)
-- Cancel Order API sometimes returns 422 (handled)
+This report summarizes the automated test results for the GoQuant Assessment project.
+All test scripts were executed using **Playwright**, with supporting API tests via **Postman**.
+Each module includes validation for login, account management, order execution, and API response integrity.
 
-## 10. Author
-Darshana Nehulkar
-- GitHub: [Darshana-BS](https://github.com/Darshana-BS)
+
+
+## 🎥 Test Execution Evidence
+
+Each test case has its own individual **Playwright trace recording** uploaded to GitHub.  
+These traces include full steps, network logs, screenshots, and console logs for debugging.
+
+| # | Test Case | Trace File | GitHub Link |
+|---|------------|-------------|-------------|
+| 01 | Login with Invalid Credentials | TC01_LoginInvalid_Creds.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC01_LoginInvalid_Creds.zip) |
+| 02 | Login with Valid Credentials | TC02_LoginValid_Creds.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC02_LoginValid_Creds.zip) |
+| 03 | Add Account | TC03_Add_Account.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC03_Add_Account.zip) |
+| 04 | Delete Account | TC04_Delete_Account.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC04_Delete_Account.zip) |
+| 05 | Modify Account (Invalid Details) | TC05_Modify_Account_Invalid_Details.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC05_Modify_Account_Invalid_Details.zip) |
+| 06 | Place OKX Market Order | TC06_Place_OKX_Market_Order.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC06_Place_OKX_Market_Order.zip) |
+| 07 | Get Order Details | TC07_Get_Order_Details.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC07_Get_Order_Details.zip) |
+| 08 | Validation Errors | TC08_Validation_Errors.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC08_Validation_Errors.zip) |
+| 09 | Validate Metrics | TC09_Validate_Metrics.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC09_Validate_Metrics.zip) |
+| 10 | Add & Clear Assets | TC10_AddClear_Assets.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC10_AddClear_Assets.zip) |
+| 11 | Cancel All Working Orders | TC11_CancelAll_WorkingOrders.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC11_CancelAll_WorkingOrders.zip) |
+| 12 | Kill Edge | TC12_Kill_Edge.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC12_Kill_Edge.zip) |
+| 13 | Liquidate Positions | TC13_Liquidate_Positions.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC13_Liquidate_Positions.zip) |
+| 14 | Smart Order Routing | TC14_Smart_Order_Routing.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC14_Smart_Order_Routing.zip) |
+| 20 | Logout | TC20_Logout.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC20_Logout.zip) |
+| 21 | Modify Account (Valid Details) | TC21_Modify_Account_Valid_Details.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/TC21_Modify_Account_Valid_Details.zip) |
+
+> 🧩 **Note:** All traces are downloadable ZIPs and can be replayed using Playwright Trace Viewer.
+
+
+| 816ed2e4d5c09c8a2c95b820eba4eb46 | ./GQ_Assessment_Report/Detailed_Report.pdf |
+| edb3750e3c84a23a5f399101c4db9adc | ./GQ_Assessment_Report/md5_report.txt |
+| bc8061c39f4871231d5c04f51d3e0ef2 | ./GQ_Assessment_Report/Detailed_Report.md |
+| 7cf9de2151c0e14524b99ee5e319c566 | ./README.md |
+| b8f62f178ec3eeaeba4440842686e325 | ./generateReport.js |
+
+Generated by Darshana Nehulkar | QA Automation
