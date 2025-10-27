@@ -290,7 +290,10 @@ Indivisual video recording / trace of the cases executed
 ------------------------------------------------------------------------------ 
 
 ## 16. 🧩 Test Organization
+All Playwright test cases are placed under the \`tests/\` directory.  
+Each module or functionality has its own \`.spec.js\` file for better organization.
 
+\`\`\`bash
 tests/
 │
 ├── auth/
@@ -309,19 +312,14 @@ tests/
 │   ├── TC11_Cancel_All_WorkingOrders.spec.js
 │   └── TC14_Smart_Order_Routing.spec.js
 │
-├── api/
-│   ├── TC08_Validation_Errors.spec.js
-│   ├── TC09_Validate_Metrics.spec.js
-│   ├── TC10_Add_Clear_Assets.spec.js
-│   ├── TC12_Kill_Edge.spec.js
-│   ├── TC13_Liquidate_Positions.spec.js
-│   └── TC20_Logout.spec.js
-│
-└── trace/
-    ├── TC01_LoginInvalid_Creds.zip
-    ├── TC02_LoginValid_Creds.zip
-    ├── TC03_Add Account.zip
-    └── ... (etc.)
+└── api/
+    ├── TC08_Validation_Errors.spec.js
+    ├── TC09_Validate_Metrics.spec.js
+    ├── TC10_Add_Clear_Assets.spec.js
+    ├── TC12_Kill_Edge.spec.js
+    ├── TC13_Liquidate_Positions.spec.js
+    └── TC20_Logout.spec.js
+\`\`\`
 
 All 22 Playwright test cases are structured across feature-based spec files:
 

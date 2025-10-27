@@ -214,6 +214,37 @@ Indivisual video recording / trace of the cases executed
 ------------------------------------------------------------------------------ 
 
 ## 16. 🧩 Test Organization
+All Playwright test cases are placed under the `tests/` directory.  
+Each module or functionality has its own `.spec.js` file for better organization.
+
+```bash
+tests/
+│
+├── auth/
+│   ├── TC01_LoginInvalid_Creds.spec.js
+│   └── TC02_LoginValid_Creds.spec.js
+│
+├── account/
+│   ├── TC03_Add_Account.spec.js
+│   ├── TC04_Delete_Account.spec.js
+│   ├── TC05_Modify_Account_Invalid.spec.js
+│   └── TC21_Modify_Account_Valid.spec.js
+│
+├── orders/
+│   ├── TC06_Place_OKX_Market_Order.spec.js
+│   ├── TC07_Get_Order_Details.spec.js
+│   ├── TC11_Cancel_All_WorkingOrders.spec.js
+│   └── TC14_Smart_Order_Routing.spec.js
+│
+└── api/
+    ├── TC08_Validation_Errors.spec.js
+    ├── TC09_Validate_Metrics.spec.js
+    ├── TC10_Add_Clear_Assets.spec.js
+    ├── TC12_Kill_Edge.spec.js
+    ├── TC13_Liquidate_Positions.spec.js
+    └── TC20_Logout.spec.js
+```
+
 All 22 Playwright test cases are structured across feature-based spec files:
 
 | Module                | Test Cases         | Folder              |
@@ -253,12 +284,12 @@ npx playwright test --grep "@order"
 npx playwright test --grep-invert "@api"
 ------------------------------------------------------------------------------
 
-### 18. ✨ Conclusion
+## 18. ✨ Conclusion
 The GoTrade application is functional but exhibits minor inconsistencies across UI and API layers.  
 The automation suite is scalable, modular, and demonstrates readiness for integration into CI/CD.
 ------------------------------------------------------------------------------
 
-### 19. Author
+## 19. Author
 ```
 👩‍💻 *Darshana Nehulkar*  
 - GitHub: [https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/)
