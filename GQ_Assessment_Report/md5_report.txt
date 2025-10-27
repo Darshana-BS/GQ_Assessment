@@ -2329,14 +2329,14 @@ b04b2df86a3986c51d12f416e2d5d91f ./node_modules/jsbn/index.js
 2eb56edbb7819cbc7902f1114f1364a9 ./node_modules/jsbn/example.html
 a10cd005c4727beb0ca9b4f9fb37b441 ./node_modules/jsbn/package.json
 2cbb15596cbf1e2f7f6019bc25377fc8 ./node_modules/jsbn/example.js
-8a029284e6ab49c9ebc317ee12376ac9 ./GQ_Assessment_Report/Detailed_Report.pdf
+175a9f89f84c9003cb7ed566e909fa2d ./GQ_Assessment_Report/Detailed_Report.pdf
 147e8e694009ce89779799d7095efe99 ./GQ_Assessment_Report/GQ_Assessment_Report/Detailed_Report.pdf
 7cf753a36bda3785ddce0d30c7caf551 ./GQ_Assessment_Report/GQ_Assessment_Report/md5_report.txt
 f65b8199068ba5fb819c5e040d5ae745 ./GQ_Assessment_Report/GQ_Assessment_Report/Detailed_Report.md
-49c60d17625fcf9b8e9e0efd1fb37249 ./GQ_Assessment_Report/md5_report.txt
+4086303e11102ada145cc2e1b1217043 ./GQ_Assessment_Report/md5_report.txt
 a135c3ef5df4a6e48490b2341d21ea20 ./GQ_Assessment_Report/Detailed_Report.md
 f883bfa3aac46782f8fe32a5eec9bf6d ./GQ_Assessment_Report/README.md
-2e00d46a629bf1a19234c5aa75effe06 ./GQ_Assessment_Report/generateReport.js
+628a9fc9102a3b000d22d3b4709bcfd3 ./GQ_Assessment_Report/generateReport.js
 27fc5e325beba464b8b839001375d365 ./tests/trace/TC15_Order_Book_Consolidated_view.zip
 4ccbde67d85bb43cd99c80e65bff7616 ./tests/trace/TC09_validate_metrics.zip
 322175017e8e1f6eee3f6a70cd914fce ./tests/trace/TC12_kill-edge.zip
@@ -2362,7 +2362,7 @@ c124d627c97b9bcadae03f9e6d88574a ./tests/goQuant_cases.spec.js
 d41d8cd98f00b204e9800998ecf8427e ./tests/md5_report.txt
 d4511c5e832301303c4a858124c75e90 ./tests/example.spec.js
 c0338209b26a37f704df2cbdd02f342d ./playwright.config.js
-fd5c2fa20d4bb4013222c32ecc90761c ./README.md
+a3b98267dadeea5661b20d69b7d95ecd ./README.md
 eb0a86fd229e391242a3629759cdacc9 ./package-lock.json
 2f3433b3e0fc7f0e927f8cb6b22f37ed ./package.json
 0a2c0933a3c1177bfd794983abc7a9e0 ./playwright-report/index.html

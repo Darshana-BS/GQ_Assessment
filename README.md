@@ -253,12 +253,12 @@ npx playwright test --grep "@order"
 npx playwright test --grep-invert "@api"
 ------------------------------------------------------------------------------
 
-## 18. ✨ Conclusion
+### 18. ✨ Conclusion
 The GoTrade application is functional but exhibits minor inconsistencies across UI and API layers.  
 The automation suite is scalable, modular, and demonstrates readiness for integration into CI/CD.
 ------------------------------------------------------------------------------
 
-## 19. Author
+### 19. Author
 ```
 👩‍💻 *Darshana Nehulkar*  
 - GitHub: [https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/)
