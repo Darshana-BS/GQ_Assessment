@@ -8,17 +8,16 @@ async function startTracing(context, name) {
     await context.tracing.stop({ path: `trace/${name}.zip` });
   };
 }
-
-//-----------------------------TC_01_Login_using_invalid_creds_[Passed]--------------------------------
-test('Login with invalid user credentials @auth', async ({ browser }) => {
+//-----------------------------TC_02_Login_using_valid_creds_[Passed]--------------------------------
+test('Login with valid user credentials @auth', async ({ browser }) => {
   const context = await browser.newContext();
-  const stopTrace = await startTracing(context, 'TC01_LoginInvalid_Creds');
+  const stopTrace = await startTracing(context, 'TC02_LoginValid_Creds');
   const page = await context.newPage();
   const gqMain = new GoQuantMain(page);
-  // Enter invalid credentials to signIn
+  // Enter valid credentials to signIn
   await gqMain.gotoHome('https://test1.gotrade.goquant.io/auth/login');
-  await gqMain.userCreds('darshana@goquant.com', 'Dashk@805');
+  await gqMain.userCreds('user14@goquant.io', '60Re3G9KvvFl4Ihegxpi');
   await gqMain.signIn.click();
-  await expect (gqMain.alertInvaliduserCreds).toHaveText('The format of the email address is invalid')
+  await gqMain.afterLogin();
   await stopTrace();
-});
+}); 
