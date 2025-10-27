@@ -181,7 +181,7 @@ class GoQuantMain {
   async afterLogin() {
     await expect (this.page).toHaveURL('https://test1.gotrade.goquant.io/gotrade')
     await expect (this.page).toHaveTitle("GoTrade")
-    await this.getStarted.click();
+    // await this.getStarted.click();
   }
 
   async invalidLogin(username, password) {
