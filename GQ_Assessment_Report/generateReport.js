@@ -138,6 +138,7 @@ playwright.config.js      # Configs for tests being executed
 ------------------------------------------------------------------------------
 
 ## 8. Reporting and Results
+\`\`\`
 **Top 10 MD5 files:**
 MD5 Report: GQ_Assessment_Report/md5_report.txt — lists MD5 hashes of all project files for integrity check
 Playwright HTML Report: GQ_Assessment_Report/playwright-report/index.html — detailed pass/fail report for all test cases
@@ -145,6 +146,7 @@ Combined PDF Report: GQ_Assessment_Report/Detailed_Report.pdf — single file co
 | Hash | File |
 ${md5Table}
 ${credentials}
+\`\`\`
 ------------------------------------------------------------------------------
 
 ## 9. 🧪 Test Case Overview
