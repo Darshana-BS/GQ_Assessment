@@ -93,16 +93,16 @@ test('Place OKX Market Order', async ({browser})=> {
 })
 
 //-----------------------------TC_07_Get_Order_details_[WIP]--------------------------------
-test('Get Order details', async ({browser})=> {
-  const context = await browser.newContext();
-  const stopTrace = await startTracing(context, 'TC07_Get_order datails');
-  const page = await context.newPage();
-  const gqMain = new GoQuantMain(page);
-  //Validate Order Details 
-  await gqMain.login();
-  await gqMain.getOrderdetails();
-  await stopTrace();
-})
+// test('Get Order details', async ({browser})=> {
+//   const context = await browser.newContext();
+//   const stopTrace = await startTracing(context, 'TC07_Get_order datails');
+//   const page = await context.newPage();
+//   const gqMain = new GoQuantMain(page);
+//   //Validate Order Details 
+//   await gqMain.login();
+//   await gqMain.getOrderdetails();
+//   await stopTrace();
+// })
 
 //-----------------------------TC08_validation_errors_with_empty_details_[Passed]--------------------------------
 test('Place Order with mandatory details empty', async ({browser})=> {
@@ -129,16 +129,16 @@ test('Validate Metrics',  async({browser})=>{
 })
 
 //-----------------------------TC10_addclear_Assets_[WIP]--------------------------------
-test('Add clear the Assets',  async({browser})=>{
-  const context = await browser.newContext();
-  const stopTrace = await startTracing(context, 'TC10_addclear_assets');
-  const page = await context.newPage();
-  const gqMain = new GoQuantMain(page);
-  //add clear assets 
-  await gqMain.login();
-  await gqMain.addClearAssetsforBTC();
-  await stopTrace();
-})
+// test('Add clear the Assets',  async({browser})=>{
+//   const context = await browser.newContext();
+//   const stopTrace = await startTracing(context, 'TC10_addclear_assets');
+//   const page = await context.newPage();
+//   const gqMain = new GoQuantMain(page);
+//   //add clear assets 
+//   await gqMain.login();
+//   await gqMain.addClearAssetsforBTC();
+//   await stopTrace();
+// })
 
 //-----------------------------TC11_cancelall_workingorders[Passed]--------------------------------
 test('Cancel all working orders', async({browser})=>{
@@ -189,7 +189,7 @@ test('Switch to smart order routing', async({browser})=>{
 })
 
 //-----------------------------TC15_Order_Book_Consolidated_view[Passed]--------------------------------
-test.only('Enable toggle for Consolidated View', async({browser})=>{
+test('Enable toggle for Consolidated View', async({browser})=>{
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC15_Order_Book_Consolidated_view');
   const page = await context.newPage();
@@ -213,17 +213,17 @@ test('Place a short / sell order', async({browser})=>{
 })
 
 //-----------------------------TC_19_Validate_Accounts_Status_[WIP]--------------------------------
-test('Log out of account', async ({browser})=> {
-  const context = await browser.newContext();
-  const stopTrace = await startTracing(context, 'TC_19_Validate_Accounts_Status_');
-  const page = await context.newPage();
-  const gqMain = new GoQuantMain(page);
-  //Validate account status 
-  await gqMain.login();
-  await gqMain.addAccountOKX();
-  await gqMain.validateAccountStatus();
-  await stopTrace();
-})
+// test('Log out of account', async ({browser})=> {
+//   const context = await browser.newContext();
+//   const stopTrace = await startTracing(context, 'TC_19_Validate_Accounts_Status_');
+//   const page = await context.newPage();
+//   const gqMain = new GoQuantMain(page);
+//   //Validate account status 
+//   await gqMain.login();
+//   await gqMain.addAccountOKX();
+//   await gqMain.validateAccountStatus();
+//   await stopTrace();
+// })
 
 //-----------------------------TC_20_Logout_User_[Passed]--------------------------------
 test('Log out of account', async ({browser})=> {
