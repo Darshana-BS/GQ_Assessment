@@ -16,13 +16,17 @@ module.exports = defineConfig({
   testDir: './tests',         // where your test specs are
   timeout: 30 * 1000,         // default timeout
   retries: 2,                 // retry failing tests once
-  reporter: [['list'], ['html']],  // nice HTML report
+  reporter:                   // nice HTML report
+  [['list'], 
+  ['html', { outputFolder: 'playwright-report' }],
+  ['json', { outputFile: 'playwright-report/test-results.json' }]
+  ],                          
 
   use: {
     headless: true,                    // run in headless mode
     screenshot: 'on',                  // take screenshot on every failure
     video: 'on',                      // record video if test fails first time
-    //trace: 'on',                      // record trace if test fails first time
+    //trace: 'retain-on-failure',                     // record trace if test fails first time
     screenshots: 'on'
   },
 // export default defineConfig({

@@ -145,6 +145,9 @@ npx playwright test tests/goQuant_cases.spec.js
 # Run tests in headless mode 
 npx playwright test --headless 
 
+# Run tests in head mode 
+npx playwright test --headed  
+
 # Generate MD5 checksums
 mkdir -p GQ_Assessment_Report
 find . -type f ! -path "*/.*" -print0 | xargs -0 -I{} md5 -r {} > GQ_Assessment_Report/md5_report.txt 
@@ -402,6 +405,7 @@ ${md5Table}
 
 ${credentials}
 `;
+
 fs.writeFileSync('./GQ_Assessment_Report/Detailed_Report.md', finalReport);
 
 const markdownpdf = require('markdown-pdf');
@@ -420,3 +424,141 @@ markdownpdf()
   .to(pdfPath, function () {
     console.log(`✅ PDF successfully generated: ${pdfPath}`);
   });
+
+
+//Generate Live test status report 
+function generateMarkdownReport() {
+  const date = new Date().toLocaleString('en-IN');
+  const resultFile = path.join(reportFolder, './GQ_Assessment_Report/json/test-results.json');
+  let total = 0, passed = 0, failed = 0, skipped = 0;
+  let browserStats = {}; // will hold browser-wise summary
+  let testTable = '';
+
+  if (fs.existsSync(resultFile)) {
+    const data = JSON.parse(fs.readFileSync(resultFile, 'utf-8'));
+    const tests = [];
+
+    const extractTests = suite => {
+      if (suite.tests) tests.push(...suite.tests);
+      if (suite.suites) suite.suites.forEach(extractTests);
+    };
+    data.suites.forEach(extractTests);
+
+    total = tests.length;
+    passed = tests.filter(t => t.results?.some(r => r.status === 'passed')).length;
+    failed = tests.filter(t => t.results?.some(r => r.status === 'failed')).length;
+    skipped = tests.filter(t => t.results?.some(r => r.status === 'skipped')).length;
+
+    // 🔹 Compute browser-wise summary
+    for (const test of tests) {
+      for (const result of test.results || []) {
+        const browser = result.projectName || 'unknown';
+        if (!browserStats[browser]) browserStats[browser] = { total: 0, passed: 0, failed: 0, skipped: 0 };
+        browserStats[browser].total++;
+        if (result.status === 'passed') browserStats[browser].passed++;
+        else if (result.status === 'failed') browserStats[browser].failed++;
+        else browserStats[browser].skipped++;
+      }
+    }
+
+    // 🔹 Build test status table
+    testTable = tests.map(t => {
+      const name = t.title || 'Untitled';
+      const status = t.results?.[0]?.status || 'unknown';
+      const browser = t.results?.[0]?.projectName || '—';
+      const duration = t.results?.[0]?.duration ? `${t.results[0].duration}ms` : '—';
+      const icon = status === 'passed' ? '✅' : status === 'failed' ? '❌' : '⚪️';
+      return `| ${name} | ${browser} | ${icon} ${status.toUpperCase()} | ${duration} |`;
+    }).join('\n');
+  } else {
+    testTable = '| No test results found | — | — | — |';
+  }
+
+  // 🔹 Build browser summary table
+  const browserTable = Object.keys(browserStats).length
+    ? Object.entries(browserStats)
+        .map(([browser, stats]) =>
+          `| ${browser} | ${stats.total} | ${stats.passed} | ${stats.failed} | ${stats.skipped} |`)
+        .join('\n')
+    : '| — | — | — | — | — |';
+
+  // 🔹 Trace table
+  const traces = fs.existsSync(traceDir)
+    ? fs.readdirSync(traceDir).filter(f => f.endsWith('.zip'))
+    : [];
+  const traceTable = traces.length
+    ? traces.map(f => `| ${f} | [View Trace](../tests/trace/${f}) | ✅ |`).join('\n')
+    : '| No traces found | — | — |';
+
+
+
+  fs.writeFileSync(mdFile, md.trim());
+  console.log(`✅ Markdown report saved with browser-wise stats: ${mdFile}`);
+}
+
+// const fs = require('fs');
+const crypto = require('crypto');
+// const path = require('path');
+
+// Function to read Playwright JSON test results
+function getPlaywrightResults() {
+  const resultsPath = path.join(__dirname, '../test-results/results.json');
+  if (!fs.existsSync(resultsPath)) {
+    return { summary: 'No results found', tests: [] };
+  }
+
+  const data = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+  const tests = [];
+
+  if (data.suites) {
+    // recursively extract all tests
+    function extractTests(suite) {
+      if (suite.tests) {
+        suite.tests.forEach(test => {
+          tests.push({
+            name: test.title,
+            status: test.outcome || test.status || 'unknown',
+            duration: test.duration || 0
+          });
+        });
+      }
+      if (suite.suites) suite.suites.forEach(extractTests);
+    }
+    data.suites.forEach(extractTests);
+  }
+
+  const passed = tests.filter(t => t.status === 'passed').length;
+  const failed = tests.filter(t => t.status === 'failed').length;
+  const total = tests.length;
+
+  const summary = `Total Tests: ${total} | ✅ Passed: ${passed} | ❌ Failed: ${failed}`;
+  return { summary, tests };
+}
+// Get Playwright Results
+const { summary, tests } = getPlaywrightResults();
+
+const resultsTable = tests.length
+  ? `
+| Test Name | Status | Duration (ms) |
+|------------|---------|---------------|
+${tests
+  .map(
+    t => `| ${t.name} | ${t.status === 'passed' ? '✅ Passed' : '❌ Failed'} | ${t.duration} |`
+  )
+  .join('\n')}
+`
+  : 'No test results found.';
+
+const testSummarySection = `
+## 🧪 Playwright Test Results
+${summary}
+
+${resultsTable}
+`;
+
+const reportContent = `
+# GoQuant Assessment Report
+
+${testSummarySection}
+... (rest of your existing content)
+`;

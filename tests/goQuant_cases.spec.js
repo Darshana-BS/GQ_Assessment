@@ -1,13 +1,14 @@
 const { GoQuantMain } = require('../pages/GoQuantMain')
 const { test, expect } = require('@playwright/test');
+const { startTracing } = require('./utils/tracingHelper');
 
-// helper to start/stop trace per test
-async function startTracing(context, name) {
-  await context.tracing.start({ screenshots: true, snapshots: true });
-  return async () => {
-    await context.tracing.stop({ path: `trace/${name}.zip` });
-  };
-}
+// // helper to start/stop trace per test
+// async function startTracing(context, name) {
+//   await context.tracing.start({ screenshots: true, snapshots: true });
+//   return async () => {
+//     await context.tracing.stop({ path: `trace/${name}.zip` });
+//   };
+// }
 
 //-----------------------------TC_01_Login_using_invalid_creds_[Passed]--------------------------------
 test('Login with invalid user credentials', async ({ browser }) => {

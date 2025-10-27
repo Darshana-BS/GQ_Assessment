@@ -56,6 +56,9 @@ npx playwright test tests/goQuant_cases.spec.js
 # Run tests in headless mode 
 npx playwright test --headless 
 
+# Run tests in head mode 
+npx playwright test --headed  
+
 # Generate MD5 checksums
 mkdir -p GQ_Assessment_Report
 find . -type f ! -path "*/.*" -print0 | xargs -0 -I{} md5 -r {} > GQ_Assessment_Report/md5_report.txt 
@@ -223,6 +226,7 @@ tests/
 ├── auth/
 │   ├── TC01_LoginInvalid_Creds.spec.js
 │   └── TC02_LoginValid_Creds.spec.js
+│   └── TC20_Logout.spec.js
 │
 ├── account/
 │   ├── TC03_Add_Account.spec.js
@@ -242,7 +246,7 @@ tests/
     ├── TC10_Add_Clear_Assets.spec.js
     ├── TC12_Kill_Edge.spec.js
     ├── TC13_Liquidate_Positions.spec.js
-    └── TC20_Logout.spec.js
+    └── 
 ```
 
 All 22 Playwright test cases are structured across feature-based spec files:
