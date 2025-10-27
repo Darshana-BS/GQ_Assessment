@@ -56,14 +56,14 @@ module.exports = defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'], video: 'retain-on-failure'  },
     },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'], video: 'retain-on-failure' },
-    },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'], video: 'retain-on-failure' },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'], video: 'retain-on-failure' },
+    // },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'], video: 'retain-on-failure' },
+    // },
 
     // {
     //   name: 'firefox',

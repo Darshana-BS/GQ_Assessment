@@ -1,5 +1,0 @@
-e1286f31a4cf5d03ef18f2729119dc59 ./GQ_Assessment_Report/Detailed_Report.pdf
-607969e05a0a2861f3661d4c48e35c43 ./GQ_Assessment_Report/md5_report.txt
-56ce11a00629fd4749c78ed0f8ac139a ./GQ_Assessment_Report/Detailed_Report.md
-be88ad21d1590eae75f1601cad92e03c ./README.md
-5d2b283d962a33fee6fc6f1d42e298a7 ./generateReport.js
