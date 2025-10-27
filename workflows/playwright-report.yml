@@ -1,0 +1,46 @@
+name: Run Playwright Tests and Publish Dated Report
+
+on:
+  push:
+    branches: [ GQ_Assessment ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright Tests
+        run: npx playwright test --reporter=html
+
+      - name: Prepare dated report folder
+        id: prep
+        run: |
+          DATE=$(date +'%Y-%m-%d_%H-%M')
+          echo "DATE=$DATE" >> $GITHUB_ENV
+          mkdir -p docs/reports/$DATE
+          cp -R playwright-report/* docs/reports/$DATE/
+          echo "Latest report folder: docs/reports/$DATE"
+
+      - name: Add index.html for latest redirect
+        run: |
+          echo "<meta http-equiv='refresh' content='0; url=reports/${{ env.DATE }}/index.html'>" > docs/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
