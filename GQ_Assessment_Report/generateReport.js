@@ -299,6 +299,7 @@ tests/
 ├── auth/
 │   ├── TC01_LoginInvalid_Creds.spec.js
 │   └── TC02_LoginValid_Creds.spec.js
+│   └── TC20_Logout.spec.js
 │
 ├── account/
 │   ├── TC03_Add_Account.spec.js
@@ -318,7 +319,7 @@ tests/
     ├── TC10_Add_Clear_Assets.spec.js
     ├── TC12_Kill_Edge.spec.js
     ├── TC13_Liquidate_Positions.spec.js
-    └── TC20_Logout.spec.js
+    └── 
 \`\`\`
 
 All 22 Playwright test cases are structured across feature-based spec files:

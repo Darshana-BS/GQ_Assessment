@@ -22,7 +22,8 @@ module.exports = defineConfig({
     headless: true,                    // run in headless mode
     screenshot: 'on',                  // take screenshot on every failure
     video: 'on',                      // record video if test fails first time
-    trace: 'on',                      // record trace if test fails first time
+    //trace: 'on',                      // record trace if test fails first time
+    screenshots: 'on'
   },
 // export default defineConfig({
 //   testDir: './tests',
@@ -49,7 +50,15 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], video: 'retain-on-failure'  },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'], video: 'retain-on-failure' },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'], video: 'retain-on-failure' },
     },
 
     // {

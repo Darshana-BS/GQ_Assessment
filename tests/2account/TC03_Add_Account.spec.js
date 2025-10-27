@@ -1,13 +1,6 @@
 const { GoQuantMain } = require('../../pages/GoQuantMain')
 const { test, expect } = require('@playwright/test');
-
-// helper to start/stop trace per test
-async function startTracing(context, name) {
-  await context.tracing.start({ screenshots: true, snapshots: true });
-  return async () => {
-    await context.tracing.stop({ path: `trace/${name}.zip` });
-  };
-}
+const { startTracing } = require('../utils/tracingHelper');
 
 //-----------------------------TC_03_Add_Account_using_valid_details_[Passed]--------------------------------
 test('Add account for first time after login @account', async ({ browser }) => {
