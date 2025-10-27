@@ -1,6 +1,6 @@
 const { GoQuantMain } = require('../../pages/GoQuantMain')
 const { test, expect } = require('@playwright/test');
-const { startTracing } = require('../../tests/utils/tracingHelper');
+const { startTracing } = require('../utils/tracingHelper');
 
 //-----------------------------TC_01_Login_using_invalid_creds_[Passed]--------------------------------
 test('Login with invalid user credentials @auth', async ({ browser }) => {

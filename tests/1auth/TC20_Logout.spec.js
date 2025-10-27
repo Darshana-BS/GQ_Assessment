@@ -1,6 +1,6 @@
 const { GoQuantMain } = require('../../pages/GoQuantMain')
 const { test, expect } = require('@playwright/test');
-const { startTracing } = require('../../tests/utils/tracingHelper');
+const { startTracing } = require('../utils/tracingHelper');
 
 //-----------------------------TC_20_Logout_User_[Passed]--------------------------------
 test('Log out of account @auth @logout', async ({browser})=> {
