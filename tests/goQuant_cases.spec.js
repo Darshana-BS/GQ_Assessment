@@ -225,17 +225,6 @@ test('Add account with invalid details', async ({ browser }) => {
   await stopTrace();
 });
 
-//----------------------TC22_Login_with_blank_email_password[WIP]-------------------------------------------
-test('Sign in with blank email, password', async ({ browser }) => {
-  const context = await browser.newContext();
-  const stopTrace = await startTracing(context, 'TC22_Login_with_black_email_password');
-  const page = await context.newPage();
-  const gqMain = new GoQuantMain(page);
-  // Sign in / login with black email / password 
-  await gqMain.loginwithblankEmailPassword('', '');
-  await stopTrace();
-});
-
 //-----------------------------TC_19_Validate_Accounts_Status_[WIP]--------------------------------
 // test('Log out of account', async ({browser})=> {
 //   const context = await browser.newContext();
@@ -274,7 +263,18 @@ test('Modify Account with Valid details', async ({browser})=> {
   await stopTrace();
 })
 
-//-----------------------------TC22[Edge_case]_Handle_Something_went_wrong[Passed, Has_Bug]--------------------------------
+//----------------------TC22_Login_with_blank_email_password[WIP]-------------------------------------------
+test('Sign in with blank email, password', async ({ browser }) => {
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC22_Login_with_black_email_password');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  // Sign in / login with black email / password 
+  await gqMain.loginwithblankEmailPassword('', '');
+  await stopTrace();
+});
+
+//-----------------------------TC23[Edge_case]_Handle_Something_went_wrong[Passed, Has_Bug]--------------------------------
 test('Handel Something Went wrong', async ({ browser }) => {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC22_Handle_SomethingWentWrong');

@@ -175,6 +175,9 @@ class GoQuantMain {
     //loginwithblankEmailPassword
     this.blackEmailaliation = page.getByText('Username must be at least 5 characters.');
 
+    //accountstatus
+    this.tooltip = page.getByText('Connected to the exchange'); 
+
     //logout
     this.userProfile = page.getByRole('button', { name: 'user14@goquant.io' });
     this.logoutButton= page.getByRole('menuitem', { name: 'Sign out' });
@@ -796,6 +799,38 @@ async loginwithblankEmailPassword(username, password){
   await this.signIn.click();
   await expect (this.blackEmailaliation).toHaveText('Username must be at least 5 characters.');
   await this.page.getByRole('textbox', { name: 'Email' }).fill('darshana@test.com');
+}
+
+async validateAccountStatus(){
+  await this.page.goto('https://test1.gotrade.goquant.io/admin')
+  await this.page.locator('td:nth-child(5) > .font-inter').first().click(); 
+  this.tooltipp =  this.page.locator('[data-state="instant-open"]');
+  await this.tooltipp.click();
+  await expect (this.tooltipp).toHaveText('Connected to the exchange');
+  // this.page.locator('[class="lucide lucide-circle-x h-[22px] w-[22px] text-red-600"]').nth(0).click(); 
+  // this.page.locator('div[class="z-50 overflow-hidden px-3 py-1.5 text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 text-xs border-0 bg-backgroundSec rounded"]')
+  // await page.getByTestId('venues-table-status-cell-0').click();
+  // await page.getByTestId('venues-table-status-cell-0').getByRole('button').filter({ hasText: /^$/ }).click();
+  //await page.getByTestId('venues-table-status-cell-1').getByRole('button').filter({ hasText: /^$/ }).click();
+  
+  //text
+  // await page.locator('div').filter({ hasText: /^Cannot communicate with the exchangeCannot communicate with the exchange$/ }).first().click();  
+  // await page.getByText('Cannot communicate with the exchangeCannot communicate with the exchange').click();
+
+  // await this.page.hover('td[data-testid="venues-table-status-cell-0"]')
+  // const tooltip = this.page.locator('text=Cannot communicate with the exchange');
+  // const firstCrossIcon = 
+  // await this.firstCrossIcon.hover();
+
+//   if (expectedStatus === 'error') {
+//     await this.firstCrossIcon.hover();
+//     await expect(this.page.locator('text=Cannot communicate with the exchange')).toBeVisible();
+//   } else if (expectedStatus === 'ok') {
+//     await expect(this.page.locator('text=Communicating with the exchange')).toBeVisible();
+// }
+  // Assert visibility
+  // await expect(tooltip).toBeVisible();
+  // await expect(tooltip).toHaveText('Cannot communicate with the exchange');
 }
 
 async logout() {
