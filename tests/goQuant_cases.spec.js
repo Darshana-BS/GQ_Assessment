@@ -39,7 +39,7 @@ test('Login with valid user credentials', async ({ browser }) => {
 });
 
 //-----------------------------TC_03_Add_Account_using_valid_details_[Passed]--------------------------------
-test.only('Add account for all Symbols', async ({ browser }) => {
+test('Add account for all Symbols', async ({ browser }) => {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC03_Add Account');
   const page = await context.newPage();
@@ -94,16 +94,16 @@ test('Place OKX Market Order', async ({browser})=> {
 })
 
 //-----------------------------TC_07_Get_Order_details_[WIP]--------------------------------
-// test('Get Order details', async ({browser})=> {
-//   const context = await browser.newContext();
-//   const stopTrace = await startTracing(context, 'TC07_Get_order datails');
-//   const page = await context.newPage();
-//   const gqMain = new GoQuantMain(page);
-//   //Validate Order Details 
-//   await gqMain.login();
-//   await gqMain.getOrderdetails();
-//   await stopTrace();
-// })
+test.only('Get Order details', async ({browser})=> {
+  const context = await browser.newContext();
+  const stopTrace = await startTracing(context, 'TC07_Get_order datails');
+  const page = await context.newPage();
+  const gqMain = new GoQuantMain(page);
+  //Validate Order Details 
+  await gqMain.login('user14@goquant.io', '60Re3G9KvvFl4Ihegxpi');
+  await gqMain.getOrderdetails();
+  await stopTrace();
+})
 
 //-----------------------------TC08_Place_order_validation_errors_with_empty_details_[Passed]--------------------------------
 test('Place Order with mandatory details empty', async ({browser})=> {

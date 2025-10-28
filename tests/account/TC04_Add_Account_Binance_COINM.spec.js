@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const { startTracing } = require('../utils/tracingHelperforstructuredcases');
 
 //-----------------------------TC_04_Add_Account_using_valid_details_USDM_[Passed]--------------------------------
-test.only('Add account for Binance COINM @account @addaccount', async ({ browser }) => {
+test.only('Add account for Binance COINM @account', async ({ browser }) => {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC04_Add_Account_Binance_COINM');
   const page = await context.newPage();

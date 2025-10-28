@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const { startTracing } = require('../../tests/utils/tracingHelperforstructuredcases');
 
 //-----------------------------TC12_Kill-Edge[Passed]--------------------------------
-test('Kill-Edge for orders', async({browser})=>{
+test('Kill-Edge for orders @dashboard', async({browser})=>{
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC12_kill-edge');
   const page = await context.newPage();

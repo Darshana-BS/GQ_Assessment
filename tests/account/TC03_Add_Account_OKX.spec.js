@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const { startTracing } = require('../utils/tracingHelperforstructuredcases');
 
 //-----------------------------TC_03_Add_Account_using_valid_details_OKX_[Passed]--------------------------------
-test('Add account for OKX @account @addaccount', async ({ browser }) => {
+test('Add account for OKX @account', async ({ browser }) => {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC03_Add_Account_OKX');
   const page = await context.newPage();

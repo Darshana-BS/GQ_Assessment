@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const { startTracing } = require('../../tests/utils/tracingHelperforstructuredcases');
 
 //-----------------------------TC13_Liquidate-Positions[Passed]--------------------------------
-test('Liquidate Positions', async({browser})=>{
+test('Liquidate Positions @dashboard', async({browser})=>{
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC13_Liquidate_Positions');
   const page = await context.newPage();

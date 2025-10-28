@@ -548,9 +548,17 @@ async placeBiance_COINM_DOTUSDTOrder(quanity,duration,interval){
 }
 
 async getOrderdetails(){
-    await this.orderHistory;
-    await this.validateOrderAccount;
-    await expect(this.validateOrderAccount).toHaveText('Dashk805 OKX');
+  await this.getStarted.click();
+  await this.orderHistory.click();
+  this.validateAccount = this.page.getByText('Dashk805 OKX');
+  await this.validateAccount.click(); 
+  await this.page.pause();
+  await expect(this.validateAccount).toHaveText('Dashk805 OKX');
+  // const accountName = await this.validateAccount.textContent();
+  // console.log(`Order has been placed with Account Name: ${accountName}`);
+    
+    // await this.validateOrderAccount;
+    // await expect(this.validateOrderAccount).toHaveText('Dashk805 OKX');
     // const validateOrderAccount = this.page.getByRole('cell', { name: 'Dashk805 OKX' });
     // console.log ((this.validateOrderAccount).textContent());
     // const orderType = this.page.getByRole('cell', { name: 'Market Edge' });
