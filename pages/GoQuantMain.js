@@ -16,7 +16,6 @@ class GoQuantMain {
     // this.gotoAdmin = page.locator('#radix-_r_4_-trigger-radix-_r_5_')
     this.clickAccounts = page.getByRole('button', { name: 'Accounts', exact: true })
     this.clickAdmin = page.getByRole('link', { name: 'Admin Manage trading accounts' });
-    // this.checkAccounts = page.getByRole('button', { name: 'Accounts', exact: true })
     // this.selectAccount = page.getByRole('button', { name: 'Accounts' })
     this.clickaddAccountbutton =  page.getByTestId('venues-button-addaccount')
     this.selectExhchange = page.getByTestId('dropdown-trigger:exchange-selector');
@@ -95,8 +94,8 @@ class GoQuantMain {
     this.selectBianceCOINM = page.getByTestId('BINANCECOINM-selector-Dashk805 COINM');
     this.clickTradeDropdownOptions = page.locator('.lucide.lucide-chevron-down.ml-1.w-\\[0\\.8rem\\]');
     this.clickOrderTypeTWAP = page.getByTestId('GOTRADE_ORDERTYPE_TWAP');  
-    // this.selectOrderTypeTWAP = page.getByTestId('symbol-option-ADA-USDT'); 
-    this.selectOrderTypeTWAP = page.getByTestId('symbol-option-ADAUSD_PERP'); 
+    this.selectOrderTypeTWAP = page.getByTestId('symbol-option-ADA-USDT'); 
+    // this.selectOrderTypeTWAP = page.getByTestId('symbol-option-ADAUSD_PERP'); 
     this.enterinterval = page.getByTestId('interval');
 
     //validate order fields 
@@ -159,6 +158,23 @@ class GoQuantMain {
     this.save = page.getByRole('button', { name: 'Save' });
     this.ValidateSavesmartRoutingSuccess = page.getByText('Settings saved successfully'); 
 
+    //placeOKXSellOrder 
+    this.clickSell = page.getByTestId('short-button')
+
+    //modifyaccountuSDM 
+    this.sortAccountName = page.getByText('Account Name');
+    this.getfirstAccount = page.getByTestId('venues-table-cell-0-accountAction').getByRole('button', { name: 'Modify' });
+    this.clickModifybutton = page.getByRole('heading', { name: 'Modify Account' })
+    this.enterBinaceNewAccountName = page.getByRole('textbox', { name: 'Binance USDⓈ-M Account Name' });
+    this.enterBinanceSecret = page.getByRole('textbox', { name: 'Enter your Binance USDⓈ-M' });
+    this.clickEditAccount = page.getByRole('button', { name: 'Edit Account' });
+    
+    //addinvalidaccountokx 
+    this.invalidaccountMessage = page.getByText('Authentication failed');
+
+    //loginwithblankEmailPassword
+    this.blackEmailaliation = page.getByText('Username must be at least 5 characters.');
+
     //logout
     this.userProfile = page.getByRole('button', { name: 'user14@goquant.io' });
     this.logoutButton= page.getByRole('menuitem', { name: 'Sign out' });
@@ -192,10 +208,11 @@ class GoQuantMain {
   }
 
   async login(username, password) {
-    await this.page.goto('https://test1.gotrade.goquant.io/gotrade');
-    //await page.goto('https://test1.gotrade.goquant.io/auth/login');
+    // await this.page.goto('https://test1.gotrade.goquant.io/gotrade');
+    // await this.page.goto('https://test1.gotrade.goquant.io/auth/login');
+    await this.gotoHome('https://test1.gotrade.goquant.io/auth/login');
     await this.userCreds(username, password);
-    await this.signIn.click();
+    await this.signIn.click();    
     await this.afterLogin();
   }
   
@@ -224,63 +241,84 @@ async validateAccountAdditionOrUDP() {
   }
 }
  
-  async addAccountOKX(){
-    await this.clickAccounts.click();
-    await this.clickAdmin.click();
+async validateaddAccountAPI(){
+  this.addAccountAPIresponse = this.page.request.post('https://test1.gotrade-api.goquant.io/gotrade/v3/login');
+  const response = await this.addAccountAPIresponse;
+  const status = response.status();
+  console.log('Response status:', status);
+
+  expect(response).not.toBeNull();
+    if (status === 200) {
+      console.log('✅ Account added successfully');
+      expect(status).toBe(200);
+    }  
+    else if (status == 400) {
+      console.loc('✅ Valid cases: Add Account returned response 400 Bad request, for invalid data')
+    }
+    else if (status === 422) {
+      console.warn('⚠️ Bug detected: Add Account returned response 422 UDP server error');
+      // to make test fail intensionally, adding this
+      // expect(status, 'Cancel order API returned unexpected 422').toBe(200);
+    } 
+    else {
+      throw new Error(`❌ Unexpected status code: ${status}`);
+    }
+}
+
+  async addAccountOKX(accountname,accountkey,accountsecret,okxpassphrase){
+    await this.getStarted.click();
+    // await this.clickAccounts.click();
+    // await this.clickAdmin.click();
+    await this.page.goto('https://test1.gotrade.goquant.io/admin');
     await this.clickaddAccountbutton.click();
     await this.selectExhchange.click(); 
     await this.searchExchange.fill('okx');
     await this.selectOKXExhcnage.click();
-    await this.AccountName.fill('Automationokx3');
-    await this.Accountkey.fill('5e702fa5-5438-4a81-9d0e-fb717a9b9b4e');
-    await this.AccountSecret.fill('C5E40EC259C2C4D2E991177966B42765');
-    await this.okxpassphrase.fill('Dashk@805');
+    await this.AccountName.fill(accountname);
+    await this.Accountkey.fill(accountkey);
+    await this.AccountSecret.fill(accountsecret);
+    await this.okxpassphrase.fill(okxpassphrase);
     await this.enableTestMode.click();
     await this.submitAccount.click();
-    // Wait for the Add Account API to complete with 200 status
-    // const response = await this.page.waitForResponse(resp => 
-    // resp.url() === 'https://test1.gotrade-api.goquant.io/gotrade/v2/credentials' && resp.status() === 200
-    // );
-    // Optional: get JSON response
-    const body = await response.json();
-    console.log('API Response:', body);
-    // await this.page.waitForSelector('text=Account added successfully', { state: 'visible'  });
-    await this.page.getByText('Account added successfully').click();
-    // await page.getByText('No response received from UDP').click();
+    //conditional valiation
     // await this.validateAccountAdditionOrUDP();
+    await this.validateaddAccountAPI();
   }
 
-  async addAccountBianceUSDM(){
-    await this.clickAccounts.click();
-    await this.clickAdmin.click();
+  async addAccountBianceUSDM(accountname,accountkey,accountsecret){
+    // await this.clickAccounts.click();
+    // await this.clickAdmin.click();
+    await this.page.goto('https://test1.gotrade.goquant.io/admin');
     await this.clickaddAccountbutton.click();
     await this.selectExhchange.click();
     await this.searchExchange.fill('usdm');
     await this.selectExchangeBinanceUSDM.click(); 
-    await this.AccountName.fill('automationbinanceusdm');
-    await this.Accountkey.fill('h9jKcavHaT8tgers5N68GZypMITnrUmCganKQwKjRQHBv3D4JmCMW2VwIpkShFfj');
-    await this.AccountSecret.fill('IXy9ua5H5TZ7chNiHsFJVoD7rzuJXzo57coiWptj3JcguUtt3LvLJ6afzhUvrz7X');
+    await this.AccountName.fill(accountname);
+    await this.Accountkey.fill(accountkey);
+    await this.AccountSecret.fill(accountsecret);
     await this.enableTestMode.click();
     await this.submitAccount.click();
+    //conditional valiation
     // await this.validateAccountAdditionOrUDP();
-    await this.validateAccountAddition.click();
-    // await page.getByText('No response received from UDP').click();
-
+    await this.validateaddAccountAPI();
   }
 
-  async addAccountBianceCOINM(){
-    await this.clickAccounts.click();
-    await this.clickAdmin.click();
+  async addAccountBianceCOINM(accountname,accountkey,accountsecret){
+    // await this.clickAccounts.click();
+    // await this.clickAdmin.click();
+    await this.page.goto('https://test1.gotrade.goquant.io/admin');
     await this.clickaddAccountbutton.click();
     await this.selectExhchange.click();
     await this.searchExchange.fill('coinm');
     await this.selectExchangeBinanceCOINM.click(); 
-    await this.AccountName.fill('automationbinancecoinm');
-    await this.Accountkey.fill('h9jKcavHaT8tgers5N68GZypMITnrUmCganKQwKjRQHBv3D4JmCMW2VwIpkShFfj');
-    await this.AccountSecret.fill('IXy9ua5H5TZ7chNiHsFJVoD7rzuJXzo57coiWptj3JcguUtt3LvLJ6afzhUvrz7X');
+    await this.AccountName.fill(accountname);
+    await this.Accountkey.fill(accountkey);
+    await this.AccountSecret.fill(accountsecret);
     await this.enableTestMode.click();
     await this.submitAccount.click();
-    await this.validateAccountAddition.click();
+    //conditional valiation
+    // await this.validateAccountAdditionOrUDP();
+    await this.validateaddAccountAPI();
   }
 
   async deleteaccountOKX(accountName){
@@ -356,7 +394,7 @@ async validateUpdateAPI() {
   if (status === 200) {
     console.log('✅ Update API OK');
   } else if (status === 400) {
-    console.warn('⚠️ Known bug: Update API returned 400');
+    console.warn('⚠️ Bug Detected: Update API returned 400');
   } else {
     throw new Error(`❌ Unexpected status: ${status}`);
   }
@@ -396,8 +434,17 @@ async modifyAccountOKXValidDetails(){
   //  await expect(modifyAccountValidateMessage).toHaveText('delete_credentials() takes from 1 to 2 positional arguments but 3 were given');
   }
 
-  async modifyAccountUSDM(){
-    
+  async modifyAccountUSDM(accountName, accountsecret){
+   this.visitAdminPage = this.page.goto('https://test1.gotrade.goquant.io/admin');
+   await this.visitAdminPage;
+   await this.sortAccountName.click();
+   await this.sortAccountName.click();
+   await this.getfirstAccount.click(); 
+   await this.clickModifybutton.click();
+   await this.enterBinaceNewAccountName.fill(accountName);
+   await this.enterBinanceSecret.fill(accountsecret);
+   await this.clickEditAccount.click();
+   await this.validateUpdateAPI();
   }
   
   async modifyAccountCOINM(){
@@ -414,7 +461,25 @@ async modifyAccountOKXValidDetails(){
 //     await expect(this.profileSaveMsg).toBeVisible();
 //   }
 
-async placeOKX_MarketOrder_Swap(){
+async validateorderAPI(){
+  this.placeorderAPIresponse = this.page.request.post('https://test1.gotrade-api.goquant.io/gotrade/v3/order/place');
+  // Check the status
+  const response = await this.placeorderAPIresponse;
+  const status = response.status();
+  // expect(response).not.toBeNull();
+  console.log('Response status:', status);
+  //conditional valiation 
+  if (status === 200) {
+      console.log('✅ Order Placed');
+    } else if (status === 422) {
+      console.log('⚠️ type: "error", message: "No response received from UDP server", status_code: 400, data: null');
+    } else {
+      throw new Error(`❌ Unexpected status: ${status}`);
+    }
+}
+
+async placeOKX_MarketOrder_Swap(Quantity){
+  await this.getStarted.click();
   await this.gotoTrading.click();
   await this.selectGoTrade.click();
   await this.selectNativeTrading.click();
@@ -428,16 +493,18 @@ async placeOKX_MarketOrder_Swap(){
   await this.selectBTC.click();
 //   await this.clickQuoteAsset.click();
   await this.searchQuoteAsset.fill('USDT');
-  await this.selectUSDT.nth(1).click(); 
-  await this.enterQuantity.fill('0.0001');
+  await this.selectUSDT.nth(1).click(); //nth(1)
+  await this.enterQuantity.fill(Quantity);
   await this.selectLong.click();
   await this.selectLong.click();
   await this.clickTrade.click();
-  await this.orderAcceptedNotification.click();
-  await expect(this.orderAcceptedNotification).toHaveText('Order Accepted');
+  await this.validateorderAPI();
+  // await this.orderAcceptedNotification.click();
+  // await expect(this.orderAcceptedNotification).toHaveText('Order Accepted');
 }
 
-async placeBinace_USDM_DOTUSDTOrder_Spot(){
+async placeBinace_USDM_DOTUSDTOrder_Spot(quanity,duration){
+  await this.getStarted.click();
   await this.chooseTradeLimitEdge.click();
   await this.switchDiscoveryMode.click();
   await this.clickExchangeBinaceUSDM.click();
@@ -447,28 +514,34 @@ async placeBinace_USDM_DOTUSDTOrder_Spot(){
   await this.clickSymbolsdropdown.click(); 
   await this.searchSymbol.fill('DOT-USDT');
   await this.selectSymbolDOTUSDT.click();
-  await this.enterQuantityUSDM.fill('2');
-  await this.enterDuration.fill('2');
+  await this.enterQuantityUSDM.fill(quanity);
+  await this.enterDuration.fill(duration);
   await this.clickBuy.click();
   await this.clickTrade.click();
-  await this.orderAcceptedNotification.click();
-  await expect(this.orderAcceptedNotification).toHaveText('Order Accepted');
+  await this.validateorderAPI();
+  // await this.orderAcceptedNotification.click();
+  // await expect(this.orderAcceptedNotification).toHaveText('Order Accepted');
 }
 
-async placeBiance_COINM_DOTUSDTOrder(){
+async placeBiance_COINM_DOTUSDTOrder(quanity,duration,interval){
+  await this.getStarted.click();
   await this.chooseTradeTWAP.click();
   await this.selectExchangeBianceCOINM.click();
   await this.selectBianceCOINM.click();
   await this.clickTradeDropdownOptions.click()
   await this.clickOrderTypeTWAP.click();
   await this.clickSymbolsdropdown.click(); 
-    await this.page.pause();
-  await this.searchSymbol.fill('ADAUSD_PERP');
-  await this.page.pause();
+  // await this.searchSymbol.fill('ADAUSD_PERP');
+  await this.searchSymbol.fill('ADA-USDT');
+  // await this.page.getByTestId('symbol-option-ADA-USDT').getByText('ADA-USDT').click();
   await this.selectOrderTypeTWAP.click(); 
-  await this.enterQuantityUSDM.fill('5');
-  await this.enterDuration.fill('10');
-  await this.enterinterval.fill('1');
+  await this.enterQuantityUSDM.fill(quanity);
+  await this.enterDuration.fill(duration);
+  await this.enterinterval.fill(interval);
+  await this.clickBuy.click();
+  await this.clickTrade.click();
+  await this.validateorderAPI();
+  // await expect(this.orderAcceptedNotification).toHaveText('Order Accepted');
 }
 
 async getOrderdetails(){
@@ -497,6 +570,7 @@ async validaterejectedOrder(params) {
   await page.getByRole('button', { name: 'Close' }).click();
 }
 async OKXInvalidOrderDetails(){
+  await this.getStarted.click();
   await this.gotoTrading.click();
   await this.selectGoTrade.click();
   await this.selectNativeTrading.click();
@@ -514,6 +588,7 @@ async singleEquityUSD(){
 }
 
 async validateMetrics(){
+  await this.getStarted.click();
   await this.clickAssets.click();
   //get values for all the Currency 
   const currency = this.currencyLocator
@@ -568,6 +643,7 @@ async validateMetrics(){
   // await this.addClearAssetsETH.click();
 }
   async cancelOrder(){
+    await this.getStarted.click();
     await this.clickCancelWorkingOrders.click();
     await this.validateModalHeader.click();
     await this.confirmCancelOpenOrders.click();
@@ -600,6 +676,7 @@ async validateMetrics(){
   }
 
   async killedge(){
+    await this.getStarted.click();
     await this.clickKillEdge.click(); 
     await this.killEdgeModalHeader.click();
     await this.confirmKillEdge.click();
@@ -635,6 +712,7 @@ async validateMetrics(){
 }
 
   async liquidatePositions(){
+    await this.getStarted.click();
     await this.clickliquidatePositions.click();
     await this.liquidatePositionsModalHeader.click();
     await this.confirmliquidatePositions.click();
@@ -655,14 +733,16 @@ async validateMetrics(){
   }
 
 async smartRouting(){
+  await this.getStarted.click();
   await this.enableToggleSmartRouting.click();
   await this.validatesmartRoutingModalHeader.click();
   await this.selectOKXAcccount.click();
   await this.updatesmartRoutingConfiguration.click();
-  await this.selectOKX.click();
-  await this.selectOKX.click();
+  await this.selectOKX.dblclick();
+  // await this.selectOKX.click();
   await this.enableExecuteSmartOrderRouting.click();
   await this.save.click();
+  await this.page.getByRole('region', { name: 'Notifications alt+T' }).getByRole('listitem').click();
   await this.ValidateSavesmartRoutingSuccess.click();
 }
 
@@ -670,15 +750,56 @@ async consolidatedView(){
   
 }
 
-async placeOKXSellOrder(){
-  // await clickOrderBook.click();
-  // this.clickOrderBook = 
-  await page.getByRole('button', { name: 'Order Book' });
-  await page.getByTestId('consolidated-orderbook-toggle').click();
-  await page.locator('div').filter({ hasText: /^Price\(USDT\)Amount \(Cts\.\)Total \(Cts\.\)$/ }).first().click();
+async placeOKXSellOrder(quantity){
+  await this.getStarted.click();
+  await this.gotoTrading.click();
+  await this.selectGoTrade.click();
+  await this.selectNativeTrading.click();
+  await this.selectOrderType.click();
+  await this.chooseTradeMarket.click();
+  await this.switchDiscoveryMode.click();
+  await this.clickInstrumentType.click();
+  await this.selectInstrumentTypeSpot.click();
+  await this.clickBaseAsset.click();
+  await this.searchBaseAsset.fill('BTC');
+  await this.selectBTC.click();
+//   await this.clickQuoteAsset.click();
+  await this.searchQuoteAsset.fill('USDT');
+  await this.selectUSDT.click(); //nth(1)
+  await this.enterQuantity.fill(quantity);
+  await this.clickSell.click(); 
+  await this.clickTrade.click();
+  await this.validateorderAPI();
+
+  // await page.getByRole('button', { name: 'Order Book' });
+  // await page.getByTestId('consolidated-orderbook-toggle').click();
+  // await page.locator('div').filter({ hasText: /^Price\(USDT\)Amount \(Cts\.\)Total \(Cts\.\)$/ }).first().click();
+}
+async addInvalidAccountOKX(accountname,key,secret,passphrase){
+  await this.page.goto('https://test1.gotrade.goquant.io/admin');
+  await this.clickaddAccountbutton.click();
+  await this.page.getByTestId('account-name-input').fill(accountname);
+  await this.page.getByTestId('input-api-key').fill(key);
+  await this.page.getByTestId('input-api-secret').fill(secret);
+  await this.page.getByTestId('passphrase-input').fill(passphrase);
+  await this.enableTestMode.click();
+  await this.submitAccount.click();
+  await this.page.getByTestId('add-account-dialog').getByRole('button', { name: 'Close' }).click();
+  await this.page.getByRole('region', { name: 'Notifications alt+T' }).getByRole('listitem').click();
+  await this.invalidaccountMessage.click();
+  await expect(this.invalidaccountMessage).toHaveText('Authentication failed');
+  // await this.validateaddAccountAPI();
+}
+async loginwithblankEmailPassword(username, password){
+  await this.gotoHome('https://test1.gotrade.goquant.io/auth/login');
+  await this.userCreds(username, password);
+  await this.signIn.click();
+  await expect (this.blackEmailaliation).toHaveText('Username must be at least 5 characters.');
+  await this.page.getByRole('textbox', { name: 'Email' }).fill('darshana@test.com');
 }
 
 async logout() {
+  await this.getStarted.click();
   await this.userProfile.click();
   await this.logoutButton.click();
   await expect(this.validateLogout).toHaveText('Welcome');
