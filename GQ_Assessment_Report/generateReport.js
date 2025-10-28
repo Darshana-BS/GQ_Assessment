@@ -115,8 +115,8 @@ const evidenceSection = `
 ## 🎥 Test Execution Evidence
 
 ## 🎥 Test Execution Evidence for Structured cases trace
-| # | Test Case | Trace File | GitHub Link |
-|---|------------|-------------|-------------|
+| #  | Test Case | Trace File | GitHub Link |
+|--- |------------|-------------|-------------|
 | 01 | Login with Invalid Credentials     | TC01_LoginInvalid_Creds.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/Restructured_cases/TC01_LoginInvalid_Creds.zip) |
 | 02 | Login with Valid Credentials       | TC02_LoginValid_Creds.zip   | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/Restructured_cases/TC02_LoginValid_Creds.zip) |
 | 03 | Add OKX Account                    | TC03_Add_Account_OKX.zip | [View Trace](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/tests/trace/Restructured_cases/TC03_Add_Account_OKX.zip) |
@@ -681,7 +681,7 @@ fs.writeFileSync('./GQ_Assessment_Report/Detailed_Tests_Status_Report.md', resul
 //   console.error(`❌ Failed to generate PDF: ${err.message}`);
 // } 
 // generateModuleReports.js
-const fs = require('fs');
+// const fs = require('fs');
 
 const modules = ['auth', 'account', 'orders']; // add your folders here
 
