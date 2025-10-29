@@ -203,7 +203,8 @@ class GoQuantMain {
     //logout------------------------------------------------------------------------------------------------
     this.userProfile = page.getByRole('button', { name: 'user14@goquant.io' });
     this.logoutButton= page.getByRole('menuitem', { name: 'Sign out' });
-    this.validateLogout = page.getByRole('heading', { name: 'Welcome' })
+    // this.validateLogout = page.getByRole('heading', { name: 'Welcome' });
+    this.validateLogout = page.getByText('Enter your credentials');
     //---------------------------------------------------------------------------------------------------------------
   }
   
@@ -877,7 +878,8 @@ async logout() {
   await this.getStarted.click();
   await this.userProfile.click();
   await this.logoutButton.click();
-  await expect(this.validateLogout).toHaveText('Welcome');
+  await this.validateLogout;
+  await expect(this.validateLogout).toHaveText('Enter your credentials');
   }
 }
 
