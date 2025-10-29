@@ -166,7 +166,9 @@ These traces include full steps, network logs, screenshots, and console logs for
 const readmeContent = `
 # GQ_Assessment Automation Framework
 
-Darshana_Nehulkar [Automation Test Report].pdf (https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/Darshana_Nehulkar%20%5BAutomation%20Test%20Report%5D.pdf)
+# Main Report:
+
+[Darshana_Nehulkar [Automation Test Report].pdf] (https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/Darshana_Nehulkar%20%5BAutomation%20Test%20Report%5D.pdf)
 ------------------------------------------------------------------------------
 
 # 1. Project Description
