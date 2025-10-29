@@ -783,7 +783,8 @@ async smartRouting(){
 }
 
 async consolidatedView(){
-  
+  this.getStarted.click();
+  await this.page.getByTestId('consolidated-orderbook-toggle').click();
 }
 
 async placeOKXSellOrder(quantity){
