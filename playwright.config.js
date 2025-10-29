@@ -6,7 +6,7 @@ import { defineConfig, devices } from '@playwright/test';
  * https://github.com/motdotla/dotenv
  */
 // import dotenv from 'dotenv';
-// import path from 'path';
+import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
@@ -18,7 +18,8 @@ module.exports = defineConfig({
   retries: 2,                 // retry failing tests once
   reporter:                   // nice HTML report
   [['list'], 
-  ['html', { outputFolder: 'playwright-report' }],
+  // ['html', { outputFolder: 'playwright-report' }],
+  ['html', { outputFolder: path.resolve(__dirname, 'docs/html-report'), open: 'never' }],
   ['json', { outputFile: 'playwright-report/test-results.json' }]
   ],                          
 

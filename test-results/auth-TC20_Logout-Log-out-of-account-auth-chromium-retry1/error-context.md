@@ -4,5 +4,5 @@
 - generic [active] [ref=e1]:
   - main:
     - region "Notifications alt+T"
-  - alert [ref=e19]
+  - alert [ref=e3]
 ```

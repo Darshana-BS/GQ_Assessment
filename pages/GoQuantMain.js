@@ -552,8 +552,8 @@ async getOrderdetails(){
   await this.orderHistory.click();
   this.validateAccount = this.page.getByText('Dashk805 OKX');
   await this.validateAccount.click(); 
-  await this.page.pause();
   await expect(this.validateAccount).toHaveText('Dashk805 OKX');
+  await this.page.pause();
   // const accountName = await this.validateAccount.textContent();
   // console.log(`Order has been placed with Account Name: ${accountName}`);
     

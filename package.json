@@ -14,7 +14,12 @@
   "test": "npx playwright test --reporter=html",
   "publish": "node copyReport.js",
   "test:modules": "node generateModuleReports.js",
-  "dashboard": "node generateDashboard.js"
+  "dashboard": "node generateDashboard.js",
+  "report:auth": "npx playwright test tests/auth --reporter html --output docs/auth",
+  "report:account": "npx playwright test tests/account --reporter html --output docs/account",
+  "report:orders": "npx playwright test tests/orders --reporter html --output docs/orders",
+  "report:assets": "npx playwright test tests/assets --reporter html --output docs/assets",
+  "report:all": "npm run report:auth && npm run report:account && npm run report:orders && npm run report:assets && npm run generate:dashboard"
   },
   "keywords": [],
   "author": "",
