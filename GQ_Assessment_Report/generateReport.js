@@ -166,6 +166,9 @@ These traces include full steps, network logs, screenshots, and console logs for
 const readmeContent = `
 # GQ_Assessment Automation Framework
 
+Darshana_Nehulkar [Automation Test Report].pdf (https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/Darshana_Nehulkar%20%5BAutomation%20Test%20Report%5D.pdf)
+------------------------------------------------------------------------------
+
 # 1. Project Description
 This automation framework validates the GoQuant platform workflows including account add, account management, order placement, API validations, and UI testing, Cross Browser Testing.
 ------------------------------------------------------------------------------

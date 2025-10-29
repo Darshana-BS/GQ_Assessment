@@ -7,14 +7,14 @@ e32579b56e4f84b40ec170f8d6105a5f ./auth/auth-TC01_LoginInvalid_Cre-60938-valid-u
 4b49e227633b29c472ad847959ef62f6 ./auth/auth-TC22_Login_with_black-e60fb-h-blank-email-password-auth-chromium/error-context.md
 a9be6d3fcde9b30387ecb37514136811 ./auth/auth-TC01_LoginInvalid_Cre-60938-valid-user-credentials-auth-chromium-retry1/test-finished-1.png
 d22b6072b0846cca5b4a0393e28feb9e ./auth/auth-TC02_LoginValid_Creds-628be-valid-user-credentials-auth-chromium/test-finished-1.png
-44f304c53a40fa2f7fb33bba6793cc66 ./GQ_Assessment_Report/Detailed_Report.pdf
-5e48da472bb613bed1eec217393e1857 ./GQ_Assessment_Report/md5_report.txt
-aab326197e0d4318d649103f95bfbb4f ./GQ_Assessment_Report/Detailed_Report.md
+3baffb3438603db507c857d890befdd4 ./GQ_Assessment_Report/Detailed_Report.pdf
+9e3f791e94d5da4eeccccb6931ae6cd4 ./GQ_Assessment_Report/md5_report.txt
+4748948f2c12a90e695a2b2b03e9f4eb ./GQ_Assessment_Report/Detailed_Report.md
 8b41fc0146401400b3a7d288a7360aa9 ./GQ_Assessment_Report/Detailed_Tests_Status_Report.md
 ce135ff274969025fd1be4b0fc802f27 ./Detailed_Tests_Report.md
 492c212db68fc5d7df9a88d9e40343d5 ./md5_report.txt
 aab6cb18b916c52138732d26bb125bd6 ./Detailed_Report.md
-e242e40401d5f0f3797ac491c000484a ./README.md
+841ece03bc714b6b3a21ad9368c43976 ./README.md
 d22b6072b0846cca5b4a0393e28feb9e ./dashboard/dashboard-[Pending] TC15_S-0bbd4-Consolidated-View-dashboard-chromium/test-finished-1.png
 b82b621a5441b54ca19d79d3fd42febc ./dashboard/dashboard-TC14_Switch_to_s-79254-art-order-routing-dashboard-chromium/test-failed-1.png
 4b49e227633b29c472ad847959ef62f6 ./dashboard/dashboard-TC14_Switch_to_s-79254-art-order-routing-dashboard-chromium/error-context.md
@@ -38,7 +38,7 @@ b82b621a5441b54ca19d79d3fd42febc ./dashboard/dashboard-TC13_Liquidate_P-1ffcf-qu
 ac8afd39a120cd193bbb32db652e37f5 ./dashboard/dashboard-TC09_Validate_Metrics-Validate-Metrics-dashboard-chromium-retry1/error-context.md
 5224e9ef1785c682a5c03fb6ce4e759a ./dashboard/dashboard-TC12_Kill_Edge-Kill-Edge-for-orders-dashboard-chromium/test-finished-1.png
 4b49e227633b29c472ad847959ef62f6 ./dashboard/dashboard-TC10_add_clear_a-22171--clear-the-Assets-dashboard-chromium-retry1/error-context.md
-fc736eb9bf68ade320087febd80d7a37 ./generateReport.js
+cfa821fdfaa1ab61066636939662b3cf ./generateReport.js
 5241abc8d8d628a0ab816d62fd01948d ./account/account-TC04_Add_Account_B-4a2cf-ce-COINM-account-addaccount-chromium-retry2/test-finished-1.png
 e32579b56e4f84b40ec170f8d6105a5f ./account/account-TC04_Add_Account_B-4a2cf-ce-COINM-account-addaccount-chromium/test-failed-1.png
 3e7ca540003afec229148d3cbcb2ca15 ./account/account-TC04_Add_Account_B-4a2cf-ce-COINM-account-addaccount-chromium/error-context.md
