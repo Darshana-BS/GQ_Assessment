@@ -334,31 +334,41 @@ Each module or functionality has its own \`.spec.js\` file for better organizati
 
 \`\`\`bash
 tests/
-│
-├── auth/
-│   ├── TC01_LoginInvalid_Creds.spec.js
-│   └── TC02_LoginValid_Creds.spec.js
-│   └── TC20_Logout.spec.js
-│
 ├── account/
-│   ├── TC03_Add_Account.spec.js
-│   ├── TC04_Delete_Account.spec.js
-│   ├── TC05_Modify_Account_Invalid.spec.js
-│   └── TC21_Modify_Account_Valid.spec.js
-│
-├── orders/
-│   ├── TC06_Place_OKX_Market_Order.spec.js
-│   ├── TC07_Get_Order_Details.spec.js
-│   ├── TC11_Cancel_All_WorkingOrders.spec.js
-│   └── TC14_Smart_Order_Routing.spec.js
-│
-└── api/
-    ├── TC08_Validation_Errors.spec.js
-    ├── TC09_Validate_Metrics.spec.js
-    ├── TC10_Add_Clear_Assets.spec.js
-    ├── TC12_Kill_Edge.spec.js
-    ├── TC13_Liquidate_Positions.spec.js
-    └── 
+│   ├── TC03_Add_Account_OKX.spec.ts
+│   ├── TC04_Add_Account_Binance_COINM.spec.ts
+│   ├── TC04_Add_Account_Binance_USDM.spec.ts
+│   ├── TC05_Modify_Account_Invalid_details.spec.ts
+│   ├── TC17_Add_Invalid_account.spec.ts
+│   ├── TC18_Delete_Account.spec.ts
+│   ├── TC19_Validate_Account_Status.spec.ts
+│   ├── TC20_Modify_Account_Valid.spec.ts
+│   └── TC21_Add_Account_Valid.spec.ts
+
+├── auth/
+│   ├── TC01_LoginInvalid_Creds.spec.ts
+│   ├── TC02_LoginValid_Creds.spec.ts
+│   ├── TC20_Logout.spec.ts
+│   └── TC22_Login_with_black_email_password.spec.ts
+
+├── dashboard/
+│   ├── [Pending]_TC15_Switch_to_Order_book_Consolidated_view.spec.ts
+│   ├── TC09_Validate_Metrics.spec.ts
+│   ├── TC10_add_clear_assets.spec.ts
+│   ├── TC12_Kill_Edge.spec.ts
+│   ├── TC13_Liquidate_Positions.spec.ts
+│   └── TC14_Switch_to_smart_order_routing.spec.ts
+
+└── order/
+    ├── TC06_Place_Binance_COINM_order.spec.ts
+    ├── TC06_Place_Binance_USDM_order.spec.ts
+    ├── TC06_Place_OKX_Market_order_swap.spec.ts
+    ├── TC08_Place_order_validations_with_empty_details.spec.ts
+    ├── TC11_Cancel_All_Working_Orders.spec.ts
+    └── TC16_Place_Short_Sell_order.spec.ts
+
+└── accessibility/
+    ├── TC24_accessibility_audit.spec.ts
 \`\`\`
 
 All 22 Playwright test cases are structured across feature-based spec files:
@@ -368,7 +378,8 @@ All 22 Playwright test cases are structured across feature-based spec files:
 | Authentication        | TC01 – TC02, TC20 | \`/tests/auth/\`    |
 | Account Management    | TC03 – TC05, TC21 | \`/tests/account/\` |
 | Orders                | TC06– TC14        | \`/tests/orders/\`  |
-| API Validation        | TC15 – TC16       | \`/tests/api/\`     |
+| Dashboard             | TC09 – TC10, TC12 - TC15      | \`/tests/dashboard/\`     |
+| Accessibility         | TC24                          | \`/tests/accessibility/\` |
 
 This structure improves test readability, modularity, and maintainability.
 
@@ -379,8 +390,8 @@ This structure improves test readability, modularity, and maintainability.
 | \`npx playwright test --grep "@auth"\`       | Run only authentication tests       |
 | \`npx playwright test --grep "@account"\`    | Run only account-related tests      |
 | \`npx playwright test --grep "@order"\`      | Run only order tests                |
-| \`npx playwright test --grep "@api"\`        | Run only API tests                  |
-| \`npx playwright test --grep "@regression"\` | Run the full regression suite       |
+| \`npx playwright test --grep "@dashboard"\`      | Run the full dashboard  suite       |
+| \`npx playwright test --grep "@accessibility"\`  | Run the full Accessibility suite    |
 | \`npx playwright test --grep-invert "@api"\` | Run all UI tests excluding API ones |
 
 All Playwright tests are categorized with tags for selective execution:
@@ -390,14 +401,18 @@ All Playwright tests are categorized with tags for selective execution:
 | @auth | Login & authentication flows |
 | @account | Account creation, modification, deletion |
 | @order | Order placement & validation |
-| @api | API endpoint validation |
+| @dashboard       | Dashboard Validations and actions        |
+| @accessibility   | Accessibility check on homepge           |
 | @logout | Logout functionality |
 
 **Run Examples:**
 \`\`\`bash
 npx playwright test --grep "@auth"
 npx playwright test --grep "@order"
-npx playwright test --grep-invert "@api"
+npx playwright test --grep "@account"
+npx playwright test --grep "@dashboard"
+npx playwright test --grep "@accessibility"
+npx playwright test --grep-invert "@account"
 ------------------------------------------------------------------------------
 
 ## 17. ✨ Conclusion
@@ -411,6 +426,7 @@ The automation suite is scalable, modular, and demonstrates readiness for integr
 \`\`\`
 👩‍💻 *Darshana Nehulkar*  
 - GitHub: [https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/](https://github.com/Darshana-BS/GQ_Assessment/blob/GQ_Assessment/)
+- GitHub JS: [Typescript](https://github.com/Darshana-BS/GoQuant_Playwright_TS_Assessment/tree/TS_QA_Assessment/tests)
 📅 *Date:* 29th October 2025  
 📧 *dnehulkar805@gmail.com*
 \`\`\`

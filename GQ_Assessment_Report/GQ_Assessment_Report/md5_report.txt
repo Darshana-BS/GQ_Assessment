@@ -1,3 +1,4 @@
+b8e330c92aa7b8651472c11b55029da2 ./Darshana_Nehulkar [Test Report] (2).pdf
 89d60145663799c02192ec7e4175febe ./Detailed_Report.pdf
 e32579b56e4f84b40ec170f8d6105a5f ./auth/auth-TC20_Logout-Log-out-of-account-auth-logout-chromium/test-finished-1.png
 e32579b56e4f84b40ec170f8d6105a5f ./auth/auth-TC01_LoginInvalid_Cre-60938-valid-user-credentials-auth-chromium/test-failed-1.png
@@ -6,12 +7,38 @@ e32579b56e4f84b40ec170f8d6105a5f ./auth/auth-TC01_LoginInvalid_Cre-60938-valid-u
 4b49e227633b29c472ad847959ef62f6 ./auth/auth-TC22_Login_with_black-e60fb-h-blank-email-password-auth-chromium/error-context.md
 a9be6d3fcde9b30387ecb37514136811 ./auth/auth-TC01_LoginInvalid_Cre-60938-valid-user-credentials-auth-chromium-retry1/test-finished-1.png
 d22b6072b0846cca5b4a0393e28feb9e ./auth/auth-TC02_LoginValid_Creds-628be-valid-user-credentials-auth-chromium/test-finished-1.png
-e6fdc7ea6cfc0fad04f5cb4d2e58b0df ./GQ_Assessment_Report/md5_report.txt
+822bb68295028380f4bcdb8983f44f32 ./GQ_Assessment_Report/Detailed_Report.pdf
+71e4b37595e44fc53112cb1b092714a9 ./GQ_Assessment_Report/md5_report.txt
+25e3316c91fac0ac81c33ed891451b72 ./GQ_Assessment_Report/Detailed_Report.md
+8b41fc0146401400b3a7d288a7360aa9 ./GQ_Assessment_Report/Detailed_Tests_Status_Report.md
 ce135ff274969025fd1be4b0fc802f27 ./Detailed_Tests_Report.md
 492c212db68fc5d7df9a88d9e40343d5 ./md5_report.txt
 aab6cb18b916c52138732d26bb125bd6 ./Detailed_Report.md
-f883bfa3aac46782f8fe32a5eec9bf6d ./README.md
-64228d9be659da6e9dc751d9a5c6976a ./generateReport.js
+c160e66826879e738c5ce53c5dfdaa1e ./README.md
+d22b6072b0846cca5b4a0393e28feb9e ./dashboard/dashboard-[Pending] TC15_S-0bbd4-Consolidated-View-dashboard-chromium/test-finished-1.png
+b82b621a5441b54ca19d79d3fd42febc ./dashboard/dashboard-TC14_Switch_to_s-79254-art-order-routing-dashboard-chromium/test-failed-1.png
+4b49e227633b29c472ad847959ef62f6 ./dashboard/dashboard-TC14_Switch_to_s-79254-art-order-routing-dashboard-chromium/error-context.md
+fe0babf6f8cbb1ff07629dbcc377a3e7 ./dashboard/dashboard-TC09_Validate_Metrics-Validate-Metrics-dashboard-chromium-retry2/test-failed-1.png
+f62d6f73c7c1775c80c85fd4cdf5a1db ./dashboard/dashboard-TC09_Validate_Metrics-Validate-Metrics-dashboard-chromium-retry2/error-context.md
+e32579b56e4f84b40ec170f8d6105a5f ./dashboard/dashboard-TC13_Liquidate_P-1ffcf-quidate-Positions-dashboard-chromium-retry1/test-failed-1.png
+3e7ca540003afec229148d3cbcb2ca15 ./dashboard/dashboard-TC13_Liquidate_P-1ffcf-quidate-Positions-dashboard-chromium-retry1/error-context.md
+b82b621a5441b54ca19d79d3fd42febc ./dashboard/dashboard-TC13_Liquidate_P-1ffcf-quidate-Positions-dashboard-chromium/test-failed-1.png
+4b49e227633b29c472ad847959ef62f6 ./dashboard/dashboard-TC13_Liquidate_P-1ffcf-quidate-Positions-dashboard-chromium/error-context.md
+dd604e12969cea59c19d75024dc4c057 ./dashboard/dashboard-TC10_add_clear_a-22171--clear-the-Assets-dashboard-chromium-retry2/test-failed-2.png
+6f8c588a3c546a88e389af232e00eb3a ./dashboard/dashboard-TC10_add_clear_a-22171--clear-the-Assets-dashboard-chromium-retry2/test-failed-1.png
+de8952e0d7a6500574d748ad2a3222c2 ./dashboard/dashboard-TC10_add_clear_a-22171--clear-the-Assets-dashboard-chromium-retry2/error-context.md
+e77503e4b0a5d110de93a5d4081c0d15 ./dashboard/dashboard-TC14_Switch_to_s-79254-art-order-routing-dashboard-chromium-retry1/test-finished-1.png
+b82b621a5441b54ca19d79d3fd42febc ./dashboard/dashboard-TC09_Validate_Metrics-Validate-Metrics-dashboard-chromium/test-failed-1.png
+4b49e227633b29c472ad847959ef62f6 ./dashboard/dashboard-TC09_Validate_Metrics-Validate-Metrics-dashboard-chromium/error-context.md
+b82b621a5441b54ca19d79d3fd42febc ./dashboard/dashboard-TC10_add_clear_a-22171--clear-the-Assets-dashboard-chromium/test-failed-1.png
+4b49e227633b29c472ad847959ef62f6 ./dashboard/dashboard-TC10_add_clear_a-22171--clear-the-Assets-dashboard-chromium/error-context.md
+b82b621a5441b54ca19d79d3fd42febc ./dashboard/dashboard-TC13_Liquidate_P-1ffcf-quidate-Positions-dashboard-chromium-retry2/test-failed-1.png
+3e7ca540003afec229148d3cbcb2ca15 ./dashboard/dashboard-TC13_Liquidate_P-1ffcf-quidate-Positions-dashboard-chromium-retry2/error-context.md
+1ad201e139979b6b40f187fa4e00250e ./dashboard/dashboard-TC09_Validate_Metrics-Validate-Metrics-dashboard-chromium-retry1/test-failed-1.png
+ac8afd39a120cd193bbb32db652e37f5 ./dashboard/dashboard-TC09_Validate_Metrics-Validate-Metrics-dashboard-chromium-retry1/error-context.md
+5224e9ef1785c682a5c03fb6ce4e759a ./dashboard/dashboard-TC12_Kill_Edge-Kill-Edge-for-orders-dashboard-chromium/test-finished-1.png
+4b49e227633b29c472ad847959ef62f6 ./dashboard/dashboard-TC10_add_clear_a-22171--clear-the-Assets-dashboard-chromium-retry1/error-context.md
+fc736eb9bf68ade320087febd80d7a37 ./generateReport.js
 5241abc8d8d628a0ab816d62fd01948d ./account/account-TC04_Add_Account_B-4a2cf-ce-COINM-account-addaccount-chromium-retry2/test-finished-1.png
 e32579b56e4f84b40ec170f8d6105a5f ./account/account-TC04_Add_Account_B-4a2cf-ce-COINM-account-addaccount-chromium/test-failed-1.png
 3e7ca540003afec229148d3cbcb2ca15 ./account/account-TC04_Add_Account_B-4a2cf-ce-COINM-account-addaccount-chromium/error-context.md
@@ -19,3 +46,4 @@ cd90312b86430c46dcf5b39932f05293 ./account/account-TC04_Add_Account_B-4a2cf-ce-C
 1de6d8f37d7fb3166616875fa9b2d35b ./account/account-TC04_Add_Account_B-4a2cf-ce-COINM-account-addaccount-chromium-retry1/error-context.md
 a2843d5a54767bb591fa5c28fdc807b6 ./account/account-TC04_Add_Account_B-20ce3-nce-USDM-account-addaccount-chromium/test-finished-1.png
 8b41fc0146401400b3a7d288a7360aa9 ./Detailed_Tests_Status_Report.md
+cb48c6e345ae31ec1de3e65e2d87a464 ./Darshana_Nehulkar [Test Report.pdf
