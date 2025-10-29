@@ -5,13 +5,17 @@ const exp = require('constants');
 class GoQuantMain {
   constructor(page) {
     this.page = page;
-    //sign in locators 
+    //--------------------------------------------------------------------------------------------------------------
+
+    //sign in locators------------------------------------------------------------------------------------------------
     this.email = page.getByRole('textbox', { name: 'Email' });
     this.password = page.getByRole('textbox', { name: 'Enter your password' })
     this.signIn = page.getByRole('button', { name: 'Sign In' });
     this.alertInvaliduserCreds = page.getByText('The format of the email');
     // this.getStarted = page.getByText('Get Started')
     this.getStarted = page.getByText('Get Started→');
+    //--------------------------------------------------------------------------------------------------------------
+    
     //add accounts------------------------------------------------------------------------------------------------ 
     // this.gotoAdmin = page.locator('#radix-_r_4_-trigger-radix-_r_5_')
     this.clickAccounts = page.getByRole('button', { name: 'Accounts', exact: true })
@@ -26,30 +30,32 @@ class GoQuantMain {
     this.enableTestMode = page.getByTestId('test-mode-switch')
     this.submitAccount = page.getByTestId('button-submit-account')
     this.validateAccountAddition = page.getByText('Account added successfully')
-    //add Exchange OKX  
+    //add Exchange OKX ------------------------------------------------------------------------------------------------  
     this.selectOKXExhcnage = page.getByTestId('exchange-option-OKX');
     this.okxpassphrase = page.getByTestId('passphrase-input')
     this.addAccount = page.getByTestId('add-account-alert-button')
-    //add Exchange USDM  
+    //add Exchange USDM ------------------------------------------------------------------------------------------------ 
     this.selectExchangeBinanceUSDM = page.getByTestId('exchange-option-BINANCEUSDM'); 
-    //add Exchange COINM  
+    //add Exchange COINM ------------------------------------------------------------------------------------------------ 
     this.selectExchangeBinanceCOINM = page.getByTestId('exchange-option-BINANCECOINM').getByText('Binance COIN-M');
+    //--------------------------------------------------------------------------------------------------------------
+
     //deleteaccount------------------------------------------------------------------------------------------------  
     this.deleteConfirmationDELETE = page.getByTestId('delete-account-dialog-delete-confirmation');
     this.deleteAccountconfirm = page.getByTestId('delete-account-dialog-delete');
     this.deleteConfirmationMessage = page.getByText('Account removed successfully');
     // this.deleteConfirmationMessage = page.getByRole('region', { name: 'Notifications alt+T' }).getByRole('listitem')
-    //deleteaccountOKX 
+    //deleteaccountOKX ------------------------------------------------------------------------------------------------
     this.deleteOKX = page.getByTestId('delete-account-automationokx3');
     //this.deleteOKX2 = page.locator('button[type="button"][data-testid="delete-account-automationokx3"]')
     // this.deleteConfirmation = page.locator('#delete-confirmation');
-    //deleteaccountUSDM
+    //deleteaccountUSDM ------------------------------------------------------------------------------------------------
     this.deleteUSDM = page.locator('button[data-testid="delete-account-automationbinanceusdm"]');
-    //deleteaccountCOINM
+    //deleteaccountCOINM ------------------------------------------------------------------------------------------------
     this.deleteCOINM = page.locator('button[data-testid="delete-account-automationbinancecoinm"]');
     //--------------------------------------------------------------------------------------------------------------  
 
-    //place order
+    //place order ------------------------------------------------------------------------------------------------
     this.gotoTrading = page.getByRole('button', { name: 'Trading' });
     this.selectGoTrade = page.getByRole('link', { name: 'GoTrade Order Entry, Algo' });
     this.selectNativeTrading = page.getByRole('tab', { name: 'Native Trading' }); 
@@ -67,8 +73,8 @@ class GoQuantMain {
     this.searchSymbol =  page.getByPlaceholder('Search symbol...');
     this.enterQuantityUSDM = page.getByTestId('quantity');
     this.enterDuration = page.getByTestId('duration');
-    
-    //place placeOKX_MarketOrder_Swap
+  
+    //place placeOKX_MarketOrder_Swap------------------------------------------------------------------------------------------------
     this.searchBaseAsset = page.locator('input[placeholder="Search base assets..."]');
     this.selectBTC = page.getByRole('option', { name: 'BTC' }); 
     // this.clickQuoteAsset = page.getByRole('button', { name: 'Select quote...' });
@@ -79,15 +85,13 @@ class GoQuantMain {
     this.selectLong = page.getByTestId('long-button');
     this.clickTrade = page.getByTestId('trade-button');
     this.orderAcceptedNotification = page.getByRole('region', { name: 'Notifications alt+T' }).getByRole('listitem');
-
-    //place placeBinace_USDM_DOTUSDTOrder_Spot
+    //place placeBinace_USDM_DOTUSDTOrder_Spot ------------------------------------------------------------------------------------------------
     this.clickExchangeBinaceUSDM = page.getByTestId('exchange-selector-trigger');
     this.selectExhangeBINANCEUSDM = page.getByTestId('exchange-selector-item-BINANCEUSDM');
     this.selectBINANCEAccount = page.getByTestId('BINANCEUSDM-selector-Dashk805 USDM ');
     this.selectSymbolDOTUSDT = page.getByTestId('symbol-option-DOT-USDT').getByText('DOT-USDT');    
     this.clickBuy = page.getByTestId('long-button');
-
-    //place placeBiance_COINM_DOTUSDTOrder
+    //place placeBiance_COINM_DOTUSDTOrder ------------------------------------------------------------------------------------------------
     this.chooseTradeTWAP = page.getByTestId('exchange-selector-trigger');
     this.searchExchangeBinanceCOINM = page.getByTestId('exchange-search-input');
     this.selectExchangeBianceCOINM = page.getByTestId('exchange-selector-item-BINANCECOINM');
@@ -97,12 +101,14 @@ class GoQuantMain {
     this.selectOrderTypeTWAP = page.getByTestId('symbol-option-ADA-USDT'); 
     // this.selectOrderTypeTWAP = page.getByTestId('symbol-option-ADAUSD_PERP'); 
     this.enterinterval = page.getByTestId('interval');
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //validate order fields 
+    //validate order fields ------------------------------------------------------------------------------------------------ 
     this.quanityValiation = page.getByText('Quantity must be greater than 0')
     this.durationValiation = page.getByText('Duration must be greater than 0')
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //getorderdetails
+    //getorderdetails ------------------------------------------------------------------------------------------------
     this.orderHistory = page.getByRole('button', { name: 'Order History' });
     // this.validateVenue = page.getByRole('cell').filter({ hasText: /^$/ }).getByRole('button').click();
     this.validateOrderAccount = page.getByRole('cell', { name: 'Dashk805 OKX' });//page.getByText('Dashk805 OKX');
@@ -114,41 +120,47 @@ class GoQuantMain {
     // this.validateSymbol = page.getByText('BTC-USDTSwap');
     this.getOrderStatus = page.getByTestId('order-status');
     // this.getAlogoId = page.getByRole('cell', { name: '988...364', exact: true }).getByRole('img'); 
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //validate metrics 
+    //validate metrics ------------------------------------------------------------------------------------------------
     this.currencyLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm grid max-w-max grid-cols-4 items-center justify-start gap-0"]', { state: 'visible', timeout: 10000 })
     this.equityLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm flex flex-col justify-center font-medium"]', { state: 'visible', timeout: 10000 })
     this.equityUSDLocator = page.locator('tr [class="font-inter text-xsm 4k:text-sm"]', { state: 'visible', timeout: 10000 });
     this.metricsLocator = page.locator('p[class="font-plusJakartaSans font-bold mt-1 text-base md:text-sm header-nav text-nowrap md:w-full md:text-center 4k:text-lg 4k:mt-2"]');
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //addclear assets 
+    //addclear assets ------------------------------------------------------------------------------------------------
     this.clickAssets = page.getByRole('button', { name: 'Assets' })
     this.addClearAssetsBTC = this.page.getByRole('button', { name: 'Add/Clear' }).nth(0);
     this.addClearAssetsOKX = this.page.getByRole('button', { name: 'Add/Clear' }).nth(1);
     this.addClearAssetsUSDT = this.page.getByRole('button', { name: 'Add/Clear' }).nth(2);
     this.addClearAssetsETH = this.page.getByRole('button', { name: 'Add/Clear' }).nth(3);
+    //--------------------------------------------------------------------------------------------------------------  
     
-    //cancelOrder 
+    //cancelOrder ------------------------------------------------------------------------------------------------
     this.clickCancelWorkingOrders = page.getByRole('button', { name: 'Cancel Working Orders' });
     this.validateModalHeader = page.getByRole('heading', { name: 'Cancel Open Orders' });
     this.confirmCancelOpenOrders = page.locator('div').filter({ hasText: /^Confirm$/ });
     //this.cancelOrderNotiification = this.page.locator('');
     this.cancelOrderAPIresponse = page.request.post('https://test1.gotrade-api.goquant.io/gotrade/v3/cancel_all');
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //killedge 
+    //killedge ------------------------------------------------------------------------------------------------
     this.clickKillEdge = page.getByRole('button', { name: 'Kill-Edge' });
     this.killEdgeModalHeader = page.getByRole('heading', { name: 'Kill-Edge Algorithm' });
     this.confirmKillEdge = page.getByRole('button', { name: 'Confirm' });
     this.closeModal = page.getByRole('button', { name: 'Close' });
     this.killEdgeresponse = page.request.post('https://test1.gotrade-api.goquant.io/gotrade/v3/order/place');
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //liquidatePositions
+    //liquidatePositions ------------------------------------------------------------------------------------------------
     this.clickliquidatePositions = page.getByRole('button', { name: 'Liquidate Positions' });
     this.liquidatePositionsModalHeader = page.getByRole('heading', { name: 'Liquidate Positions' });
     this.confirmliquidatePositions = page.getByRole('button', { name: 'Confirm' });
     this.liquidatePositionsresponse = page.request.post('https://test1.gotrade-api.goquant.io/gotrade/v3/liquidate_all_positions');
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //smartRouting
+    //smartRouting ------------------------------------------------------------------------------------------------
     this.enableToggleSmartRouting = page.locator('#enable-smart-order-routing')
     this.validatesmartRoutingModalHeader = page.getByText('Smart Order Routing Configuration')
     this.selectOKXAcccount = page.getByRole('button', { name: 'OKX [2 accounts]' });
@@ -157,32 +169,44 @@ class GoQuantMain {
     this.enableExecuteSmartOrderRouting = page.getByRole('checkbox', { name: 'Executing Smart order routing' });
     this.save = page.getByRole('button', { name: 'Save' });
     this.ValidateSavesmartRoutingSuccess = page.getByText('Settings saved successfully'); 
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //placeOKXSellOrder 
+    //placeOKXSellOrder ------------------------------------------------------------------------------------------------
     this.clickSell = page.getByTestId('short-button')
+    //--------------------------------------------------------------------------------------------------------------  
 
-    //modifyaccountuSDM 
+    //modifyaccountuSDM ------------------------------------------------------------------------------------------------
     this.sortAccountName = page.getByText('Account Name');
     this.getfirstAccount = page.getByTestId('venues-table-cell-0-accountAction').getByRole('button', { name: 'Modify' });
     this.clickModifybutton = page.getByRole('heading', { name: 'Modify Account' })
     this.enterBinaceNewAccountName = page.getByRole('textbox', { name: 'Binance USDⓈ-M Account Name' });
     this.enterBinanceSecret = page.getByRole('textbox', { name: 'Enter your Binance USDⓈ-M' });
     this.clickEditAccount = page.getByRole('button', { name: 'Edit Account' });
+    //--------------------------------------------------------------------------------------------------------------  
     
-    //addinvalidaccountokx 
+    //addinvalidaccountokx ------------------------------------------------------------------------------------------------
     this.invalidaccountMessage = page.getByText('Authentication failed');
+    //---------------------------------------------------------------------------------------------------------------
 
-    //loginwithblankEmailPassword
+    //loginwithblankEmailPassword------------------------------------------------------------------------------------------------
     this.blackEmailaliation = page.getByText('Username must be at least 5 characters.');
+    //---------------------------------------------------------------------------------------------------------------
 
-    //accountstatus
+    //accountstatus------------------------------------------------------------------------------------------------
     this.tooltip = page.getByText('Connected to the exchange'); 
+    //---------------------------------------------------------------------------------------------------------------
 
-    //logout
+    //signinwithinvalidPassword------------------------------------------------------------------------------------
+    this.ValidateIncorrectPasswordMessage = page.getByText('The password is invalid');
+    //---------------------------------------------------------------------------------------------------------------
+
+    //logout------------------------------------------------------------------------------------------------
     this.userProfile = page.getByRole('button', { name: 'user14@goquant.io' });
     this.logoutButton= page.getByRole('menuitem', { name: 'Sign out' });
     this.validateLogout = page.getByRole('heading', { name: 'Welcome' })
+    //---------------------------------------------------------------------------------------------------------------
   }
+  
 
   async gotoHome(url) {
     await this.page.goto(url);
@@ -839,6 +863,14 @@ async validateAccountStatus(){
   // Assert visibility
   // await expect(tooltip).toBeVisible();
   // await expect(tooltip).toHaveText('Cannot communicate with the exchange');
+}
+
+async signinwithinvalidPassword(username,password){
+  await this.page.goto('https://test1.gotrade.goquant.io/gotrade');
+  // await this.gotoHome('https://test1.gotrade.goquant.io/auth/login');
+  await this.userCreds(username, password);
+  await this.signIn.click();    
+  await expect(this.ValidateIncorrectPasswordMessage).toHaveText('The password is invalid');
 }
 
 async logout() {

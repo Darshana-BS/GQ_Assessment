@@ -7,14 +7,14 @@ e32579b56e4f84b40ec170f8d6105a5f ./auth/auth-TC01_LoginInvalid_Cre-60938-valid-u
 4b49e227633b29c472ad847959ef62f6 ./auth/auth-TC22_Login_with_black-e60fb-h-blank-email-password-auth-chromium/error-context.md
 a9be6d3fcde9b30387ecb37514136811 ./auth/auth-TC01_LoginInvalid_Cre-60938-valid-user-credentials-auth-chromium-retry1/test-finished-1.png
 d22b6072b0846cca5b4a0393e28feb9e ./auth/auth-TC02_LoginValid_Creds-628be-valid-user-credentials-auth-chromium/test-finished-1.png
-822bb68295028380f4bcdb8983f44f32 ./GQ_Assessment_Report/Detailed_Report.pdf
-71e4b37595e44fc53112cb1b092714a9 ./GQ_Assessment_Report/md5_report.txt
-25e3316c91fac0ac81c33ed891451b72 ./GQ_Assessment_Report/Detailed_Report.md
+44f304c53a40fa2f7fb33bba6793cc66 ./GQ_Assessment_Report/Detailed_Report.pdf
+5e48da472bb613bed1eec217393e1857 ./GQ_Assessment_Report/md5_report.txt
+aab326197e0d4318d649103f95bfbb4f ./GQ_Assessment_Report/Detailed_Report.md
 8b41fc0146401400b3a7d288a7360aa9 ./GQ_Assessment_Report/Detailed_Tests_Status_Report.md
 ce135ff274969025fd1be4b0fc802f27 ./Detailed_Tests_Report.md
 492c212db68fc5d7df9a88d9e40343d5 ./md5_report.txt
 aab6cb18b916c52138732d26bb125bd6 ./Detailed_Report.md
-c160e66826879e738c5ce53c5dfdaa1e ./README.md
+e242e40401d5f0f3797ac491c000484a ./README.md
 d22b6072b0846cca5b4a0393e28feb9e ./dashboard/dashboard-[Pending] TC15_S-0bbd4-Consolidated-View-dashboard-chromium/test-finished-1.png
 b82b621a5441b54ca19d79d3fd42febc ./dashboard/dashboard-TC14_Switch_to_s-79254-art-order-routing-dashboard-chromium/test-failed-1.png
 4b49e227633b29c472ad847959ef62f6 ./dashboard/dashboard-TC14_Switch_to_s-79254-art-order-routing-dashboard-chromium/error-context.md
