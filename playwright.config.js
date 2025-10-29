@@ -30,6 +30,7 @@ module.exports = defineConfig({
     //trace: 'retain-on-failure',                     // record trace if test fails first time
     screenshots: 'on'
   },
+  // testMatch: ["**/*.spec.js", "**/*.spec.ts"]
 // export default defineConfig({
 //   testDir: './tests',
 //   /* Run tests in files in parallel */

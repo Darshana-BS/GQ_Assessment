@@ -1,0 +1,894 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - main:
+    - generic:
+      - generic:
+        - generic:
+          - link:
+            - /url: /gotrade
+            - generic:
+              - generic:
+                - img
+              - generic: GoTerminal
+          - navigation:
+            - generic:
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Markets
+                        - img
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Trading
+                        - img
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Accounts
+                        - img
+          - generic:
+            - button:
+              - generic:
+                - img
+              - generic:
+                - generic: user14@goquant.io
+              - img
+      - text: ;
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - button:
+                    - button:
+                      - img
+                      - paragraph: OKX - Das...OKX
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - paragraph: Net Asset Value
+                      - paragraph: $137,881.78
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - img:
+                                - generic:
+                                  - generic:
+                                    - img
+                    - generic:
+                      - generic:
+                        - generic:
+                          - paragraph: Asset Utilization
+                          - generic: "--"
+                        - paragraph: $0
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - paragraph: 24h Turnover
+                            - generic: "--"
+                          - paragraph: $0
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - paragraph: 24h PnL
+                        - generic:
+                          - generic:
+                            - paragraph: "---"
+                      - generic:
+                        - paragraph: $0
+                  - generic:
+                    - generic:
+                      - paragraph: 0%24h Max Run-Up
+                    - generic:
+                      - paragraph: 0%24h Max Drawdown
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - tablist:
+                        - tab [selected]: Native Trading
+                      - tabpanel:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - heading [level=4]: Trade
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - button:
+                                    - generic: Market-Edge
+                                    - generic:
+                                      - img
+                                  - button:
+                                    - generic: Limit-Edge
+                                  - button:
+                                    - generic: TWAP-Edge
+                                  - generic:
+                                    - generic:
+                                      - paragraph: More
+                                      - img
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - paragraph: Symbol
+                                      - button:
+                                        - img
+                                  - generic:
+                                    - generic:
+                                      - switch
+                                      - generic: Discovery Mode
+                                - generic:
+                                  - button:
+                                    - generic:
+                                      - img
+                                      - generic:
+                                        - generic:
+                                          - paragraph: BTC-USDT-SWAP
+                                          - generic:
+                                            - paragraph: Swap
+                                        - generic:
+                                          - generic:
+                                            - paragraph: "Lot Size: 0.01000"
+                                    - img
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - switch
+                                            - checkbox
+                                            - generic:
+                                              - text: Smart Order Routing
+                                              - paragraph: Optimize execution across multiple venues
+                                          - button:
+                                            - img
+                                    - generic:
+                                      - checkbox
+                                      - checkbox
+                                      - generic: Use Target Position
+                                      - img
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - text: Quantity
+                                          - button:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - textbox:
+                                                - /placeholder: 1 Contract is 0.01 BTC
+                                              - generic:
+                                                - generic: Contracts
+                                                - button:
+                                                  - generic: 1x
+                                                - button:
+                                                  - generic: "Min: 0.010"
+                                    - generic:
+                                      - generic:
+                                        - text: Duration
+                                        - button:
+                                          - img
+                                      - generic:
+                                        - textbox:
+                                          - /placeholder: Enter duration
+                                        - button:
+                                          - generic: Seconds
+                                    - generic:
+                                      - generic:
+                                        - text: Decay Factor
+                                        - img
+                                      - spinbutton: "1"
+                                    - generic:
+                                      - generic:
+                                        - checkbox
+                                        - checkbox
+                                        - generic: Show Execution Profile
+                                        - img
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - checkbox
+                                          - checkbox
+                                          - generic: Ratio
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - checkbox
+                                              - checkbox
+                                              - generic: TP
+                                            - generic:
+                                              - checkbox
+                                              - checkbox
+                                              - generic: SL
+                                    - generic:
+                                      - button:
+                                        - img
+                                        - text: Long
+                                      - button:
+                                        - img
+                                        - text: Short
+                    - generic:
+                      - button: Trade
+                - generic:
+                  - generic:
+                    - button: Order Book
+                    - button: Chart
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - button:
+                                  - img
+                                - generic: BTC-USDT-SWAP
+                              - generic:
+                                - generic: Testnet
+                                - generic: Consolidated
+                                - switch
+                          - generic:
+                            - generic:
+                              - heading [level=5]: 112,404.60
+                            - generic:
+                              - heading [level=4]: 112,425.95
+                            - generic:
+                              - heading [level=5]: 112,450.90
+                            - generic:
+                              - generic: 4.12 bps | $46.31
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: Price(USDT)
+                                  - generic:
+                                    - generic: Amount (Cts.)
+                                  - generic:
+                                    - generic: Total (Cts.)
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,404.60
+                                  - generic:
+                                    - generic: "0.02000"
+                                  - generic:
+                                    - generic: "0.02000"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,401.90
+                                  - generic:
+                                    - generic: "0.02000"
+                                  - generic:
+                                    - generic: "0.04000"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,401.00
+                                  - generic:
+                                    - generic: "0.01000"
+                                  - generic:
+                                    - generic: "0.05000"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,400.00
+                                  - generic:
+                                    - generic: "516.48"
+                                  - generic:
+                                    - generic: "516.53"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,397.90
+                                  - generic:
+                                    - generic: "0.5600"
+                                  - generic:
+                                    - generic: "517.09"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,395.80
+                                  - generic:
+                                    - generic: "23.44"
+                                  - generic:
+                                    - generic: "540.53"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,395.00
+                                  - generic:
+                                    - generic: "0.01000"
+                                  - generic:
+                                    - generic: "540.54"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,394.70
+                                  - generic:
+                                    - generic: "8.04"
+                                  - generic:
+                                    - generic: "548.58"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,394.30
+                                  - generic:
+                                    - generic: "8.20"
+                                  - generic:
+                                    - generic: "556.78"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,394.20
+                                  - generic:
+                                    - generic: "0.01000"
+                                  - generic:
+                                    - generic: "556.79"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,393.70
+                                  - generic:
+                                    - generic: "1.34"
+                                  - generic:
+                                    - generic: "558.13"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,393.30
+                                  - generic:
+                                    - generic: "0.01000"
+                                  - generic:
+                                    - generic: "558.14"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,393.00
+                                  - generic:
+                                    - generic: "20.00"
+                                  - generic:
+                                    - generic: "578.14"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,391.50
+                                  - generic:
+                                    - generic: "29.91"
+                                  - generic:
+                                    - generic: "608.05"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,391.40
+                                  - generic:
+                                    - generic: "0.06000"
+                                  - generic:
+                                    - generic: "608.11"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,391.20
+                                  - generic:
+                                    - generic: "0.9500"
+                                  - generic:
+                                    - generic: "609.06"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,390.40
+                                  - generic:
+                                    - generic: "1.22"
+                                  - generic:
+                                    - generic: "610.28"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,388.90
+                                  - generic:
+                                    - generic: "0.8300"
+                                  - generic:
+                                    - generic: "611.11"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,387.40
+                                  - generic:
+                                    - generic: "0.5500"
+                                  - generic:
+                                    - generic: "611.66"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,386.90
+                                  - generic:
+                                    - generic: "0.07000"
+                                  - generic:
+                                    - generic: "611.73"
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: Price(USDT)
+                                  - generic:
+                                    - generic: Amount (Cts.)
+                                  - generic:
+                                    - generic: Total (Cts.)
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,450.90
+                                  - generic:
+                                    - generic: "0.6800"
+                                  - generic:
+                                    - generic: "0.6800"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,451.90
+                                  - generic:
+                                    - generic: "293.24"
+                                  - generic:
+                                    - generic: "293.92"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,452.00
+                                  - generic:
+                                    - generic: "6.96"
+                                  - generic:
+                                    - generic: "300.88"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,452.50
+                                  - generic:
+                                    - generic: "0.03000"
+                                  - generic:
+                                    - generic: "300.91"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,453.00
+                                  - generic:
+                                    - generic: "0.05000"
+                                  - generic:
+                                    - generic: "300.96"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,453.30
+                                  - generic:
+                                    - generic: "0.4000"
+                                  - generic:
+                                    - generic: "301.36"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,453.40
+                                  - generic:
+                                    - generic: "0.01000"
+                                  - generic:
+                                    - generic: "301.37"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,453.70
+                                  - generic:
+                                    - generic: "0.05000"
+                                  - generic:
+                                    - generic: "301.42"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,454.30
+                                  - generic:
+                                    - generic: "8.35"
+                                  - generic:
+                                    - generic: "309.77"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,454.80
+                                  - generic:
+                                    - generic: "0.01000"
+                                  - generic:
+                                    - generic: "309.78"
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,455.00
+                                  - generic:
+                                    - generic: 1.30K
+                                  - generic:
+                                    - generic: 1.61K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,455.10
+                                  - generic:
+                                    - generic: "0.7200"
+                                  - generic:
+                                    - generic: 1.61K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,455.40
+                                  - generic:
+                                    - generic: "0.02000"
+                                  - generic:
+                                    - generic: 1.61K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,455.50
+                                  - generic:
+                                    - generic: "26.03"
+                                  - generic:
+                                    - generic: 1.64K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,455.60
+                                  - generic:
+                                    - generic: "32.24"
+                                  - generic:
+                                    - generic: 1.67K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,455.80
+                                  - generic:
+                                    - generic: "0.04000"
+                                  - generic:
+                                    - generic: 1.67K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,519.90
+                                  - generic:
+                                    - generic: "0.3200"
+                                  - generic:
+                                    - generic: 1.67K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,520.00
+                                  - generic:
+                                    - generic: "47.05"
+                                  - generic:
+                                    - generic: 1.72K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,520.30
+                                  - generic:
+                                    - generic: "32.27"
+                                  - generic:
+                                    - generic: 1.75K
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic: 112,520.40
+                                  - generic:
+                                    - generic: "0.3900"
+                                  - generic:
+                                    - generic: 1.75K
+                          - generic:
+                            - generic:
+                              - generic: B
+                              - paragraph: 25.92%
+                            - generic:
+                              - paragraph: 74.08%
+                              - generic: S
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - heading [level=4]: Last Trades
+                            - generic:
+                              - generic:
+                                - generic: Price(USDT)
+                                - generic: Amount (BTC)
+                                - generic: Time
+                            - generic:
+                              - generic:
+                                - generic: 112,451.90
+                                - generic: "62.0000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,451.90
+                                - generic: "0.01000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,451.90
+                                - generic: "61.0000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,451.90
+                                - generic: "0.5500"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.90
+                                - generic: "0.3000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.90
+                                - generic: "0.01000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.90
+                                - generic: "0.02000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.90
+                                - generic: "0.03000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.90
+                                - generic: "0.02000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.60
+                                - generic: "0.02000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.00
+                                - generic: "103.0500"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.00
+                                - generic: "62.0000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.00
+                                - generic: "0.01000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,450.00
+                                - generic: "60.9900"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,449.20
+                                - generic: "0.01000"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,449.20
+                                - generic: "0.5500"
+                                - generic: 05:30:00.010
+                              - generic:
+                                - generic: 112,449.00
+                                - generic: "92.8100"
+                                - generic: 05:30:00.010
+                      - generic:
+                        - generic:
+                          - heading [level=4]: Spread
+                          - generic:
+                            - img:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - img:
+                                      - generic: 10:43:30
+                                - generic:
+                                  - generic:
+                                    - img:
+                                      - generic: "0"
+                                  - generic:
+                                    - img:
+                                      - generic: "0.50"
+                                  - generic:
+                                    - img:
+                                      - generic: "1.00"
+                                  - generic:
+                                    - img:
+                                      - generic: "1.50"
+                                  - generic:
+                                    - img:
+                                      - generic: "2.00"
+                                  - generic:
+                                    - img:
+                                      - generic: "2.50"
+                                  - generic:
+                                    - img:
+                                      - generic: "3.00"
+                                  - generic:
+                                    - img:
+                                      - generic: "3.50"
+                                  - generic:
+                                    - img:
+                                      - generic: "4.00"
+                                  - generic:
+                                    - img:
+                                      - generic: "4.50"
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading [level=3]: Market Depth
+                            - generic:
+                              - button [disabled]: "-"
+                              - generic: 0%
+                              - button: +
+                          - generic:
+                            - generic:
+                              - generic: 112,404.60
+                              - generic: "Bid Volume: 611.73"
+                            - generic:
+                              - generic: 112,450.90
+                              - generic: "Ask Volume: 1.75K"
+                          - generic:
+                            - generic:
+                              - generic:
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic: "600.00"
+                                      - generic:
+                                        - generic: 1.75K
+                                  - generic:
+                                    - generic: 112,427.75
+                            - img:
+                              - generic:
+                                - generic: "582.77"
+                              - generic:
+                                - generic: 1.17K
+                              - generic:
+                                - generic: 1.75K
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - button: Working Orders
+                        - button: Order History
+                        - button: Open Positions
+                        - button: Assets
+                      - generic:
+                        - button: Cancel Working Orders
+                        - button: Kill-Edge
+                        - button: Liquidate Positions
+                        - generic:
+                          - button:
+                            - img
+                            - paragraph: 5 accounts selected
+                    - generic:
+                      - generic:
+                        - tablist:
+                          - tab [selected]: Algos
+                        - tabpanel:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - table:
+                                        - rowgroup:
+                                          - row:
+                                            - cell:
+                                              - generic:
+                                                - button: Venue
+                                            - cell:
+                                              - generic:
+                                                - button: Account
+                                            - cell:
+                                              - generic:
+                                                - button: Algorithm ID
+                                            - cell:
+                                              - generic:
+                                                - button: Status
+                                            - cell:
+                                              - generic:
+                                                - button: Type
+                                            - cell:
+                                              - generic:
+                                                - button: Symbol
+                                            - cell:
+                                              - generic:
+                                                - button:
+                                                  - text: Date Time (UTC)
+                                                  - img
+                                            - cell:
+                                              - generic:
+                                                - button: Side
+                                            - cell:
+                                              - generic:
+                                                - button:
+                                                  - text: Avg Fill Price Avg Order Price
+                                                  - img
+                                            - cell:
+                                              - generic:
+                                                - button:
+                                                  - text: Fill Quantity Order Quantity
+                                                  - img
+                                            - cell:
+                                              - generic:
+                                                - button:
+                                                  - text: Fill Value Order Value
+                                                  - img
+                                            - cell:
+                                              - generic:
+                                                - button: Fill Progress
+                                            - cell:
+                                              - generic:
+                                                - button: Actions
+                                        - rowgroup:
+                                          - row:
+                                            - cell: No Results
+                                  - generic:
+                                    - button [disabled]:
+                                      - img
+                                    - paragraph: 1 of 0
+                                    - button [disabled]:
+                                      - img
+    - region "Notifications alt+T"
+  - alert
+  - dialog [active] [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - paragraph [ref=e6]: Smart Order Routing Configuration
+        - paragraph [ref=e7]: Enable smart order routing for your connected exchanges to automatically optimize trade execution across multiple venues for better prices and reduced slippage.
+      - alert [ref=e8]:
+        - img [ref=e9]
+        - generic [ref=e11]: Development mode is enabled. Minimum venue validation is disabled.
+      - generic [ref=e12]:
+        - generic [ref=e17]:
+          - heading "OKX [2 accounts]" [level=3] [ref=e18]:
+            - button "OKX [2 accounts]" [expanded] [ref=e19] [cursor=pointer]:
+              - generic [ref=e20]:
+                - img [ref=e22]
+                - generic [ref=e32]: OKX
+                - generic [ref=e33]: "[2 accounts]"
+              - img [ref=e34]
+          - region "OKX [2 accounts]" [ref=e36]:
+            - generic [ref=e38]:
+              - button "Dashk805 OKX" [ref=e39] [cursor=pointer]:
+                - checkbox "Dashk805 OKX" [checked] [ref=e40]:
+                  - generic:
+                    - img
+                - generic [ref=e42]: Dashk805 OKX
+              - button "Test delete" [ref=e43] [cursor=pointer]:
+                - checkbox "Test delete" [ref=e44]
+                - generic [ref=e46]: Test delete
+        - generic [ref=e48]:
+          - checkbox "Executing Smart order routing will use either USDT or USDC as the quote currency" [checked] [ref=e49] [cursor=pointer]:
+            - generic:
+              - img
+          - generic [ref=e50] [cursor=pointer]: Executing Smart order routing will use either USDT or USDC as the quote currency
+        - button "Saving..." [disabled]:
+          - img
+          - text: Saving...
+    - button "Close" [ref=e51] [cursor=pointer]:
+      - img [ref=e52]
+      - generic [ref=e55]: Close
+  - generic: "600.00"
+  - generic: "4.50"
+```

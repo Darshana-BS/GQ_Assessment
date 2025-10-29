@@ -1,0 +1,307 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - main:
+    - generic:
+      - generic:
+        - generic:
+          - link:
+            - /url: /gotrade
+            - generic:
+              - generic:
+                - img
+              - generic: GoTerminal
+          - navigation:
+            - generic:
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Markets
+                        - img
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Trading
+                        - img
+              - navigation:
+                - generic:
+                  - list:
+                    - listitem:
+                      - button:
+                        - img
+                        - generic: Accounts
+                        - img
+          - generic:
+            - button:
+              - generic:
+                - img
+              - generic:
+                - generic: user14@goquant.io
+              - img
+      - text: ;
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - paragraph: Net Asset Value
+                      - paragraph: $0
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - img
+                    - generic:
+                      - generic:
+                        - generic:
+                          - paragraph: Asset Utilization
+                          - generic: "--"
+                        - paragraph: $0
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - paragraph: 24h Turnover
+                            - generic: "--"
+                          - paragraph: $0
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - paragraph: 24h PnL
+                        - generic:
+                          - generic:
+                            - paragraph: "---"
+                      - generic:
+                        - paragraph: $0
+                  - generic:
+                    - generic:
+                      - paragraph: 0%24h Max Run-Up
+                    - generic:
+                      - paragraph: 0%24h Max Drawdown
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - tablist:
+                        - tab [selected]: Native Trading
+                      - tabpanel:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - heading [level=4]: Trade
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - button:
+                                    - generic: Market-Edge
+                                    - generic:
+                                      - img
+                                  - button:
+                                    - generic: Limit-Edge
+                                  - button:
+                                    - generic: TWAP-Edge
+                                  - generic:
+                                    - generic:
+                                      - paragraph: More
+                                      - img
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - paragraph: Symbol
+                                      - button:
+                                        - img
+                                  - generic:
+                                    - generic:
+                                      - switch
+                                      - generic: Discovery Mode
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - checkbox
+                                      - checkbox
+                                      - generic: Use Target Position
+                                      - img
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - text: Quantity
+                                          - button:
+                                            - img
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - textbox:
+                                                - /placeholder: "Enter quantity in "
+                                              - generic:
+                                                - generic: Contracts
+                                    - generic:
+                                      - generic:
+                                        - text: Duration
+                                        - button:
+                                          - img
+                                      - generic:
+                                        - textbox:
+                                          - /placeholder: Enter duration
+                                        - button:
+                                          - generic: Seconds
+                                    - generic:
+                                      - generic:
+                                        - text: Decay Factor
+                                        - img
+                                      - spinbutton: "1"
+                                    - generic:
+                                      - generic:
+                                        - checkbox
+                                        - checkbox
+                                        - generic: Show Execution Profile
+                                        - img
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - checkbox
+                                          - checkbox
+                                          - generic: Ratio
+                                    - generic:
+                                      - button:
+                                        - img
+                                        - text: Buy
+                                      - button:
+                                        - img
+                                        - text: Sell
+                    - generic:
+                      - button: Trade
+                - generic:
+                  - generic:
+                    - button: Order Book
+                    - button: Chart
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - button:
+                                  - img
+                              - generic:
+                                - generic: Live
+                                - generic: Consolidated
+                                - switch
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - button: Working Orders
+                        - button: Order History
+                        - button: Open Positions
+                        - button: Assets
+                      - generic:
+                        - button: Cancel Working Orders
+                        - button: Kill-Edge
+                        - button: Liquidate Positions
+                        - generic:
+                          - button:
+                            - img
+                            - paragraph: 5 accounts selected
+                    - generic:
+                      - generic:
+                        - tablist:
+                          - tab [selected]: Algos
+                        - tabpanel:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - table:
+                                        - rowgroup:
+                                          - row:
+                                            - cell:
+                                              - generic:
+                                                - button: Venue
+                                            - cell:
+                                              - generic:
+                                                - button: Account
+                                            - cell:
+                                              - generic:
+                                                - button: Algorithm ID
+                                            - cell:
+                                              - generic:
+                                                - button: Status
+                                            - cell:
+                                              - generic:
+                                                - button: Type
+                                            - cell:
+                                              - generic:
+                                                - button: Symbol
+                                            - cell:
+                                              - generic:
+                                                - button:
+                                                  - text: Date Time (UTC)
+                                                  - img
+                                            - cell:
+                                              - generic:
+                                                - button: Side
+                                            - cell:
+                                              - generic:
+                                                - button:
+                                                  - text: Avg Fill Price Avg Order Price
+                                                  - img
+                                            - cell:
+                                              - generic:
+                                                - button:
+                                                  - text: Fill Quantity Order Quantity
+                                                  - img
+                                            - cell:
+                                              - generic:
+                                                - button:
+                                                  - text: Fill Value Order Value
+                                                  - img
+                                            - cell:
+                                              - generic:
+                                                - button: Fill Progress
+                                            - cell:
+                                              - generic:
+                                                - button: Actions
+                                        - rowgroup:
+                                          - row:
+                                            - cell: No Results
+                                  - generic:
+                                    - button [disabled]:
+                                      - img
+                                    - paragraph: 1 of 0
+                                    - button [disabled]:
+                                      - img
+    - region "Notifications alt+T"
+  - alert
+  - dialog [active] [ref=e2]:
+    - generic [ref=e3]:
+      - img "GoQuant Logo" [ref=e4]
+      - heading "Welcome to GoTrade!" [level=3] [ref=e5]
+      - paragraph [ref=e6]: Effortlessly manage your digital asset trading across multiple exchanges. GoTrade unifies order management and lets you run advanced trading algorithms in one place.
+      - generic [ref=e7] [cursor=pointer]:
+        - separator [ref=e8]
+        - generic [ref=e9]:
+          - generic [ref=e10]: Get Started
+          - generic [ref=e11]: →
+```

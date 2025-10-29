@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const { startTracing } = require('../../tests/utils/tracingHelperforstructuredcases');
 
 //-----------------------------TC21_Modify_Account_with_valid_details[FAIL]--------------------------------
-test('Modify Account with Valid details @account @modifyaccount', async ({browser})=> {
+test('Modify Account with Valid details @account', async ({browser})=> {
   const context = await browser.newContext();
   const stopTrace = await startTracing(context, 'TC21_Modify_Account_valid_details');
   const page = await context.newPage();

@@ -1,0 +1,225 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - link "Go Quant Logo GoTerminal" [ref=e6] [cursor=pointer]:
+          - /url: /gotrade
+          - generic [ref=e7]:
+            - img "Go Quant Logo" [ref=e9]
+            - generic [ref=e10]: GoTerminal
+        - navigation [ref=e11]:
+          - generic [ref=e12]:
+            - navigation "Main" [ref=e13]:
+              - list [ref=e15]:
+                - listitem [ref=e16]:
+                  - button "Markets" [ref=e17] [cursor=pointer]:
+                    - img [ref=e18]
+                    - generic [ref=e21]: Markets
+                    - img [ref=e22]
+            - navigation "Main" [ref=e24]:
+              - list [ref=e26]:
+                - listitem [ref=e27]:
+                  - button "Trading" [ref=e28] [cursor=pointer]:
+                    - img [ref=e29]
+                    - generic [ref=e32]: Trading
+                    - img [ref=e33]
+            - navigation "Main" [ref=e35]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - button "Accounts" [ref=e39] [cursor=pointer]:
+                    - img [ref=e40]
+                    - generic [ref=e42]: Accounts
+                    - img [ref=e43]
+        - button "user14@goquant.io" [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e52]: user14@goquant.io
+          - img [ref=e53]
+      - text: ;
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - button "OKX - Das...OKX" [ref=e61] [cursor=pointer]:
+            - button "OKX - Das...OKX" [ref=e62]:
+              - img [ref=e63]
+              - paragraph [ref=e73]: OKX - Das...OKX
+          - generic [ref=e74]:
+            - generic [ref=e76]:
+              - generic [ref=e77]:
+                - img [ref=e78]
+                - paragraph [ref=e82]: Net Asset Value
+              - paragraph [ref=e83]: $137,881.78
+            - generic [ref=e84]:
+              - img [ref=e90]:
+                - img [ref=e93]
+              - generic [ref=e95]:
+                - generic [ref=e96]:
+                  - paragraph [ref=e97]: Asset Utilization
+                  - generic [ref=e98]: "--"
+                - paragraph [ref=e99]: $0
+            - generic [ref=e103]:
+              - generic [ref=e104]:
+                - paragraph [ref=e105]: 24h Turnover
+                - generic [ref=e106]: "--"
+              - paragraph [ref=e107]: $0
+            - generic [ref=e109]:
+              - generic [ref=e110]:
+                - img [ref=e111]
+                - paragraph [ref=e113]: 24h PnL
+                - paragraph [ref=e116]: "---"
+              - paragraph [ref=e118]: $0
+            - generic [ref=e119]:
+              - paragraph [ref=e121]: 0%24h Max Run-Up
+              - paragraph [ref=e123]: 0%24h Max Drawdown
+        - generic [ref=e124]:
+          - generic [ref=e126]:
+            - generic [ref=e127]:
+              - tablist [ref=e128]:
+                - tab "Native Trading" [selected] [ref=e129] [cursor=pointer]
+              - tabpanel "Native Trading" [ref=e130]:
+                - generic [ref=e132]:
+                  - heading "Trade" [level=4] [ref=e135]
+                  - generic [ref=e136]:
+                    - generic [ref=e138]:
+                      - button "Market-Edge" [ref=e139] [cursor=pointer]:
+                        - generic [ref=e140]: Market-Edge
+                        - generic:
+                          - img
+                      - button "Limit-Edge" [ref=e141] [cursor=pointer]:
+                        - generic [ref=e142]: Limit-Edge
+                        - generic:
+                          - img
+                      - button "TWAP-Edge" [ref=e143] [cursor=pointer]:
+                        - generic [ref=e144]: TWAP-Edge
+                        - generic:
+                          - img
+                      - generic [ref=e145]:
+                        - generic [ref=e146] [cursor=pointer]:
+                          - paragraph [ref=e147]: Market
+                          - img [ref=e148]
+                        - img [ref=e151] [cursor=pointer]
+                    - generic [ref=e153]:
+                      - generic [ref=e154]:
+                        - generic [ref=e156]:
+                          - paragraph [ref=e157]: Symbol
+                          - button [ref=e158] [cursor=pointer]:
+                            - img [ref=e159]
+                        - generic [ref=e162]:
+                          - switch "Discovery Mode" [checked] [ref=e163] [cursor=pointer]
+                          - generic [ref=e164]: Discovery Mode
+                      - generic [ref=e165]:
+                        - generic [ref=e166]: "Instrument Type:"
+                        - button "Select instrument type..." [ref=e167] [cursor=pointer]:
+                          - generic [ref=e168]: Select instrument type...
+                          - img [ref=e169]
+                    - generic [ref=e173]:
+                      - generic [ref=e175]:
+                        - generic [ref=e176]:
+                          - text: Quantity
+                          - button [ref=e177] [cursor=pointer]:
+                            - img [ref=e178]
+                        - generic [ref=e182]:
+                          - textbox "Enter quantity in" [ref=e183]:
+                            - /placeholder: "Enter quantity in "
+                          - generic [ref=e185]: Contracts
+                      - generic [ref=e189]:
+                        - generic [ref=e190]:
+                          - checkbox "TP" [ref=e191] [cursor=pointer]
+                          - checkbox
+                          - generic [ref=e192]: TP
+                        - generic [ref=e193]:
+                          - checkbox "SL" [ref=e194] [cursor=pointer]
+                          - checkbox
+                          - generic [ref=e195]: SL
+                      - generic [ref=e196]:
+                        - button "Buy" [ref=e197] [cursor=pointer]:
+                          - img [ref=e198]
+                          - text: Buy
+                        - button "Sell" [ref=e200] [cursor=pointer]:
+                          - img [ref=e201]
+                          - text: Sell
+            - button "Trade" [ref=e204] [cursor=pointer]
+          - generic [ref=e205]:
+            - generic [ref=e206]:
+              - button "Order Book" [ref=e207] [cursor=pointer]
+              - button "Chart" [ref=e208] [cursor=pointer]
+            - generic [ref=e214]:
+              - button [ref=e216] [cursor=pointer]:
+                - img [ref=e217]
+              - generic [ref=e219]:
+                - generic [ref=e220]: Testnet
+                - generic [ref=e221]: Consolidated
+                - switch "Consolidated" [ref=e222] [cursor=pointer]
+          - generic [ref=e232]:
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - button "Working Orders" [ref=e235] [cursor=pointer]
+                - button "Order History" [ref=e236] [cursor=pointer]
+                - button "Open Positions" [ref=e237] [cursor=pointer]
+                - button "Assets" [ref=e238] [cursor=pointer]
+              - generic [ref=e239]:
+                - button "Cancel Working Orders" [ref=e240] [cursor=pointer]
+                - button "Kill-Edge" [ref=e241] [cursor=pointer]
+                - button "Liquidate Positions" [ref=e242] [cursor=pointer]
+                - button "5 accounts selected" [ref=e244] [cursor=pointer]:
+                  - img [ref=e245]
+                  - paragraph [ref=e252]: 5 accounts selected
+            - generic [ref=e254]:
+              - tablist [ref=e255]:
+                - tab "Algos" [selected] [ref=e256] [cursor=pointer]
+              - tabpanel "Algos" [ref=e257]:
+                - generic [ref=e261]:
+                  - table [ref=e264]:
+                    - rowgroup [ref=e265]:
+                      - row "Venue Account Algorithm ID Status Type Symbol Date Time (UTC) Side Avg Fill Price Avg Order Price Fill Quantity Order Quantity Fill Value Order Value Fill Progress Actions" [ref=e266]:
+                        - cell "Venue" [ref=e267]:
+                          - button "Venue" [ref=e269] [cursor=pointer]
+                        - cell "Account" [ref=e270]:
+                          - button "Account" [ref=e272] [cursor=pointer]
+                        - cell "Algorithm ID" [ref=e273]:
+                          - button "Algorithm ID" [ref=e275] [cursor=pointer]
+                        - cell "Status" [ref=e276]:
+                          - button "Status" [ref=e278] [cursor=pointer]
+                        - cell "Type" [ref=e279]:
+                          - button "Type" [ref=e281] [cursor=pointer]
+                        - cell "Symbol" [ref=e282]:
+                          - button "Symbol" [ref=e284] [cursor=pointer]
+                        - cell "Date Time (UTC)" [ref=e285]:
+                          - button "Date Time (UTC)" [ref=e287] [cursor=pointer]:
+                            - text: Date
+                            - text: Time (UTC)
+                            - img [ref=e288]
+                        - cell "Side" [ref=e290]:
+                          - button "Side" [ref=e292] [cursor=pointer]
+                        - cell "Avg Fill Price Avg Order Price" [ref=e293]:
+                          - button "Avg Fill Price Avg Order Price" [ref=e295] [cursor=pointer]:
+                            - text: Avg Fill Price
+                            - text: Avg Order Price
+                            - img [ref=e296]
+                        - cell "Fill Quantity Order Quantity" [ref=e298]:
+                          - button "Fill Quantity Order Quantity" [ref=e300] [cursor=pointer]:
+                            - text: Fill Quantity
+                            - text: Order Quantity
+                            - img [ref=e301]
+                        - cell "Fill Value Order Value" [ref=e303]:
+                          - button "Fill Value Order Value" [ref=e305] [cursor=pointer]:
+                            - text: Fill Value
+                            - text: Order Value
+                            - img [ref=e306]
+                        - cell "Fill Progress" [ref=e308]:
+                          - button "Fill Progress" [ref=e310] [cursor=pointer]
+                        - cell "Actions" [ref=e311]:
+                          - button "Actions" [ref=e313] [cursor=pointer]
+                    - rowgroup [ref=e314]:
+                      - row "No Results" [ref=e315]:
+                        - cell "No Results" [ref=e316]
+                  - generic [ref=e317]:
+                    - button [disabled]:
+                      - img
+                    - paragraph [ref=e318]: 1 of 0
+                    - button [disabled]:
+                      - img
+    - region "Notifications alt+T"
+  - alert [ref=e319]
+```

@@ -184,6 +184,12 @@ npx playwright install
 
 ## 6. How to Run Tests
 \`\`\`
+# Generate dashboard format of the html reports 
+npx playwright test tests/auth --reporter=html                                    #run folder wise cases without storing it in /docs folder 
+npx playwright test tests/auth --reporter=html --output=docs/auth                 #run folder wise cases and save results to /docs folder 
+mv playwright-report/index.html docs/auth                                         # Move the report to correct docs folder 
+npm run dashboard                                                                 #generates local view for all folders with latest reports 
+
 # Run all tests
 npx playwright test --reporter=html
 npx playwright show-report
