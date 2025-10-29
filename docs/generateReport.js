@@ -381,6 +381,8 @@ All 22 Playwright test cases are structured across feature-based spec files:
 | Dashboard             | TC09 – TC10, TC12 - TC15      | \`/tests/dashboard/\`     |
 | Accessibility         | TC24                          | \`/tests/accessibility/\` |
 
+Note: for accessibility code need to install npm install @axe-core/playwright
+
 This structure improves test readability, modularity, and maintainability.
 
 ## 16. 🏷️ Tag-based Execution

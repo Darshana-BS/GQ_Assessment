@@ -8,6 +8,8 @@ const modules = [
   { name: 'Account Management', folder: 'account', desc: 'Add, Modify, and Delete Accounts' },
   { name: 'Order Management', folder: 'orders', desc: 'Place, Cancel, and Fetch Orders' },
   { name: 'Assets & Metrics', folder: 'assets', desc: 'Equity and Metrics Verification' },
+  { name: 'Accessibility', folder: 'accessibility', desc: 'Accessibility Verification' },
+
 ];
 
 // Build HTML dashboard
